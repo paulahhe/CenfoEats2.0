@@ -55,6 +55,8 @@
     <Compile Include="PPrototipo\iPrototipo\Restaurant.cs" />
     <Compile Include="PPrototipo\Menu\Menu.cs" />
     <Compile Include="PPrototipo\Menu\MenuMcDonalds.cs" />
+    <Compile Include="PPrototipo\Menu\Platillo.cs" />
+    <Compile Include="PPrototipo\Prototipo\RMcDonalds.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />

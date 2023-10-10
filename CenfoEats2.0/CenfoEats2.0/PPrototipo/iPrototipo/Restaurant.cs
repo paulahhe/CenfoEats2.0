@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CenfoEats2._0.PPrototipo.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,17 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
         public int phoneNumber { get; set; }
         public string foodType { get; set; }
         public int restaurantRating { get; set; }
+        public List<Platillo> menu { get; set; }
+
+        public Restaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu)
+        {
+            this.name = name;
+            this.address = address;
+            this.phoneNumber = phoneNumber;
+            this.foodType = foodType;
+            this.restaurantRating = restaurantRating;
+            this.menu = menu;
+        }
 
         public string getData()
         {

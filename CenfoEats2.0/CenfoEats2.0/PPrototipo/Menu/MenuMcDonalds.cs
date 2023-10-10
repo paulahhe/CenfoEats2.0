@@ -10,5 +10,12 @@ namespace CenfoEats2._0.PPrototipo.Menu
     {
         private string platillo1;
         private int precioPlatillo;
+
+        public MenuMcDonalds(int cantidadPlatillos, string Platillo1, int PrecioPlatillo) : base(cantidadPlatillos)
+        {
+            platillo1 = Platillo1;
+            precioPlatillo = PrecioPlatillo;
+        }
     }
 }
+
