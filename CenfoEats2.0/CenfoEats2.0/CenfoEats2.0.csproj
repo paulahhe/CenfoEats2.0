@@ -52,9 +52,9 @@
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Class1.cs" />
     <Compile Include="PFabricaAbstracta\ProductoConcreto\Class1.cs" />
     <Compile Include="PMetodoFabrica\Class1.cs" />
-    <Compile Include="PPrototipo\iPrototipo\Restaurant.cs" />
+    <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Menu\Menu.cs" />
-    <Compile Include="PPrototipo\Menu\MenuMcDonalds.cs" />
+    <Compile Include="PPrototipo\Menu\MenuRestaurante.cs" />
     <Compile Include="PPrototipo\Menu\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\RMcDonalds.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
