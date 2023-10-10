@@ -47,11 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Gestor.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\Class1.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\Class1.cs" />
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Class1.cs" />
     <Compile Include="PFabricaAbstracta\ProductoConcreto\Class1.cs" />
-    <Compile Include="PMetodoFabrica\Class1.cs" />
+    <Compile Include="PMetodoFabrica\CreadorConcreto\Creador_Usuarios.cs" />
+    <Compile Include="PMetodoFabrica\Creador\I_Creador_Usuarios.cs" />
+    <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
+    <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
+    <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
     <Compile Include="PPrototipo\iPrototipo\Restaurant.cs" />
     <Compile Include="PPrototipo\Menu\Menu.cs" />
     <Compile Include="PPrototipo\Menu\MenuMcDonalds.cs" />

@@ -47,8 +47,8 @@ namespace CenfoEats2._0.UI
             { 
             string msg = $"Usuario creado \nEmail: {email}, Nombre: {name}, Teléfono: {phoneNumber},tipo: {type}";
             MessageBox.Show(msg);
-            //var fabricaUsuarios = new Creador_Usuarios();
-            //fabricaUsuarios.CrearUsuario(name, email, phoneNumber, type, password);
+            var fabricaUsuarios = new Gestor();
+            fabricaUsuarios.nuevoUsuario(name, email, phoneNumber, type, password);
             ResetForm();
             }
         }
@@ -79,5 +79,9 @@ namespace CenfoEats2._0.UI
             rbDriver.Checked = false ;
         }
 
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
