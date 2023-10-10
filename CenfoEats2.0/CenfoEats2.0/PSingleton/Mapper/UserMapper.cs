@@ -11,17 +11,19 @@ namespace CenfoEats2._0.PSingleton.Mapper
     {
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var user = new User
-            {
-                Id = (int)row["ID_USER"],
-                Name = (string)row["NAME"],
-                Email = (string)row["EMAIL"],
-                Password = (string)row["PASSWORD"],
-                RegisteredAt = (DateTime)row["REGISTERED_AT"],
-                AccountStatus = (int)row["ACCOUNT_STATUS"],
-                PhoneNumber = (string)row["PHONE_NUMBER"],
-            };
-            return user;
+            //var user = new User
+            //{
+            //    Id = (int)row["ID_USER"],
+            //    Name = (string)row["NAME"],
+            //    Email = (string)row["EMAIL"],
+            //    Password = (string)row["PASSWORD"],
+            //    RegisteredAt = (DateTime)row["REGISTERED_AT"],
+            //    AccountStatus = (int)row["ACCOUNT_STATUS"],
+            //    PhoneNumber = (string)row["PHONE_NUMBER"],
+            //};
+
+            throw new NotImplementedException();
+            
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
@@ -40,14 +42,14 @@ namespace CenfoEats2._0.PSingleton.Mapper
         {
             var sqlOperation = new SqlOperation { ProcedureName = "CRE_USER_PR" };
 
-            var user = (User)entity;
+            //var user = (User)entity;
 
-            sqlOperation.AddVarcharParam("P_Name", user.Name);
-            sqlOperation.AddVarcharParam("P_Email", user.Email);
-            sqlOperation.AddVarcharParam("P_PasswordHash", user.Password);
-            sqlOperation.AddDateParam("P_RegisteredAt", user.RegisteredAt);
-            sqlOperation.AddIntParam("P_AccountStatus", user.AccountStatus);
-            sqlOperation.AddVarcharParam("P_PhoneNumber", user.PhoneNumber);
+            //sqlOperation.AddVarcharParam("P_Name", user.Name);
+            //sqlOperation.AddVarcharParam("P_Email", user.Email);
+            //sqlOperation.AddVarcharParam("P_PasswordHash", user.Password);
+            //sqlOperation.AddDateParam("P_RegisteredAt", user.RegisteredAt);
+            //sqlOperation.AddIntParam("P_AccountStatus", user.AccountStatus);
+            //sqlOperation.AddVarcharParam("P_PhoneNumber", user.PhoneNumber);
 
             return sqlOperation;
         }

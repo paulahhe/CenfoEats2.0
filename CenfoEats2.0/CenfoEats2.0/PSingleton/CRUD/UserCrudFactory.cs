@@ -16,9 +16,9 @@ namespace CenfoEats2._0.PSingleton.CRUD
         }
         public override void Create(BaseEntity model)
         {
-            var create = (User)model;
-            var sqlOperation = _mapper.GetCreateStatement(create);
-            dao.ExecuteProcedure(sqlOperation);
+            //var create = (User)model;
+            //var sqlOperation = _mapper.GetCreateStatement(create);
+            //dao.ExecuteProcedure(sqlOperation);
         }
 
         public override void Delete(int id)
