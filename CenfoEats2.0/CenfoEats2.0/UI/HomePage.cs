@@ -20,6 +20,8 @@ namespace CenfoEats2._0.UI
 
         private void HomePage_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cenfoEats2DBDataSet.TBL_USER' table. You can move, or remove it, as needed.
+            this.tBL_USERTableAdapter.Fill(this.cenfoEats2DBDataSet.TBL_USER);
 
         }
 
@@ -80,6 +82,11 @@ namespace CenfoEats2._0.UI
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

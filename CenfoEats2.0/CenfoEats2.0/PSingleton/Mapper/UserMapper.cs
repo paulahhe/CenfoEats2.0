@@ -12,8 +12,6 @@ namespace CenfoEats2._0.PSingleton.Mapper
     {
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-
-
         var user = new UsuarioDB
         {
             id = (int)row["ID_USER"],
@@ -68,7 +66,9 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetRetriveAllStatement()
         {
-            throw new NotImplementedException();
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_USER_PR" };
+
+            return sqlOperation;
         }
 
         public SqlOperation GetRetrieveByIdStatement(BaseEntity entity)

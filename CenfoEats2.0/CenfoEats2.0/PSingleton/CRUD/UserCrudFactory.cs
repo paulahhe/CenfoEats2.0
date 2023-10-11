@@ -34,9 +34,26 @@ namespace CenfoEats2._0.PSingleton.CRUD
             throw new NotImplementedException();
         }
 
-        public override List<T> RetrieveAll<T>()
+        public override List<UsuarioDB> RetrieveAll<UsuarioDB>()
         {
-            throw new NotImplementedException();
+            var lstUsers = new List<UsuarioDB>();
+
+            //Buscamos el statement para hacer un retrieve all
+            var sqlOperation = _mapper.GetRetriveAllStatement();
+
+            //Ejecutamos el retrieve all
+            var lstResults = dao.ExecuteQueryProcedure(sqlOperation);
+
+            if (lstResults.Count > 0)
+            {
+                var objsUsersOperation = _mapper.BuildObjects(lstResults);
+
+                foreach (var op in objsUsersOperation)
+                {
+                    lstUsers.Add((UsuarioDB)Convert.ChangeType(op, typeof(UsuarioDB)));
+                }
+            }
+            return lstUsers;
         }
 
         public override T RetrieveById<T>(int id)
