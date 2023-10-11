@@ -2,6 +2,8 @@
 using System;
 using CenfoEats2._0.PSingleton.Mapper;
 using CenfoEats2._0.PSingleton.DAOs;
+using CenfoEats2._0.PMetodoFabrica.Producto;
+using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 
 namespace CenfoEats2._0.PSingleton.CRUD
 {
@@ -16,9 +18,15 @@ namespace CenfoEats2._0.PSingleton.CRUD
         }
         public override void Create(BaseEntity model)
         {
-            //var create = (User)model;
-            //var sqlOperation = _mapper.GetCreateStatement(create);
-            //dao.ExecuteProcedure(sqlOperation);
+            var create = (Usuario)model;
+            var sqlOperation = _mapper.GetCreateStatement(create);
+            dao.ExecuteProcedure(sqlOperation);
+        }
+        public void CreateRepartidor(BaseEntity model)
+        {
+            var create = (Repartidor)model;
+            var sqlOperation = _mapper.GetCreateStatement(create);
+            dao.ExecuteProcedure(sqlOperation);
         }
 
         public override void Delete(int id)

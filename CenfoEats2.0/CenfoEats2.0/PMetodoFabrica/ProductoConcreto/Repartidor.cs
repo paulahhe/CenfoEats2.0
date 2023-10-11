@@ -13,8 +13,5 @@ namespace CenfoEats2._0.PMetodoFabrica.ProductoConcreto
         {
             tipo = "Repartidor";
         }
-
-     
     }
-
 }

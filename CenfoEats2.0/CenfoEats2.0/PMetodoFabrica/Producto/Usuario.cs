@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PMetodoFabrica.Producto
 {
-    public abstract class Usuario
+    public abstract class Usuario : BaseEntity
     {
         public string nombre { set; get; }
         public string correo_electronico { set; get; }
         public string telefono { set; get; }
-        public string tipo { set; protected get; }    // protegido para que la clase hija lo establezca
+        public string tipo { set;  get; }   
         public string contrasenna { set; get; }
 
         public Usuario(string nombre, string correo_electronico, string telefono, string tipo, string contrasenna)
