@@ -9,12 +9,12 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
     public interface IPedido
     {
 
-        int idOrder { get; set; }
-        int idClient { get; set; }
-        int idDriver { get; set; }
-        int idRestaurant { get; set; }
-        string status { get; set; }
-        DateTime date { get; set; }
+        int GetIdOrder();
+        int GetIdClient();
+        int GetIdDriver();
+        int GetIdRestaurant();
+        string GetStatus();
+        DateTime GetDate();
 
     }
 }

@@ -11,7 +11,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
     {
         public int idOrder { get; set; }
         public int idClient { get; set; }
-        public int idDriver { get; set; }
         public int idRestaurant { get; set; }
         public string status { get; set; }
         public DateTime date { get; set; }
@@ -31,11 +30,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
             return idClient;
         }
 
-        public int GetIdDriver()
-        {
-            return idDriver;
-        }
-
         public int GetIdRestaurant()
         {
             return idRestaurant;
@@ -51,7 +45,10 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
             return date;
         }
 
-
+        public int GetIdDriver()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
