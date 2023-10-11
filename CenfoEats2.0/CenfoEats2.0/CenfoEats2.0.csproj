@@ -59,11 +59,11 @@
     <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
     <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
-    <Compile Include="PPrototipo\iPrototipo\Restaurant.cs" />
+    <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Menu\Menu.cs" />
-    <Compile Include="PPrototipo\Menu\MenuMcDonalds.cs" />
+    <Compile Include="PPrototipo\Menu\MenuRestaurante.cs" />
     <Compile Include="PPrototipo\Menu\Platillo.cs" />
-    <Compile Include="PPrototipo\Prototipo\RMcDonalds.cs" />
+    <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />
