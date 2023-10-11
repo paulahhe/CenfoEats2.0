@@ -9,84 +9,46 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
     public class ADomicilio : IPedido
     {
-        private int idOrder;
-        private int idClient;
-        private int idDriver;
-        private int idRestaurant;
-        private string status;
-        private DateTime date;
+        public int idOrder { get; set; }
+        public int idClient { get; set; }
+        public int idDriver { get; set; }
+        public int idRestaurant { get; set; }
+        public string status { get; set; }
+        public DateTime date { get; set; }
 
 
         public ADomicilio()
         {
         }
 
-        public int IdOrder
-        {
-            get { return idOrder; }
-            set { idOrder = 1; }
-        }
-
-        public int IdClient
-        {
-            get { return idClient; }
-            set { idClient = value; }
-        }
-
-        public int IdDriver
-        {
-            get { return idDriver; }
-            set { idDriver = value; }
-        }
-
-
-        public int IdRestaurant
-        {
-            get { return idRestaurant; }
-            set { idRestaurant = value; }
-        }
-
-        public string Status
-        {
-            get { return "Pediente"; }
-
-        }
-
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
-        }
-
-
         public int GetIdOrder()
         {
-            return IdOrder;
+            return idOrder;
         }
 
         public int GetIdClient()
         {
-            return IdClient;
+            return idClient;
         }
 
         public int GetIdDriver()
         {
-            return IdDriver;
+            return idDriver;
         }
 
         public int GetIdRestaurant()
         {
-            return IdRestaurant;
+            return idRestaurant;
         }
 
         public string GetStatus()
         {
-            return Status;
+            return status;
         }
 
         public DateTime GetDate()
         {
-            return Date;
+            return date;
         }
 
 

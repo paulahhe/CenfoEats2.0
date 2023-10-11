@@ -1,4 +1,6 @@
-﻿using CenfoEats2._0.PMetodoFabrica.Creador;
+﻿using CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta;
+using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
+using CenfoEats2._0.PMetodoFabrica.Creador;
 using CenfoEats2._0.PMetodoFabrica.CreadorConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PSingleton.CRUD;
@@ -33,6 +35,27 @@ namespace CenfoEats2._0
                 Console.WriteLine(objRepartidor.ToString());
                 crudFactory.Create(objRepartidor);
             }
+        }
+        private IFabTipoPedido fabricaTipoPedido; // La fábrica abstracta
+
+        public Gestor(IFabTipoPedido fabrica)
+        {
+            fabricaTipoPedido = fabrica;
+        }
+
+        public void CrearPedido()
+        {
+            // Se utiliza la fábrica abstracta para crear un pedido
+            IPedido objpedido = fabricaTipoPedido.crearPedido();
+
+            // Se realiza acciones específicas del pedido
+            int idOrder = objpedido.idOrder;
+            int idClient = objpedido.idClient;
+            int idDriver = objpedido.idDriver;
+            int idRestaurant = objpedido.idRestaurant;
+            string status = objpedido.status;
+            DateTime date = objpedido.date;
+
         }
     }
 }
