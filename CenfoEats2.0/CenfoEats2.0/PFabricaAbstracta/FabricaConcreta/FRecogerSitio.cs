@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.FabricaConcreta
 {
-    internal class Class1
+    public class FRecogerSitio : IFabTipoPedido
     {
+        public IPedido crearPedido()
+        {
+            IPedido miPedido = new RecogerSitio();
+
+            return miPedido;
+        }
     }
 }

@@ -48,10 +48,12 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Gestor.cs" />
-    <Compile Include="PFabricaAbstracta\FabricaAbstracta\Class1.cs" />
-    <Compile Include="PFabricaAbstracta\FabricaConcreta\Class1.cs" />
-    <Compile Include="PFabricaAbstracta\ProductoAbstracto\Class1.cs" />
-    <Compile Include="PFabricaAbstracta\ProductoConcreto\Class1.cs" />
+    <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
+    <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
+    <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
+    <Compile Include="PFabricaAbstracta\ProductoAbstracto\IPedido.cs" />
+    <Compile Include="PFabricaAbstracta\ProductoConcreto\ADomicilio.cs" />
+    <Compile Include="PFabricaAbstracta\ProductoConcreto\RecogerSitio.cs" />
     <Compile Include="PMetodoFabrica\CreadorConcreto\Creador_Usuarios.cs" />
     <Compile Include="PMetodoFabrica\Creador\I_Creador_Usuarios.cs" />
     <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
