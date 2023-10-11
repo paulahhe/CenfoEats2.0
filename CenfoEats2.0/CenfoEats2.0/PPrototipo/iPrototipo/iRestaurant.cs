@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PPrototipo.iPrototipo
 {
-    public abstract class Restaurant
+    public abstract class iRestaurant
     {
         public string name { get; set; }
         public string address { get; set; }
@@ -16,7 +16,7 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
         public int restaurantRating { get; set; }
         public List<Platillo> menu { get; set; }
 
-        public Restaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu)
+        public iRestaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu)
         {
             this.name = name;
             this.address = address;
@@ -38,6 +38,6 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
             return mData;
         }
 
-        public abstract Restaurant clone();
+        public abstract iRestaurant clone();
     }
 }

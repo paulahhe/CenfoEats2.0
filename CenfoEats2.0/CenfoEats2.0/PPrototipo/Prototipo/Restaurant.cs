@@ -11,10 +11,10 @@ using CenfoEats2._0.PPrototipo.Menu;
 
 namespace CenfoEats2._0.PPrototipo.Prototipo
 {
-    public class RMcDonalds : Restaurant
+    public class Restaurant : iRestaurant
     {
 
-        public RMcDonalds(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu) : base(name, address, phoneNumber, foodType, restaurantRating, menu)
+        public Restaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu) : base(name, address, phoneNumber, foodType, restaurantRating, menu)
         {
             this.name = name;
             this.address = address;
@@ -24,9 +24,9 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
             this.menu = menu;
         }
 
-        public override Restaurant clone()
+        public override iRestaurant clone()
         {
-            return new RMcDonalds(this.name, this.address, this.phoneNumber, this.foodType, this.restaurantRating, this.menu);
+            return new Restaurant(this.name, this.address, this.phoneNumber, this.foodType, this.restaurantRating, this.menu);
         }
     }
 

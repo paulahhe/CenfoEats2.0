@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta
 {
-    internal class Class1
+    public class FDomicilio : IFabTipoPedido
     {
+        public IPedido crearPedido()
+        {
+            IPedido miPedido = new ADomicilio();
+            return miPedido;
+        }
     }
 }
