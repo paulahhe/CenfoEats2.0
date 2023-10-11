@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
+
 
 namespace CenfoEats2._0.PSingleton.DAOs
 {
@@ -15,7 +17,8 @@ namespace CenfoEats2._0.PSingleton.DAOs
         private SqlDAO()
         {
             //moverlo a jsonconfig.
-            _connectionString = "Data Source=DESKTOP-3KB5PPJ;Initial Catalog=CenfoEatsDB;User ID=admin;Password=admin";
+            _connectionString = "Data Source=cenfopatrones.database.windows.net; Initial Catalog=CenfoEats2DB;User ID=cenfotec2023;Password=Grupo2Patrones!";
+            //_connectionString = "Data Source=DESKTOP-3KB5PPJ;Initial Catalog=CenfoEatsDB;User ID=admin;Password=admin";
         }
         //Paso 3: metodo para exponer la instancia de la clase SqlDao.
         public static SqlDAO GetInstance()
