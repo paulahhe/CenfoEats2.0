@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PProxy
 {
-    public class Cliente : UsuarioDB
+    public class GestorProxy
     {
-
-        public string ubicacionEntrega { get; set; }
-
-
-
+        private String _
     }
 }

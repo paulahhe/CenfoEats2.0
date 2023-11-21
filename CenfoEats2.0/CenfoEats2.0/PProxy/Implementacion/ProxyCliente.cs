@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CenfoEats2._0.PProxy
+namespace CenfoEats2._0.PProxy.Implementacion
 {
-    public class Controlador
+    internal class ProxyCliente
     {
     }
 }

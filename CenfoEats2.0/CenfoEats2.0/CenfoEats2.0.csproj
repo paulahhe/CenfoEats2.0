@@ -68,9 +68,10 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
-    <Compile Include="PProxy\Cliente.cs" />
-    <Compile Include="PProxy\Controlador.cs" />
-    <Compile Include="PProxy\IRepartidor.cs" />
+    <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
+    <Compile Include="PProxy\Implementacion\ProxyCliente.cs" />
+    <Compile Include="PProxy\Logica\GestorProxy.cs" />
+    <Compile Include="PProxy\Interface\IInfoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
@@ -85,6 +86,8 @@
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Menu\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
+    <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
+    <Compile Include="PProxy\Logica\Validador.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />
