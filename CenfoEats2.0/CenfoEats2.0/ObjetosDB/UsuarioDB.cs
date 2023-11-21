@@ -9,6 +9,8 @@ namespace CenfoEats2._0
     internal class UsuarioDB : BaseEntity
     {
         public string nombre { set; get; }
+        public string apellido1 { set; get; }
+        public string apellido2 { set; get; }
         public string correo_electronico { set; get; }
         public string telefono { set; get; }
         public string tipo { set; get; }    

@@ -8,9 +8,9 @@ namespace CenfoEats2._0.PDecorador
 {
     public interface IRepartidor
     {
+    void obtenerInformacionCliente(String idPedido);
+    void realizarEntrega(String idPedido);
 
-        void obtenerInformacionCliente(String idPedido);
-        void realizarEntrega(String idPedido);
     }
 }
 
