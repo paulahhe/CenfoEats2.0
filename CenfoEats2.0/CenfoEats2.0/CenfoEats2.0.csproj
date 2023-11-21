@@ -68,6 +68,7 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PProxy\IRepartidor.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
@@ -145,6 +146,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PDecorador\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
