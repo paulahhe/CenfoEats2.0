@@ -68,6 +68,7 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
     <Compile Include="PProxy\Implementacion\ProxyCliente.cs" />
     <Compile Include="PProxy\Logica\GestorProxy.cs" />

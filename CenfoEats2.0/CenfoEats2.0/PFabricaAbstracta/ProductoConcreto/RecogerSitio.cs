@@ -7,48 +7,13 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class RecogerSitio : IPedido
+    public class RecogerSitio : Pedido
     {
-        public int idOrder { get; set; }
-        public int idClient { get; set; }
-        public int idRestaurant { get; set; }
-        public string status { get; set; }
-        public DateTime date { get; set; }
-
 
         public RecogerSitio()
         {
         }
 
-        public int GetIdOrder()
-        {
-            return idOrder;
-        }
-
-        public int GetIdClient()
-        {
-            return idClient;
-        }
-
-        public int GetIdRestaurant()
-        {
-            return idRestaurant;
-        }
-
-        public string GetStatus()
-        {
-            return status;
-        }
-
-        public DateTime GetDate()
-        {
-            return date;
-        }
-
-        public int GetIdDriver()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

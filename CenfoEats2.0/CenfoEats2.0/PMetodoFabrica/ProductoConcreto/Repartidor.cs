@@ -9,9 +9,14 @@ namespace CenfoEats2._0.PMetodoFabrica.ProductoConcreto
 {
     class Repartidor : Usuario
     {
-        public Repartidor(string nombre, string correo_electronico, string telefono, string contrasenna) : base(nombre, correo_electronico, telefono, contrasenna)
+        public Repartidor(string nombre, string correo_electronico, string telefono, string contrasenna)
         {
-            tipo = "Repartidor";
+            this.nombre = nombre;
+            this.correo_electronico = correo_electronico;
+            this.telefono = telefono;
+            this.tipo = "Repartidor";
+            this.contrasenna = contrasenna;
+
         }
     }
 }

@@ -7,50 +7,19 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class ADomicilio : IPedido
+    public class ADomicilio : Pedido
     {
-        public int idOrder { get; set; }
-        public int idClient { get; set; }
         public int idDriver { get; set; }
-        public int idRestaurant { get; set; }
-        public string status { get; set; }
-        public DateTime date { get; set; }
 
 
         public ADomicilio()
         {
         }
 
-        public int GetIdOrder()
-        {
-            return idOrder;
-        }
-
-        public int GetIdClient()
-        {
-            return idClient;
-        }
-
         public int GetIdDriver()
         {
             return idDriver;
         }
-
-        public int GetIdRestaurant()
-        {
-            return idRestaurant;
-        }
-
-        public string GetStatus()
-        {
-            return status;
-        }
-
-        public DateTime GetDate()
-        {
-            return date;
-        }
-
 
     }
 }

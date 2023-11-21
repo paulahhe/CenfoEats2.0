@@ -8,10 +8,8 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
     public interface IPedido
     {
-
         int GetIdOrder();
         int GetIdClient();
-        int GetIdDriver();
         int GetIdRestaurant();
         string GetStatus();
         DateTime GetDate();

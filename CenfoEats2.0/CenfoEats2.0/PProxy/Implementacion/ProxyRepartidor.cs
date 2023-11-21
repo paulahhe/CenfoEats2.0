@@ -1,5 +1,9 @@
 ﻿using CenfoEats2._0.PDecorador;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
+using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
+using CenfoEats2._0.PMetodoFabrica.Producto;
+using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PSingleton.CRUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,38 +12,29 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PProxy
 {
-    public class RepartidorReal : IInfoPedido
+    public class ProxyRepartidor : IInfoPedido
     {
 
-        public void obtenerInformacionCliente(String idPedido);
-        public void realizarEntrega(String idPedido);
+       
+        private IInfoPedido infoPedido;
+        private Usuario usuario;
+        private Repartidor reparitdor;
+        private ADomicilio pedido;
 
-        private readonly IInfoPedido infoPedido;
-        private readonly string tipoUsuario; // Puedes obtener esto de la autenticación del usuario
+        private String ubicacionEntrega;
+        private String telefonoCliente;
+        private Cliente cliente;
+        private int idCliente;
 
-        public ProxyPedidoRepartidor(IInfoPedido infoPedido, string tipoUsuario)
+
+        public string ObtenerPedido(int idRepartidor, int idPedido)
         {
-            this.infoPedido = infoPedido;
-            this.tipoUsuario = tipoUsuario;
+            throw new NotImplementedException();
         }
 
-        public Pedido ObtenerPedido(int idPedido)
+        public void cargarInformacionPedido()
         {
-            // Lógica para validar el acceso basado en el tipo de usuario
-            if (tipoUsuario.ToLower() == "repartidor")
-            {
-                // Lógica adicional para validar si el repartidor tiene acceso al pedido
-                // Puedes verificar si el repartidor está relacionado con el pedido en la base de datos
-                // Si es válido, puedes llamar al servicio real para obtener el pedido
-                return pedidoService.ObtenerPedido(idPedido);
-            }
-            else
-            {
-                // Manejar el caso en el que un cliente u otro tipo de usuario intenta acceder
-                // Puedes lanzar una excepción o devolver un objeto Pedido vacío, dependiendo de tus requerimientos
-                throw new UnauthorizedAccessException("Acceso no autorizado");
-            }
+            throw new NotImplementedException();
         }
-
     }
 }
