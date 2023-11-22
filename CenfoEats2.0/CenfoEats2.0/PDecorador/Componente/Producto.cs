@@ -9,9 +9,20 @@ using CenfoEats2._0.PPrototipo.Prototipo;
 
 namespace CenfoEats2._0.PDecorador.Componente
 {
-    public class Producto : iPlatillo
+    public abstract class Producto
     {
-        Restaurant restaurante;
+        public Platillo platillo;
+        public Restaurant restaurante;
 
+
+
+
+        public abstract string getNombre();
+
+        public abstract string getDescripcion();
+
+        public abstract double getPrecio();
+
+        public abstract string getRestaurant();
     }
 }
