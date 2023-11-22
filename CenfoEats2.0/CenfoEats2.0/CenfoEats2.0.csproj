@@ -68,6 +68,10 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PDecorador\Componente\Producto.cs" />
+    <Compile Include="PDecorador\DecoradorConcreto\ingredienteExtra.cs" />
+    <Compile Include="PDecorador\Decorador\IngredienteExtraDecorador.cs" />
+    <Compile Include="PDecorador\GestorDecorador.cs" />
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
     <Compile Include="PProxy\Implementacion\ProxyCliente.cs" />
@@ -153,8 +157,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PDecorador\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
