@@ -38,7 +38,7 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
         //    return mData;
         //}
 
-        iRestaurant clone();
+        public abstract iRestaurant clone();
 
     }
 }

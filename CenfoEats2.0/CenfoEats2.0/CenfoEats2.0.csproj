@@ -73,6 +73,7 @@
     <Compile Include="PDecorador\Decorador\IngredienteExtraDecorador.cs" />
     <Compile Include="PDecorador\GestorDecorador.cs" />
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
+    <Compile Include="PPrototipo\iPrototipo\iPlatillo.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
     <Compile Include="PProxy\Implementacion\ProxyCliente.cs" />
     <Compile Include="PProxy\Logica\GestorProxy.cs" />
@@ -89,7 +90,7 @@
     <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
-    <Compile Include="PPrototipo\Menu\Platillo.cs" />
+    <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
     <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
     <Compile Include="PProxy\Logica\Validador.cs" />

@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CenfoEats2._0.PPrototipo.Menu
+namespace CenfoEats2._0.PPrototipo.iPrototipo
 {
-    public class Platillo
+    public abstract class iPlatillo
     {
         public string nombre { get; set; }
         public double precio { get; set; }
         public string descripcion { get; set; }
+
+        public abstract iPlatillo cloneP();
+
     }
+
 }
