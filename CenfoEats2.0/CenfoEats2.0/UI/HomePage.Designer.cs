@@ -1,4 +1,6 @@
-﻿namespace CenfoEats2._0.UI
+﻿using System;
+
+namespace CenfoEats2._0.UI
 {
     partial class HomePage
     {
@@ -45,14 +47,36 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.ListUsers = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tBLUSERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cenfoEats2DBDataSet = new CenfoEats2._0.CenfoEats2DBDataSet();
-            this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
             this.iDUSERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pHONENUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCCOUNTTYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tBLUSERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cenfoEats2DBDataSet = new CenfoEats2._0.CenfoEats2DBDataSet();
+            this.RegisterRestaurant = new System.Windows.Forms.TabPage();
+            this.btnRegisterRestaurant = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBoxRestaurantProducts = new System.Windows.Forms.ListBox();
+            this.btnAddProducts = new System.Windows.Forms.Button();
+            this.comboBoxPlates = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTypeFood = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPhoneNumberRestaurant = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtLocationRestaurant = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNameRestaurant = new System.Windows.Forms.TextBox();
+            this.RegisterPlates = new System.Windows.Forms.TabPage();
+            this.RegisterOrder = new System.Windows.Forms.TabPage();
+            this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
+            this.cenfoEats2DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cenfoEats2DBProductNameId = new CenfoEats2._0.CenfoEats2DBProductNameId();
+            this.cenfoEats2DBProductNameIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tBLPRODUCTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tBL_PRODUCTSTableAdapter = new CenfoEats2._0.CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter();
             this.tabControl1.SuspendLayout();
             this.RegisterUser.SuspendLayout();
             this.gBoxRegister.SuspendLayout();
@@ -60,12 +84,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLUSERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSet)).BeginInit();
+            this.RegisterRestaurant.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.RegisterUser);
             this.tabControl1.Controls.Add(this.ListUsers);
+            this.tabControl1.Controls.Add(this.RegisterRestaurant);
+            this.tabControl1.Controls.Add(this.RegisterPlates);
+            this.tabControl1.Controls.Add(this.RegisterOrder);
             this.tabControl1.Location = new System.Drawing.Point(1, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -79,7 +112,7 @@
             this.RegisterUser.Controls.Add(this.gBoxRegister);
             this.RegisterUser.Location = new System.Drawing.Point(4, 22);
             this.RegisterUser.Name = "RegisterUser";
-            this.RegisterUser.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.RegisterUser.Padding = new System.Windows.Forms.Padding(3);
             this.RegisterUser.Size = new System.Drawing.Size(1051, 645);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
@@ -212,7 +245,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(288, 26);
             this.txtName.TabIndex = 0;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // ListUsers
             // 
@@ -220,7 +252,7 @@
             this.ListUsers.Controls.Add(this.dataGridView1);
             this.ListUsers.Location = new System.Drawing.Point(4, 22);
             this.ListUsers.Name = "ListUsers";
-            this.ListUsers.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.ListUsers.Padding = new System.Windows.Forms.Padding(3);
             this.ListUsers.Size = new System.Drawing.Size(1051, 645);
             this.ListUsers.TabIndex = 1;
             this.ListUsers.Text = "Mostrar Usuarios";
@@ -241,21 +273,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(793, 306);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // tBLUSERBindingSource
-            // 
-            this.tBLUSERBindingSource.DataMember = "TBL_USER";
-            this.tBLUSERBindingSource.DataSource = this.cenfoEats2DBDataSet;
-            // 
-            // cenfoEats2DBDataSet
-            // 
-            this.cenfoEats2DBDataSet.DataSetName = "CenfoEats2DBDataSet";
-            this.cenfoEats2DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tBL_USERTableAdapter
-            // 
-            this.tBL_USERTableAdapter.ClearBeforeFill = true;
             // 
             // iDUSERDataGridViewTextBoxColumn
             // 
@@ -293,6 +310,218 @@
             this.aCCOUNTTYPEDataGridViewTextBoxColumn.Name = "aCCOUNTTYPEDataGridViewTextBoxColumn";
             this.aCCOUNTTYPEDataGridViewTextBoxColumn.Width = 150;
             // 
+            // tBLUSERBindingSource
+            // 
+            this.tBLUSERBindingSource.DataMember = "TBL_USER";
+            this.tBLUSERBindingSource.DataSource = this.cenfoEats2DBDataSet;
+            // 
+            // cenfoEats2DBDataSet
+            // 
+            this.cenfoEats2DBDataSet.DataSetName = "CenfoEats2DBDataSet";
+            this.cenfoEats2DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // RegisterRestaurant
+            // 
+            this.RegisterRestaurant.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.RegisterRestaurant.Controls.Add(this.btnRegisterRestaurant);
+            this.RegisterRestaurant.Controls.Add(this.groupBox1);
+            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 22);
+            this.RegisterRestaurant.Name = "RegisterRestaurant";
+            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterRestaurant.TabIndex = 4;
+            this.RegisterRestaurant.Text = "Registrar Restaurante";
+            // 
+            // btnRegisterRestaurant
+            // 
+            this.btnRegisterRestaurant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRegisterRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterRestaurant.Location = new System.Drawing.Point(437, 551);
+            this.btnRegisterRestaurant.Name = "btnRegisterRestaurant";
+            this.btnRegisterRestaurant.Size = new System.Drawing.Size(202, 77);
+            this.btnRegisterRestaurant.TabIndex = 10;
+            this.btnRegisterRestaurant.Text = "Registrar";
+            this.btnRegisterRestaurant.UseVisualStyleBackColor = true;
+            this.btnRegisterRestaurant.Click += new System.EventHandler(this.btnRegisterRestaurant_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.listBoxRestaurantProducts);
+            this.groupBox1.Controls.Add(this.btnAddProducts);
+            this.groupBox1.Controls.Add(this.comboBoxPlates);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtTypeFood);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtPhoneNumberRestaurant);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtLocationRestaurant);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtNameRestaurant);
+            this.groupBox1.Location = new System.Drawing.Point(189, 122);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(720, 423);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            // 
+            // listBoxRestaurantProducts
+            // 
+            this.listBoxRestaurantProducts.FormattingEnabled = true;
+            this.listBoxRestaurantProducts.Location = new System.Drawing.Point(27, 259);
+            this.listBoxRestaurantProducts.Name = "listBoxRestaurantProducts";
+            this.listBoxRestaurantProducts.Size = new System.Drawing.Size(664, 147);
+            this.listBoxRestaurantProducts.TabIndex = 12;
+            // 
+            // btnAddProducts
+            // 
+            this.btnAddProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProducts.Location = new System.Drawing.Point(403, 168);
+            this.btnAddProducts.Name = "btnAddProducts";
+            this.btnAddProducts.Size = new System.Drawing.Size(288, 49);
+            this.btnAddProducts.TabIndex = 11;
+            this.btnAddProducts.Text = "Agregar";
+            this.btnAddProducts.UseVisualStyleBackColor = true;
+            this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
+            // 
+            // comboBoxPlates
+            // 
+            this.comboBoxPlates.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tBLPRODUCTSBindingSource, "NAME", true));
+            this.comboBoxPlates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlates.FormattingEnabled = true;
+            this.comboBoxPlates.Location = new System.Drawing.Point(27, 196);
+            this.comboBoxPlates.Name = "comboBoxPlates";
+            this.comboBoxPlates.Size = new System.Drawing.Size(288, 21);
+            this.comboBoxPlates.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label5.Location = new System.Drawing.Point(22, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 25);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Platillos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.Location = new System.Drawing.Point(398, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Tipo Comida";
+            // 
+            // txtTypeFood
+            // 
+            this.txtTypeFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtTypeFood.Location = new System.Drawing.Point(403, 122);
+            this.txtTypeFood.Name = "txtTypeFood";
+            this.txtTypeFood.Size = new System.Drawing.Size(288, 26);
+            this.txtTypeFood.TabIndex = 6;
+            this.txtTypeFood.UseSystemPasswordChar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label2.Location = new System.Drawing.Point(398, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Numero de Telefono";
+            // 
+            // txtPhoneNumberRestaurant
+            // 
+            this.txtPhoneNumberRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtPhoneNumberRestaurant.Location = new System.Drawing.Point(403, 43);
+            this.txtPhoneNumberRestaurant.Name = "txtPhoneNumberRestaurant";
+            this.txtPhoneNumberRestaurant.Size = new System.Drawing.Size(288, 26);
+            this.txtPhoneNumberRestaurant.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label3.Location = new System.Drawing.Point(22, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Ubicacion";
+            // 
+            // txtLocationRestaurant
+            // 
+            this.txtLocationRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtLocationRestaurant.Location = new System.Drawing.Point(27, 122);
+            this.txtLocationRestaurant.Name = "txtLocationRestaurant";
+            this.txtLocationRestaurant.Size = new System.Drawing.Size(288, 26);
+            this.txtLocationRestaurant.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label4.Location = new System.Drawing.Point(22, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Nombre";
+            // 
+            // txtNameRestaurant
+            // 
+            this.txtNameRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtNameRestaurant.Location = new System.Drawing.Point(27, 43);
+            this.txtNameRestaurant.Name = "txtNameRestaurant";
+            this.txtNameRestaurant.Size = new System.Drawing.Size(288, 26);
+            this.txtNameRestaurant.TabIndex = 0;
+            // 
+            // RegisterPlates
+            // 
+            this.RegisterPlates.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.RegisterPlates.Location = new System.Drawing.Point(4, 22);
+            this.RegisterPlates.Name = "RegisterPlates";
+            this.RegisterPlates.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterPlates.TabIndex = 2;
+            this.RegisterPlates.Text = "Registrar Platillos";
+            // 
+            // RegisterOrder
+            // 
+            this.RegisterOrder.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.RegisterOrder.Location = new System.Drawing.Point(4, 22);
+            this.RegisterOrder.Name = "RegisterOrder";
+            this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterOrder.TabIndex = 3;
+            this.RegisterOrder.Text = "Registrar Pedidos";
+            // 
+            // tBL_USERTableAdapter
+            // 
+            this.tBL_USERTableAdapter.ClearBeforeFill = true;
+            // 
+            // cenfoEats2DBDataSetBindingSource
+            // 
+            this.cenfoEats2DBDataSetBindingSource.DataSource = this.cenfoEats2DBDataSet;
+            this.cenfoEats2DBDataSetBindingSource.Position = 0;
+            // 
+            // cenfoEats2DBProductNameId
+            // 
+            this.cenfoEats2DBProductNameId.DataSetName = "CenfoEats2DBProductNameId";
+            this.cenfoEats2DBProductNameId.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cenfoEats2DBProductNameIdBindingSource
+            // 
+            this.cenfoEats2DBProductNameIdBindingSource.DataSource = this.cenfoEats2DBProductNameId;
+            this.cenfoEats2DBProductNameIdBindingSource.Position = 0;
+            // 
+            // tBLPRODUCTSBindingSource
+            // 
+            this.tBLPRODUCTSBindingSource.DataMember = "TBL_PRODUCTS";
+            this.tBLPRODUCTSBindingSource.DataSource = this.cenfoEats2DBProductNameIdBindingSource;
+            // 
+            // tBL_PRODUCTSTableAdapter
+            // 
+            this.tBL_PRODUCTSTableAdapter.ClearBeforeFill = true;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +539,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLUSERBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSet)).EndInit();
+            this.RegisterRestaurant.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,5 +576,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pHONENUMBERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCCOUNTTYPEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage RegisterPlates;
+        private System.Windows.Forms.TabPage RegisterRestaurant;
+        private System.Windows.Forms.TabPage RegisterOrder;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTypeFood;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPhoneNumberRestaurant;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtLocationRestaurant;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNameRestaurant;
+        private System.Windows.Forms.Button btnRegisterRestaurant;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxPlates;
+        private System.Windows.Forms.BindingSource cenfoEats2DBDataSetBindingSource;
+        private System.Windows.Forms.Button btnAddProducts;
+        private System.Windows.Forms.ListBox listBoxRestaurantProducts;
+        private System.Windows.Forms.BindingSource cenfoEats2DBProductNameIdBindingSource;
+        private CenfoEats2DBProductNameId cenfoEats2DBProductNameId;
+        private System.Windows.Forms.BindingSource tBLPRODUCTSBindingSource;
+        private CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter tBL_PRODUCTSTableAdapter;
     }
 }
