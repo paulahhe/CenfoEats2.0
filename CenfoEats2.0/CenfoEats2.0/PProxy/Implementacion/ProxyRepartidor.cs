@@ -96,7 +96,7 @@ namespace CenfoEats2._0.PProxy
 
 
 
-        public void ObtenerInfoPedido(int idPedido)
+        public void ObtenerPedido(int idPedido, int idUsuario) //Usuario y pedido
 
            
         {
@@ -119,12 +119,6 @@ namespace CenfoEats2._0.PProxy
                 throw new UnauthorizedAccessException("Acceso no autorizado");
             }
         }
-
-        public string ObtenerPedido(int idRepartidor, int idPedido)
-        {
-            throw new NotImplementedException();
-        }
-
         public void cargarInformacionPedido()
         {
             throw new NotImplementedException();

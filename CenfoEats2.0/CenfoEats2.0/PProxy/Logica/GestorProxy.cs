@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CenfoEats2._0.PDecorador.Componente;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace CenfoEats2._0.PProxy
 {
     public class GestorProxy
     {
-        private String _
-    }
+    
+}
 }

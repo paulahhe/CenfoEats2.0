@@ -14,15 +14,12 @@ namespace CenfoEats2._0.PDecorador.Componente
         public Platillo platillo;
         public Restaurant restaurante;
 
-
-
-
         public abstract string getNombre();
 
         public abstract string getDescripcion();
 
         public abstract double getPrecio();
 
-        public abstract string getRestaurant();
+        public abstract string getNombreRestaurante();
     }
 }

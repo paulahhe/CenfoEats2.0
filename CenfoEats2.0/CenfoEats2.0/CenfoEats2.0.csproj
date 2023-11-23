@@ -68,8 +68,9 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PDecorador\ComponenteConcreto\ProductoConcreto.cs" />
     <Compile Include="PDecorador\Componente\Producto.cs" />
-    <Compile Include="PDecorador\DecoradorConcreto\ingredienteExtra.cs" />
+    <Compile Include="PDecorador\DecoradorConcreto\IngredienteExtra.cs" />
     <Compile Include="PDecorador\Decorador\IngredienteExtraDecorador.cs" />
     <Compile Include="PDecorador\GestorDecorador.cs" />
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
     <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
-    <Compile Include="PProxy\Logica\Validador.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />

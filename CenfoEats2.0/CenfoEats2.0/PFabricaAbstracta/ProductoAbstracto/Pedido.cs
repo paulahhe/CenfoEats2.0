@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
-    public class Pedido : IPedido
+    public abstract class Pedido : IPedido
     {
 
         public int idOrder { get; set; }

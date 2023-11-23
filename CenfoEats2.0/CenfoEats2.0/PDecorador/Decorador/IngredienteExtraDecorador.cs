@@ -12,17 +12,13 @@ namespace CenfoEats2._0.PDecorador.Decorador
     public abstract class IngredienteExtraDecorador : Producto
     {
         protected Producto producto;
-        protected Restaurant restaurante;
+
 
         public Producto getProducto()
         {
             return producto;
         }
 
-        public Restaurant getRestaurante()
-        {
-            return restaurante;
-        }
 
     }
 }

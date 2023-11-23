@@ -9,21 +9,17 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PDecorador.Decorador
 {
-    public class ingredienteExtra : IngredienteExtraDecorador
+    public class IngredienteExtra : IngredienteExtraDecorador
     {
         private string nombre;
         private double precio;
 
 
-        public ingredienteExtra(Producto pProducto)
+        public IngredienteExtra(Producto pProducto)
         {
             this.producto = pProducto;
         }
 
-        public ingredienteExtra(Restaurant pRestaurant)
-        {
-            this.restaurante = pRestaurant;
-        }
 
         override
          public string getNombre()
@@ -43,7 +39,7 @@ namespace CenfoEats2._0.PDecorador.Decorador
             return this.producto.getPrecio() + precio;
         }
 
-        public override string getRestaurant()
+        public override string getNombreRestaurante()
         {
             throw new NotImplementedException();
         }

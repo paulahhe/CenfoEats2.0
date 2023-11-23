@@ -14,7 +14,7 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
         public int phoneNumber { get; set; }
         public string foodType { get; set; }
         public int restaurantRating { get; set; }
-        public List<Platillo> menu { get; set; }
+        public List<Platillo> menu { get; set; } //
 
         //public iRestaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<Platillo> menu)
         //{
