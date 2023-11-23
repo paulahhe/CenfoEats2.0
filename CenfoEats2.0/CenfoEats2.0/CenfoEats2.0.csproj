@@ -68,6 +68,11 @@
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PEstado\Abstracto\IEstadoPedido.cs" />
+    <Compile Include="PEstado\Concreto\EstadoEnCamino.cs" />
+    <Compile Include="PEstado\Concreto\EstadoEntregado.cs" />
+    <Compile Include="PEstado\Concreto\EstadoPendiente.cs" />
+    <Compile Include="PEstado\Contexto\ManejadorEstado.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
@@ -79,6 +84,9 @@
     <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
     <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
+    <Compile Include="PObservador\Concreto\Observador.cs" />
+    <Compile Include="PObservador\Interfaces\IObservador.cs" />
+    <Compile Include="PObservador\Interfaces\ISujeto.cs" />
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Menu\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
@@ -146,5 +154,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
