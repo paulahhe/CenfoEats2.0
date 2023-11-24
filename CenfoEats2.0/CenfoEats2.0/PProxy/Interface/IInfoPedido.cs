@@ -9,10 +9,9 @@ namespace CenfoEats2._0.PDecorador
 {
     public interface IInfoPedido
     {
-       String ObtenerPedido(int idRepartidor, int idPedido); //REFERENCIA AL PEDIDO
+        string ValidarAccesoPedido(int idPedido, int idUsuario);
 
-
-        void cargarInformacionPedido();
+        string ObtenerInfoPedido(int idRepartidor, int idPedido); //REFERENCIA AL PEDIDO
 
     }
 }
