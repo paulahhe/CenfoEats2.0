@@ -67,12 +67,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CenfoEats2DBProductNameId.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Gestor.cs" />
     <Compile Include="PEstado\Abstracto\IEstadoPedido.cs" />
     <Compile Include="PEstado\Concreto\EstadoEnCamino.cs" />
     <Compile Include="PEstado\Concreto\EstadoEntregado.cs" />
     <Compile Include="PEstado\Concreto\EstadoPendiente.cs" />
     <Compile Include="PEstado\Contexto\ManejadorEstado.cs" />
+    <Compile Include="ObjetosDB\ProductsDB.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
@@ -91,11 +97,13 @@
     <Compile Include="PPrototipo\Menu\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
+    <Compile Include="PSingleton\CRUD\ProductCrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />
     <Compile Include="PSingleton\DAOs\SqlOperation.cs" />
     <Compile Include="PSingleton\Mapper\IObjectMapper.cs" />
     <Compile Include="PSingleton\Mapper\ISqlStatements.cs" />
+    <Compile Include="PSingleton\Mapper\ProductMapper.cs" />
     <Compile Include="PSingleton\Mapper\UserMapper.cs" />
     <Compile Include="UI\HomePage.cs">
       <SubType>Form</SubType>
@@ -128,6 +136,17 @@
     </None>
     <None Include="CenfoEats2DBDataSet.xss">
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CenfoEats2DBProductNameId.xsc">
+      <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
+    </None>
+    <None Include="CenfoEats2DBProductNameId.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CenfoEats2DBProductNameId.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CenfoEats2DBProductNameId.xss">
+      <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

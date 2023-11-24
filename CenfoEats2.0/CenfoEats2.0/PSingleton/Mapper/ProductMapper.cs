@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using CenfoEats2._0.PMetodoFabrica.Producto;
+using CenfoEats2._0.ObjetosDB;
 using CenfoEats2._0.PSingleton.DAOs;
 
 namespace CenfoEats2._0.PSingleton.Mapper
 {
-    public class UserMapper : ISqlStatements, IObjectMapper
+    public class ProductMapper : ISqlStatements, IObjectMapper
     {
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var user = new UsuarioDB
+            var platillo = new ProductsDB
             {
-                id = (int)row["ID_USER"],
+                id = (int)row["ID_PRODUCTS"],
                 nombre = (string)row["NAME"],
-                correo_electronico = (string)row["EMAIL"],
-                telefono = (string)row["PHONE_NUMBER"],
-                tipo = (string)row["ACCOUNT_TYPE"],
+                precio = (decimal)row["PRICE"],
+                descripcion = (string)row["DESCRIPTION"]
             };
-            return user;
+            return platillo;
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
@@ -34,26 +33,7 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-            /*CREATE PROCEDURE [dbo].[CRE_USER_PR]
-                  @P_Name nvarchar(50),
-                  @P_Email nvarchar(50),
-                  @P_PhoneNumber nvarchar(50),
-                  @P_AccountType nvarchar(50)
-              AS
-              BEGIN
-                  SET NOCOUNT ON;
-
-                  INSERT INTO [dbo].[TBL_USER] (NAME, EMAIL, PHONE_NUMBER, ACCOUNT_TYPE)
-                  VALUES (@P_Name, @P_Email, @P_PhoneNumber, @P_AccountType);
-              END;*/
-
-            var sqlOperation = new SqlOperation { ProcedureName = "CRE_USER_PR" };
-            var user = (Usuario)entity;
-            sqlOperation.AddVarcharParam("P_Name", user.nombre);
-            sqlOperation.AddVarcharParam("P_Email", user.correo_electronico);
-            sqlOperation.AddVarcharParam("P_PhoneNumber", user.nombre);
-            sqlOperation.AddVarcharParam("P_AccountType", user.tipo);
-            return sqlOperation;
+            throw new NotImplementedException();
         }
 
         public SqlOperation GetRetriveStatement(BaseEntity entity)
@@ -63,7 +43,7 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetRetriveAllStatement()
         {
-            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_USER_PR" };
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_PRODUCTS_PR" };
 
             return sqlOperation;
         }
