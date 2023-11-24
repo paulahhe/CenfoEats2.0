@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
-using CenfoEats2._0.PPrototipo.Menu;
 using CenfoEats2._0.PPrototipo.Prototipo;
 using CenfoEats2._0.PSingleton.CRUD;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CenfoEats2._0.UI
 {
@@ -25,11 +24,6 @@ namespace CenfoEats2._0.UI
             comboBoxPlates.ValueMember = "id"; // Propiedad que se utilizará como valor seleccionado
             comboBoxPlates.DataSource = productsDBs;
 
-            //foreach (var item in productsDBs)
-            //{
-            //    comboBoxPlates.Items.Add(item.nombre);
-            //}
-            // Event Double Click Listbox
             listBoxRestaurantProducts.MouseDoubleClick += listBoxRestaurantProducts_MouseDoubleClick;
         }
         private void HomePage_Load(object sender, EventArgs e)
@@ -65,7 +59,7 @@ namespace CenfoEats2._0.UI
                 MessageBox.Show(msg);
                 var fabricaUsuarios = new Gestor();
                 fabricaUsuarios.nuevoUsuario(name, email, phoneNumber, type, password);
-                ResetForm();
+                ResetFormRegisterUsers();
             }
         }
 
@@ -85,7 +79,7 @@ namespace CenfoEats2._0.UI
             }
         }
 
-        private void ResetForm()
+        private void ResetFormRegisterUsers()
         {
             txtEmail.Text = "";
             txtName.Text = "";
@@ -98,70 +92,84 @@ namespace CenfoEats2._0.UI
         // TabRegisterRestaurant
         private void btnRegisterRestaurant_Click(object sender, EventArgs e)
         {
-            foreach (var item in listBoxRestaurantProducts.Items)
+            if (listBoxRestaurantProducts.Items.Count == 0)
             {
-                MessageBox.Show(item.ToString());
-
+                MessageBox.Show("No se puede crear un restaurante sin platillos. Agrega al menos un platillo al menú.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            // Crear una lista para almacenar los platillos
-            //List<ProductsDB> listaDePlatillos = new List<ProductsDB>();
 
-            //// Iterar sobre los elementos seleccionados en el ComboBox
-            //foreach (var selectedItem in comboBoxPlates.Items)
-            //{
-            //    if (selectedItem is ProductsDB selectedProduct && comboBoxPlates.CheckedItems.Contains(selectedItem))
-            //    {
-            //        // Convertir el objeto ProductsDB a Platillo y agregarlo a la lista
-            //        Platillo platillo = new Platillo
-            //        {
-            //            nombre = selectedProduct.nombre,
-            //            precio = selectedProduct.precio,
-            //            descripcion = selectedProduct.descripcion
-            //        };
+            if (!ValidateTextBoxesRestaurant())
+            {
+                MessageBox.Show("Por favor, completa todos los campos antes de crear el restaurante.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            //        listaDePlatillos.Add(platillo);
-            //    }
-            //}
+            List<ProductsDB> productosSeleccionados = listBoxRestaurantProducts.Items.OfType<ProductsDB>().ToList();
+            // Crear el objeto de restaurante con la lista de productos seleccionados
+            Restaurant nuevoRestaurante = new Restaurant(
+                txtNameRestaurant.Text,
+                txtLocationRestaurant.Text,
+                txtPhoneNumberRestaurant.Text,
+                txtTypeFood.Text,
+                5,
+                productosSeleccionados);
 
-            //// Ahora, listaDePlatillos contiene los platillos seleccionados del ComboBox
-            //Restaurant miRestaurante = new Restaurant("Nombre del Restaurante", "Dirección del Restaurante", 123456, "Tipo de Comida", 5, listaDePlatillos);
-            //MessageBox.Show(miRestaurante.GetRestaurantData());
-            //MessageBox.Show(miRestaurante.GetMenuData());
-
-            //// Crear una lista para almacenar los platillos
-            //List<Platillo> listaDePlatillos = new List<Platillo>();
-
-            // Iterar sobre los elementos del ListBox y agregarlos a la lista de platillos
-            //foreach (var item in listBoxRestaurantProducts.Items)
-            //{
-            //    if (item is ProductsDB platillo)
-            //    {
-            //        // Agregar el platillo a la lista
-            //        listaDePlatillos.Add(platillo);
-            //    }
-            //}
-
-            //// Ahora, listaDePlatillos contiene los platillos del ListBox
-            //Restaurant miRestaurante = new Restaurant("Nombre del Restaurante", "Dirección del Restaurante", 123456, "Tipo de Comida", 5, listaDePlatillos);
-            //MessageBox.Show(miRestaurante.GetRestaurantData());
-            //MessageBox.Show(miRestaurante.GetMenuData());
+            //aqui hacer insert en la base de datos en la tabla de TBL_Restaurant mandar el nuevoRestaurante y hacer los inserts en tabla intermedia de TBL_Restaurant_Products 
+            ShowRichTextBoxForm("Información del restaurante", nuevoRestaurante.GetRestaurantData());
         }
 
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
             // Obtener el elemento seleccionado del ComboBox
-            string elementoSeleccionado = comboBoxPlates.Text;
+            ProductsDB elementoSeleccionado = (ProductsDB)comboBoxPlates.SelectedItem;
 
-            // Verificar si el elemento ya está presente en el ListBox
-            if (!listBoxRestaurantProducts.Items.Contains(elementoSeleccionado) && !string.IsNullOrEmpty(elementoSeleccionado))
+            // Verificar si el elemento ya está presente en el ListBox o si esta vacio
+            if (!listBoxRestaurantProducts.Items.Contains(elementoSeleccionado) && elementoSeleccionado != null)
             {
                 // Agregar el elemento al ListBox
                 listBoxRestaurantProducts.Items.Add(elementoSeleccionado);
             }
             else
             {
-                // Si el elemento ya está presente o es una cadena vacía, puedes mostrar un mensaje o realizar otra acción.
+                // Si el elemento ya está presente o es nulo, puedes mostrar un mensaje o realizar otra acción.
                 MessageBox.Show("El elemento ya está en la lista o es inválido.");
+            }
+        }
+        private bool ValidateTextBoxesRestaurant()
+        {
+            // Verificar que los TextBox no estén vacíos
+            return !string.IsNullOrWhiteSpace(txtNameRestaurant.Text) &&
+                   !string.IsNullOrWhiteSpace(txtLocationRestaurant.Text) &&
+                   !string.IsNullOrWhiteSpace(txtPhoneNumberRestaurant.Text) &&
+                   !string.IsNullOrWhiteSpace(txtTypeFood.Text);
+        }
+
+        private void ShowRichTextBoxForm(string title, string content)
+        {
+            using (Form messageForm = new Form())
+            {
+                // Configurar el formulario
+                messageForm.Text = title;
+                messageForm.Size = new System.Drawing.Size(400, 300);
+                messageForm.StartPosition = FormStartPosition.CenterParent; // Centra el msgBox
+
+                // Agregar un RichTextBox al formulario
+                RichTextBox richTextBox = new RichTextBox();
+                richTextBox.Dock = DockStyle.Fill;
+                richTextBox.Text = content;
+                richTextBox.ReadOnly = true; // Hacer el RichTextBox de solo lectura
+
+                // Agregar el RichTextBox al formulario
+                messageForm.Controls.Add(richTextBox);
+
+                // Agregar un botón para cerrar el formulario
+                System.Windows.Forms.Button closeButton = new System.Windows.Forms.Button();
+                closeButton.Text = "Cerrar";
+                closeButton.Dock = DockStyle.Bottom;
+                closeButton.Click += (sender, e) => messageForm.Close();
+                messageForm.Controls.Add(closeButton);
+
+                messageForm.ShowDialog();
             }
         }
 

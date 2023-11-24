@@ -60,6 +60,9 @@ namespace CenfoEats2._0.UI
             this.listBoxRestaurantProducts = new System.Windows.Forms.ListBox();
             this.btnAddProducts = new System.Windows.Forms.Button();
             this.comboBoxPlates = new System.Windows.Forms.ComboBox();
+            this.tBLPRODUCTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cenfoEats2DBProductNameIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cenfoEats2DBProductNameId = new CenfoEats2._0.CenfoEats2DBProductNameId();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTypeFood = new System.Windows.Forms.TextBox();
@@ -73,9 +76,6 @@ namespace CenfoEats2._0.UI
             this.RegisterOrder = new System.Windows.Forms.TabPage();
             this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
             this.cenfoEats2DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cenfoEats2DBProductNameId = new CenfoEats2._0.CenfoEats2DBProductNameId();
-            this.cenfoEats2DBProductNameIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tBLPRODUCTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tBL_PRODUCTSTableAdapter = new CenfoEats2._0.CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter();
             this.tabControl1.SuspendLayout();
             this.RegisterUser.SuspendLayout();
@@ -86,10 +86,10 @@ namespace CenfoEats2._0.UI
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSet)).BeginInit();
             this.RegisterRestaurant.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -393,6 +393,21 @@ namespace CenfoEats2._0.UI
             this.comboBoxPlates.Size = new System.Drawing.Size(288, 21);
             this.comboBoxPlates.TabIndex = 9;
             // 
+            // tBLPRODUCTSBindingSource
+            // 
+            this.tBLPRODUCTSBindingSource.DataMember = "TBL_PRODUCTS";
+            this.tBLPRODUCTSBindingSource.DataSource = this.cenfoEats2DBProductNameIdBindingSource;
+            // 
+            // cenfoEats2DBProductNameIdBindingSource
+            // 
+            this.cenfoEats2DBProductNameIdBindingSource.DataSource = this.cenfoEats2DBProductNameId;
+            this.cenfoEats2DBProductNameIdBindingSource.Position = 0;
+            // 
+            // cenfoEats2DBProductNameId
+            // 
+            this.cenfoEats2DBProductNameId.DataSetName = "CenfoEats2DBProductNameId";
+            this.cenfoEats2DBProductNameId.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -420,7 +435,6 @@ namespace CenfoEats2._0.UI
             this.txtTypeFood.Name = "txtTypeFood";
             this.txtTypeFood.Size = new System.Drawing.Size(288, 26);
             this.txtTypeFood.TabIndex = 6;
-            this.txtTypeFood.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -503,21 +517,6 @@ namespace CenfoEats2._0.UI
             this.cenfoEats2DBDataSetBindingSource.DataSource = this.cenfoEats2DBDataSet;
             this.cenfoEats2DBDataSetBindingSource.Position = 0;
             // 
-            // cenfoEats2DBProductNameId
-            // 
-            this.cenfoEats2DBProductNameId.DataSetName = "CenfoEats2DBProductNameId";
-            this.cenfoEats2DBProductNameId.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cenfoEats2DBProductNameIdBindingSource
-            // 
-            this.cenfoEats2DBProductNameIdBindingSource.DataSource = this.cenfoEats2DBProductNameId;
-            this.cenfoEats2DBProductNameIdBindingSource.Position = 0;
-            // 
-            // tBLPRODUCTSBindingSource
-            // 
-            this.tBLPRODUCTSBindingSource.DataMember = "TBL_PRODUCTS";
-            this.tBLPRODUCTSBindingSource.DataSource = this.cenfoEats2DBProductNameIdBindingSource;
-            // 
             // tBL_PRODUCTSTableAdapter
             // 
             this.tBL_PRODUCTSTableAdapter.ClearBeforeFill = true;
@@ -542,10 +541,10 @@ namespace CenfoEats2._0.UI
             this.RegisterRestaurant.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

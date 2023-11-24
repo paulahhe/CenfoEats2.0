@@ -12,11 +12,9 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
     {
         public string name { get; set; }
         public string address { get; set; }
-        public int phoneNumber { get; set; }
+        public string phoneNumber { get; set; }
         public string foodType { get; set; }
         public int restaurantRating { get; set; }
         public List<ProductsDB> menu { get; set; }
-
-        //iRestaurant clone();
     }
 }

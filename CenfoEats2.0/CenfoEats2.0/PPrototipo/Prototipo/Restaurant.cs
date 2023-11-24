@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using CenfoEats2._0.ObjetosDB;
 using CenfoEats2._0.PPrototipo.iPrototipo;
 using CenfoEats2._0.PPrototipo.Menu;
@@ -7,7 +8,7 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
 {
     public class Restaurant : iRestaurant
     {
-        public Restaurant(string name, string address, int phoneNumber, string foodType, int restaurantRating, List<ProductsDB> menu)
+        public Restaurant(string name, string address, string phoneNumber, string foodType, int restaurantRating, List<ProductsDB> menu)
         {
             this.name = name;
             this.address = address;
@@ -19,25 +20,30 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
 
         public string GetRestaurantData()
         {
-            string restaurantData = $"Nombre del restaurante: {name}\n";
-            restaurantData += $"Dirección: {address}\n";
-            restaurantData += $"Número de teléfono: {phoneNumber}\n";
-            restaurantData += $"Tipo de comida: {foodType}\n";
-            restaurantData += $"Rating: {restaurantRating}\n";
+            StringBuilder restaurantData = new StringBuilder();
 
-            return restaurantData;
-        }
+            restaurantData.AppendLine($"Restaurante Creado");
+            restaurantData.AppendLine($"Nombre del restaurante: {name}");
+            restaurantData.AppendLine($"Dirección: {address}");
+            restaurantData.AppendLine($"Número de teléfono: {phoneNumber}");
+            restaurantData.AppendLine($"Tipo de comida: {foodType}");
+            restaurantData.AppendLine($"Rating: {restaurantRating}");
 
-        public string GetMenuData()
-        {
-            string menuData = "< Menú del restaurante >\n";
-
-            foreach (var platillo in menu)
+            if (menu.Count > 0)
             {
-                menuData += $"Nombre: {platillo.nombre}, Precio: {platillo.precio}, Descripción: {platillo.descripcion}\n";
+                restaurantData.AppendLine("Platillos:");
+
+                foreach (var platillo in menu)
+                {
+                    restaurantData.AppendLine($"- {platillo.nombre}, Precio: {platillo.precio}, Descripción: {platillo.descripcion}");
+                }
+            }
+            else
+            {
+                restaurantData.AppendLine("No hay platillos disponibles en el menú.");
             }
 
-            return menuData;
+            return restaurantData.ToString();
         }
 
         public iRestaurant clone()
@@ -46,6 +52,5 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
         }
         //iRestaurant originalRestaurant = new Restaurant("Paula's", "Cartago", 123456, "Thai", 5, new List<Platillo>());
         //iRestaurant clonedRestaurant = originalRestaurant.clone();
-
     }
 }
