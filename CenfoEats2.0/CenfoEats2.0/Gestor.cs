@@ -49,12 +49,12 @@ namespace CenfoEats2._0
             IPedido objpedido = fabricaTipoPedido.crearPedido();
 
             // Se realiza acciones específicas del pedido
-            int idOrder = objpedido.idOrder;
-            int idClient = objpedido.idClient;
-            int idDriver = objpedido.idDriver;
-            int idRestaurant = objpedido.idRestaurant;
-            string status = objpedido.status;
-            DateTime date = objpedido.date;
+            //int idOrder = objpedido.idOrder;
+            //int idClient = objpedido.idClient;
+            //int idDriver = objpedido.idDriver;
+            //int idRestaurant = objpedido.idRestaurant;
+            //string status = objpedido.status;
+            //DateTime date = objpedido.date;
 
         }
     }
