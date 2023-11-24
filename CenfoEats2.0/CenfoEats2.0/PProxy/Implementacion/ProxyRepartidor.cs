@@ -22,44 +22,45 @@ namespace CenfoEats2._0.PProxy
 
 
 
-        //string IInfoPedido.ObtenerPedido(int idRepartidor, int idPedido)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public string ObtenerPedido(int idPedido, int idUsuario, id) //Usuario y pedido
-
-           
+        string IInfoPedido.ObtenerPedido(int idRepartidor, int idPedido)
         {
+            throw new NotImplementedException();
+        }
+
+        public string ValidarAccesoPedido(int idPedido, int idUsuario) //Usuario y pedi   
+        {
+            bool tieneAccseso = false;
+            setTipo("Ninguno");
+
+
             // Lógica para validar el acceso basado en el tipo de usuario
             if (usuario.tipo == "Repartidor")
+                setTipo("Repartidor");
             {
-                if (usuario.id == pedido.GetIdDriver())
-                {
-                    ubicacionEntrega = pedido.ubicacion;
-                    telefonoCliente = ObtenerInformacionCliente(pedido.GetIdClient()).telefono;
+                tieneAccseso = true;
 
-                    return "La ubicación del pedido es: " + ubicacionEntrega + " Y el número del cliente es: " + telefonoCliente;
-                }
-              
             }
             else if (usuario.tipo == "Cliente")
             {
-                if (usuario.id == pedido.GetIdCliente())
-                {
-                    nombreRepartidor = ObtenerInformacionRepartidor(pedido.GetIdClient()).telefono;
-                    telefonoRepartdor = ObtenerInformacionCliente(pedido.GetIdClient()).telefono;
-
-                    return "La ubicación del pedido es: " + ubicacionEntrega + " Y el número del cliente es: " + telefonoCliente;
-                }
-                {
+                setTipo("Cliente");
+                tieneAccseso = true;
 
 
             }
 
             return "Acceso no autorizado";
-          
-        } 
+
+        }
+
+        public static String getTipo()
+        {
+            return usuario.tipo;
+        }
+
+        private static void setTipo(string pTipo)
+        {
+            usuario.tipo = pTipo;
+        }
 
         public void cargarInformacionPedido()
         {
