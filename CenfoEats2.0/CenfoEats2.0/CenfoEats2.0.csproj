@@ -74,6 +74,12 @@
     </Compile>
     <Compile Include="Gestor.cs" />
     <Compile Include="ObjetosDB\ProductsDB.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="PDecorador\ComponenteConcreto\ProductoConcreto.cs" />
+    <Compile Include="PDecorador\Componente\Producto.cs" />
+    <Compile Include="PDecorador\DecoradorConcreto\ingredienteExtra.cs" />
+    <Compile Include="PDecorador\Decorador\IngredienteExtraDecorador.cs" />
+    <Compile Include="PDecorador\GestorDecorador.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
@@ -88,7 +94,10 @@
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
+    <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
     <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
+    <Compile Include="PProxy\Interface\IInfoPedido.cs" />
+    <Compile Include="PProxy\Logica\GestorProxy.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\ProductCrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
@@ -107,6 +116,8 @@
     <Compile Include="UI\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ObjetosDB\UsuarioDB.cs" />
+    <EmbeddedResource Include="obj\Debug\CenfoEats2._0.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\CenfoEats2._0.UI.HomePage.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,6 +130,7 @@
     <EmbeddedResource Include="UI\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\CenfoEats2.0.exe.config" />
     <None Include="CenfoEats2DBDataSet.xsc">
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </None>
@@ -141,6 +153,11 @@
     <None Include="CenfoEats2DBProductNameId.xss">
       <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
     </None>
+    <None Include="obj\Debug\CenfoEats2.0.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\CenfoEats2.0.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\CenfoEats2.0.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +183,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\CenfoEats2.0.exe" />
+    <Content Include="bin\Debug\CenfoEats2.0.pdb" />
+    <Content Include="obj\Debug\CenfoEats2.0.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CenfoEats2.0.exe" />
+    <Content Include="obj\Debug\CenfoEats2.0.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="NewFolder1\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
