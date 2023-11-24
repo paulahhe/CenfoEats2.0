@@ -99,6 +99,7 @@
     <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
     <Compile Include="PProxy\Interface\IInfoPedido.cs" />
     <Compile Include="PProxy\Logica\GestorProxy.cs" />
+    <Compile Include="PProxy\ADomicilioDao.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\ProductCrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />

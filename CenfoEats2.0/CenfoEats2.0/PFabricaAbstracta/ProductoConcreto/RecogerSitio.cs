@@ -12,6 +12,10 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 
         public RecogerSitio()
         {
+            public int GetPickUp()
+            {
+                return 0;
+            }
         }
 
     }
