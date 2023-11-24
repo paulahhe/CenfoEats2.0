@@ -11,7 +11,7 @@ namespace CenfoEats2._0.PDecorador
     {
         string ValidarAccesoPedido(int idPedido, int idUsuario);
 
-        string ObtenerInfoPedido(int idRepartidor, int idPedido); //REFERENCIA AL PEDIDO
+        string ObtenerInfoPedido(int idRepartidor, int idPedido); //REFERENCIA AL PEDIDOsdsdsds
 
     }
 }
