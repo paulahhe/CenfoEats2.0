@@ -20,7 +20,7 @@ namespace CenfoEats2._0.PProxy
         private Cliente cliente;
         private int idCliente;
         private int idRepartidor;
-        private String infoCliente
+        private String infoCliente;
 
 
         public Usuario ObtenerInformacionCliente(int idCliente)
@@ -66,13 +66,13 @@ namespace CenfoEats2._0.PProxy
             var usuarios = userCrud.RetrieveAll<UsuarioDB>();
 
             // Buscar el usuario con el idRepartidor proporcionado
-            var repartidor = usuarios.FirstOrDefault(u => u.id == idrepartidor);
+            var repartidor = usuarios.FirstOrDefault(u => u.id == idRepartidor);
 
             // Verificar si se encontró el repartidor
             if (repartidor != null)
             {
                 // Crear una instancia de Usuario a partir de la información obtenida
-                var repartidorOrden = new repartidor
+                var repartidorOrden = new Repartidor
                 {
                     nombre = repartidor.nombre,
                     correo_electronico = repartidor.correo_electronico,

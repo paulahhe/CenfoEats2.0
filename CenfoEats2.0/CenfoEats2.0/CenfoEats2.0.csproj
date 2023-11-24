@@ -76,7 +76,6 @@
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
     <Compile Include="PPrototipo\iPrototipo\iPlatillo.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
-    <Compile Include="PProxy\Implementacion\ProxyCliente.cs" />
     <Compile Include="PProxy\Logica\GestorProxy.cs" />
     <Compile Include="PProxy\Interface\IInfoPedido.cs" />
     <Compile Include="PFabricaAbstracta\FabricaAbstracta\IFabTipoPedido.cs" />
