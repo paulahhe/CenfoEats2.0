@@ -10,7 +10,6 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
 {
     public abstract class iRestaurant
     {
-       //IRestaurant
         public string name { get; set; }
         public string address { get; set; }
         public string phoneNumber { get; set; }
