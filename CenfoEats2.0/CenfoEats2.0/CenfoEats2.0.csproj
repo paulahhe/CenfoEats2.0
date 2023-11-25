@@ -76,6 +76,7 @@
     <Compile Include="PEstado\Abstracto\IEstadoPedido.cs" />
     <Compile Include="PEstado\Concreto\EstadoEnCamino.cs" />
     <Compile Include="PEstado\Concreto\EstadoEntregado.cs" />
+    <Compile Include="PEstado\Concreto\EstadoListo.cs" />
     <Compile Include="PEstado\Concreto\EstadoPendiente.cs" />
     <Compile Include="PEstado\Contexto\ManejadorEstado.cs" />
     <Compile Include="ObjetosDB\ProductsDB.cs" />

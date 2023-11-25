@@ -13,7 +13,6 @@ namespace CenfoEats2._0.PEstado.Abstracto
     public interface IEstadoPedido
     {
         String obtenerEstado();
-        void verificarEstadoD(ADomicilio pedido);
-        void verificarEstadoR(RecogerSitio pedido);
+    
     }
 }

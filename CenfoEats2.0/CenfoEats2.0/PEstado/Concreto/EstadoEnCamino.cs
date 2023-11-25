@@ -14,15 +14,5 @@ namespace CenfoEats2._0.PEstado.Concreto
         {
             return "En Camino";
         }
-
-        public void verificarEstadoD(ADomicilio pedido)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void verificarEstadoR(RecogerSitio pedido)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

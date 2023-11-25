@@ -1,4 +1,5 @@
 ﻿using CenfoEats2._0.PEstado.Abstracto;
+using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using System;
 using System.Collections.Generic;
@@ -10,23 +11,14 @@ namespace CenfoEats2._0.PEstado.Contexto
 {
     public abstract class ManejadorEstado
     {
-        protected IEstadoPedido estadoPedido; 
-        public ManejadorEstado() {
-            estadoPedido = new Concreto.EstadoPendiente();
+        protected IEstadoPedido estadoPedido;
+        public ManejadorEstado(IEstadoPedido estadoInicial)
+        {
+            estadoPedido = estadoInicial;
         }
-
         public void setEstadoPedido (IEstadoPedido estadoPedido)
         { 
             this.estadoPedido = estadoPedido;
-        }
-        public void verificarEstadoDomicilio(ADomicilio status)
-        {
-            estadoPedido.verificarEstadoD(status);
-        }
-
-        public void verificarEstadoSitio (RecogerSitio status)
-        {
-            estadoPedido.verificarEstadoR(status);
         }
 
         public String getInfo()
