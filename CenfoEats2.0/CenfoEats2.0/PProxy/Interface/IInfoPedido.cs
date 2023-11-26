@@ -9,9 +9,9 @@ namespace CenfoEats2._0.PDecorador
 {
     public interface IInfoPedido
     {
-        string ValidarAccesoPedido(int idPedido, int idUsuario);
+         string ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor);
 
-        string ObtenerInfoPedido(int idRepartidor, int idPedido);
+          string ObtenerInfoPedido(int idPedido, int idUsuario, int idRepartidor);
 
     }
 }

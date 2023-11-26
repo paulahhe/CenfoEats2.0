@@ -14,6 +14,8 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 
         public string address { get; set; }
 
+   
+
 
         public ADomicilio()
         {
@@ -35,6 +37,11 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
         public string GetAddress()
         {
             return address;
+        }
+
+        public int GetPickUp()
+        {
+            return 1;
         }
 
     }

@@ -11,18 +11,15 @@ namespace CenfoEats2._0.PProxy.Implementacion
     public class InfoPedido : IInfoPedido
     {
 
-        public string ValidarAccesoPedido(int idPedido, int idUsuario)
+        string IInfoPedido.ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor)
         {
-            throw new NotImplementedException();
+            return "X";
         }
 
-        public string ObtenerInfoPedido(int idRepartidor, int idPedido) //REFERENCIA AL PEDIDO
+    string IInfoPedido.ObtenerInfoPedido(int idPedido, int idUsuario, int idRepartidor)
         {
-            // Lógica para obtener el pedido desde la base de datos
-            // Puedes utilizar Entity Framework u otro mecanismo de acceso a datos
-            // y devolver un objeto Pedido
-
-          return "Ale";
+            return "Información pedido: ";
         }
-    }
+
+    
 }
