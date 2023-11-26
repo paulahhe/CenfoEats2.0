@@ -22,45 +22,45 @@ namespace CenfoEats2._0.PProxy
 
 
 
-        string IInfoPedido.ObtenerPedido(int idRepartidor, int idPedido)
+        string IInfoPedido.ObtenerInfoPedido(int idRepartidor, int idPedido)
         {
             throw new NotImplementedException();
         }
 
         public string ValidarAccesoPedido(int idPedido, int idUsuario) //Usuario y pedi   
         {
-            bool tieneAccseso = false;
-            setTipo("Ninguno");
+            //bool tieneAccseso = false;
+            //setTipo("Ninguno");
 
 
-            // Lógica para validar el acceso basado en el tipo de usuario
-            if (usuario.tipo == "Repartidor")
-                setTipo("Repartidor");
-            {
-                tieneAccseso = true;
+            //// Lógica para validar el acceso basado en el tipo de usuario
+            //if (usuario.tipo == "Repartidor")
+            //    setTipo("Repartidor");
+            //{
+            //    tieneAccseso = true;
 
-            }
-            else if (usuario.tipo == "Cliente")
-            {
-                setTipo("Cliente");
-                tieneAccseso = true;
+            //}
+            //else if (usuario.tipo == "Cliente")
+            //{
+            //    setTipo("Cliente");
+            //    tieneAccseso = true;
 
 
-            }
+            //}
 
             return "Acceso no autorizado";
 
         }
 
-        public static String getTipo()
-        {
-            return usuario.tipo;
-        }
+        //public static String getTipo()
+        //{
+        //    return usuario.tipo;
+        //}
 
-        private static void setTipo(string pTipo)
-        {
-            usuario.tipo = pTipo;
-        }
+        //private static void setTipo(string pTipo)
+        //{
+        //    usuario.tipo = pTipo;
+        //}
 
         public void cargarInformacionPedido()
         {

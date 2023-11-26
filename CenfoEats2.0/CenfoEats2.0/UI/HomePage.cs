@@ -106,16 +106,16 @@ namespace CenfoEats2._0.UI
 
             List<ProductsDB> productosSeleccionados = listBoxRestaurantProducts.Items.OfType<ProductsDB>().ToList();
             // Crear el objeto de restaurante con la lista de productos seleccionados
-            Restaurant nuevoRestaurante = new Restaurant(
-                txtNameRestaurant.Text,
-                txtLocationRestaurant.Text,
-                txtPhoneNumberRestaurant.Text,
-                txtTypeFood.Text,
-                5,
-                productosSeleccionados);
+            //Restaurant nuevoRestaurante = new Restaurant(
+            //    txtNameRestaurant.Text,
+            //    txtLocationRestaurant.Text,
+            //    txtPhoneNumberRestaurant.Text,
+            //    txtTypeFood.Text,
+            //    5,
+            //    productosSeleccionados);
 
             //aqui hacer insert en la base de datos en la tabla de TBL_Restaurant mandar el nuevoRestaurante y hacer los inserts en tabla intermedia de TBL_Restaurant_Products 
-            ShowRichTextBoxForm("Información del restaurante", nuevoRestaurante.GetRestaurantData());
+            //ShowRichTextBoxForm("Información del restaurante", nuevoRestaurante.GetRestaurantData());
         }
 
         private void btnAddProducts_Click(object sender, EventArgs e)
@@ -192,5 +192,125 @@ namespace CenfoEats2._0.UI
                 }
             }
         }
+
+
+
+        // TabRealizarPedido
+        private void btnRealizarPedido_Click_1(object sender, EventArgs e)
+        {
+            // Validar campos generales
+            if (!ValidatePedidoFields())
+            {
+                MessageBox.Show("Por favor, completa todos los campos antes de realizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Obtener valores seleccionados
+            string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
+            string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
+            string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
+            string idCliente = textBoxClientePedido.Text;
+
+            // Validar campos específicos para entrega a domicilio
+            if (radioButtonDomicilio.Checked)
+            {
+                if (!ValidateEntregaDomicilio())
+                {
+                    MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Lógica para seleccionar un repartidor aleatorio
+                string repartidor = SeleccionarRepartidorAleatorio();
+                // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
+            }
+
+            // Resto de la lógica para procesar el pedido...
+        }
+
+        private bool ValidatePedidoFields()
+        {
+            // Validar campos generales
+            return comboBoxRestaurantePedido.SelectedItem != null &&
+                   comboBoxPlatilloPedido.SelectedItem != null &&
+                   textBoxClientePedido.Text.Trim() != "" &&
+                   (radioButtonRecoger.Checked || radioButtonDomicilio.Checked);
+        }
+
+        private bool ValidateEntregaDomicilio()
+        {
+            // Validar campos específicos para entrega a domicilio
+            if (string.IsNullOrWhiteSpace(textBoxUbicacionPedido.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private string SeleccionarRepartidorAleatorio()
+        {
+            // Lógica para seleccionar un repartidor aleatorio
+            // Puedes obtener la lista de repartidores de la base de datos y seleccionar uno al azar
+            // Aquí hay un ejemplo simple con una lista de nombres
+            List<string> repartidores = new List<string> { "Repartidor1", "Repartidor2", "Repartidor3" };
+            Random random = new Random();
+            int index = random.Next(repartidores.Count);
+            return repartidores[index];
+        }
+
+
+        private void radioButtonRecoger_CheckedChanged_1(object sender, EventArgs e)
+        {
+            // Ocultar los controles de entrega a domicilio
+            labelUbicacionPedido.Visible = false;
+            textBoxUbicacionPedido.Visible = false;
+        }
+
+        private void radioButtonDomicilio_CheckedChanged_1(object sender, EventArgs e)
+        {
+            // Mostrar los controles de entrega a domicilio
+            labelUbicacionPedido.Visible = true;
+            textBoxUbicacionPedido.Visible = true;
+        }
+
+
+
+
+
+
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxRestaurantePedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

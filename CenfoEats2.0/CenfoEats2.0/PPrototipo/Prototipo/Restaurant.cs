@@ -8,14 +8,14 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
 {
     public class Restaurant : iRestaurant
     {
-        public Restaurant(string name, string address, string phoneNumber, string foodType, int restaurantRating, List<ProductsDB> menu)
+        public Restaurant(string name, string address, string phoneNumber, string foodType, int restaurantRating/*, List<ProductsDB> menu*/)
         {
             this.name = name;
             this.address = address;
             this.phoneNumber = phoneNumber;
             this.foodType = foodType;
             this.restaurantRating = restaurantRating;
-            this.menu = menu;
+            //this.menu = menu;
         }
 
         public string GetRestaurantData()
@@ -46,10 +46,15 @@ namespace CenfoEats2._0.PPrototipo.Prototipo
             return restaurantData.ToString();
         }
 
-        public iRestaurant clone()
+        public override iRestaurant clone()
         {
-            return new Restaurant(name, address, phoneNumber, foodType, restaurantRating, menu);
+            return new Restaurant(name, address, phoneNumber, foodType, restaurantRating);
         }
+
+
+
+
+
         //iRestaurant originalRestaurant = new Restaurant("Paula's", "Cartago", 123456, "Thai", 5, new List<Platillo>());
         //iRestaurant clonedRestaurant = originalRestaurant.clone();
     }

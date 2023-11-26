@@ -34,7 +34,7 @@ namespace CenfoEats2._0.PDecorador.ComponeneteConcreto
 
         public override double getPrecio()
         {
-            return platillo.precio;
+            return (double)platillo.precio;
         }
 
         public override string getNombreRestaurante()

@@ -14,14 +14,14 @@ namespace CenfoEats2._0.PPrototipo.Menu
         public Platillo(string nombre, double precio, string descripcion)
         {
             this.nombre = nombre;
-            this.precio = precio;
+            this.precio = (decimal)precio;
             this.descripcion = descripcion;
         }
 
         override
         public iPlatillo cloneP()
         {
-            return new Platillo(nombre, precio, descripcion);
+            return new Platillo(nombre, (double)precio, descripcion);
         }
     }
 }
