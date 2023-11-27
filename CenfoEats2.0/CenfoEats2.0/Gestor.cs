@@ -5,6 +5,7 @@ using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Creador;
 using CenfoEats2._0.PMetodoFabrica.CreadorConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PProxy;
 using CenfoEats2._0.PSingleton.CRUD;
 using CenfoEats2._0.PSingleton.DAOs;
 using CenfoEats2._0.PSingleton.Mapper;
@@ -17,7 +18,9 @@ namespace CenfoEats2._0
     public class Gestor
     {
         private static I_Creador_Usuarios Ufabrica;
-        private IFabTipoPedido fabricaTipoPedido; 
+        private IFabTipoPedido fabricaTipoPedido;
+        private GestorProxy gestorProxy;
+
 
         public Gestor()
         {
@@ -44,8 +47,15 @@ namespace CenfoEats2._0
 
 
 
-        //REALIZAR PEDIDO
+        // PROXY
 
+        public string ObtenerInfoProxy(int idPedido)
+        {
+            return gestorProxy.ObtenerInfoPedido(idPedido);
+        }
+
+
+        //REALIZAR PEDIDO
 
         public int SeleccionarIdRepartidorAleatorio()
         {
@@ -80,19 +90,20 @@ namespace CenfoEats2._0
 
             // Configura el pedido con la información específica según el tipo
             pedido.idClient = idCliente;
-            pedido.pickUp = 1;
-            pedido.idRestaurant = 
+            pedido.idRestaurant = 1;
+            pedido.date = DateTime.Now;
+            pedido.status = "Pendiente";
+
 
             if (tipoPedido == "Domicilio")
             {
-                var pedidoDomicilio = (ADomicilio)pedido;
-                pedidoDomicilio.idDriver = idRepartidor;
-                pedidoDomicilio.address = direccionDomicilio;
-
+                pedido.idDriver = idRepartidor;
+                pedido.address = direccionDomicilio;
+                pedido.pickUp = 1;
             }
             else if (tipoPedido == "RecogerSitio")
             {
-                // Aquí puedes realizar acciones específicas para pedidos para recoger en sitio
+                pedido.pickUp = 0;
             }
 
             // Guarda el pedido en la base de datos u realiza otras acciones según tu lógica

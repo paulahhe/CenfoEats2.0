@@ -331,6 +331,7 @@ namespace CenfoEats2._0.UI
             this.textBoxClientePedido.Name = "textBoxClientePedido";
             this.textBoxClientePedido.Size = new System.Drawing.Size(288, 26);
             this.textBoxClientePedido.TabIndex = 17;
+            this.textBoxClientePedido.TextChanged += new System.EventHandler(this.textBoxClientePedido_TextChanged);
             // 
             // btnRealizarPedido
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
-    public interface IPedido
+    public interface IPedido :
     {
         int GetIdOrder();
         int GetIdClient();

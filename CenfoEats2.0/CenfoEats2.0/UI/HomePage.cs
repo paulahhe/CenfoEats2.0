@@ -309,6 +309,9 @@ namespace CenfoEats2._0.UI
 
         }
 
+        private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

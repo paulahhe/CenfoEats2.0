@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PMetodoFabrica.Producto;
 
 namespace CenfoEats2._0.PProxy
 {
@@ -21,65 +22,46 @@ namespace CenfoEats2._0.PProxy
 
         private InfoPedido _InfoPedido = new InfoPedido();
         private bool _LoginExitoso = false;
-        private int _InfoPrivada = 5;
 
-        private List<ADomicilio> listaPedidos = new List<ADomicilio>();
-        ADomicilioDao domicilioDao = new ADomicilioDao();
 
-        ADomicilio obtenerPedido(int id) { //PROBABLEMENTE VA EN GESTOR
-            listaPedidos = domicilioDao.listarPedidosDomicilio();
-
-            foreach (ADomicilio objPedido in listaPedidos)
-            {
-                if (objPedido.GetIdOrder() == id)
-                {
-                    return objPedido;
-                }
-            }
-            return null;
-          }
-
-        bool validacionID(int idPedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
+        bool validacionID(ADomicilio pedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
         {
             bool tieneAcceso = false;
 
-            ADomicilio pedido = obtenerPedido(idPedido);
 
-            if (pedido.GetPickUp() == 1)
+            if (pedido.GetIdClient() == idCliente && pedido.GetIdDriver() == idRepartidor)
             {
-                if (pedido.GetIdClient() == idCliente && pedido.GetIdDriver() == idRepartidor)
-                {
-                    tieneAcceso = true;
-                }
+                tieneAcceso = true;
             }
+
 
             return tieneAcceso;
         }
         public string ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor)
         {
-            _LoginExitoso = validacionID( idPedido,  idCliente,  idRepartidor);
+            _LoginExitoso = validacionID(idPedido, idCliente, idRepartidor);
 
-            if(!_LoginExitoso)
+            if (!_LoginExitoso)
             {
                 return "No tiene acceso a la información del pedido";
             }
-            return "Credenciales aceptadas para la información del pedido";
+            return ObtenerInfoPedido();
         }
-        public string ObtenerInfoPedido(int idPedido, int idUsuario, int idRepartidor)
+
+
+        public string ObtenerInfoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
-            if (_LoginExitoso)
-            {
-                string mensajeAceptado = "Ingreso aceptado";
-            } else
-            {
-                return "Credenciales no aceptadas";
-            }
-            return null;
-            //AQUI SE TIENE QUE PONER LA INFO DEL PEDIDO
+            string mensaje = "Información del pedido: <br>" +
+            "Restaurante: " + pedido.idRestaurant + " colones. <br>" +
+            "Dirección de Entrega: " + pedido.address + ".<br>" +
+            "Número de telefono del cliente: " + cliente.telefono + ". <br>" +
+            "Nombre del repartidor: " + repartidor.nombre + ". <br>" +
+            "Número de telefono del repartidor: " + repartidor.telefono + ".";
+
+            return mensaje;
+
         }
-
-       
-
+    }
 
 
 
@@ -129,5 +111,4 @@ namespace CenfoEats2._0.PProxy
         //}
 
 
-    }
-}
+ }

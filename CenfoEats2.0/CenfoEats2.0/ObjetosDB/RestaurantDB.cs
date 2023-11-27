@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace CenfoEats2._0.ObjetosDB
 {
-    public class OrderDB : BaseEntity
+    public class RestaurantDB : BaseEntity
     {
 
+        //public int idOrder { get; set; }
         public int pickUp { get; set; } //1 -> Pickup 0-> Recoger
         public int idClient { get; set; }
         public int idRestaurant { get; set; }
@@ -14,11 +20,6 @@ namespace CenfoEats2._0.ObjetosDB
 
         public string address { get; set; }
 
-
-        //public override string ToString()
-        //{
-        //    return nombre;
-        //}
 
     }
 }

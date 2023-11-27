@@ -6,11 +6,11 @@ using CenfoEats2._0.PSingleton.DAOs;
 
 namespace CenfoEats2._0.PSingleton.Mapper
 {
-    public class OrderMapper : ISqlStatements, IObjectMapper
+    public class RestaurantMapper : ISqlStatements, IObjectMapper
     {
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var pedido = new OrderDB
+            var pedido = new OrderDB()
             {
                 id = (int)row["ID_ORDER"],
                 pickUp = (int)row["PICK_UP"],
@@ -38,18 +38,7 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-            var pedido = (OrderDB)entity;
-            var sqlOperation = new SqlOperation { ProcedureName = "CRE_ORDER" };
-
-
-            sqlOperation.AddIntParam("ID_USER", pedido.idClient);
-            sqlOperation.AddIntParam("ID_RESTAURANT", pedido.idRestaurant);
-            sqlOperation.AddVarcharParam("STATUS", pedido.status);
-            sqlOperation.AddDateParam("ORDER_DATE", pedido.date);
-            sqlOperation.AddIntParam("PICK_UP", pedido.pickUp);
-            sqlOperation.AddVarcharParam("ADDRESS", pedido.address);
-
-            return sqlOperation;
+            throw new NotImplementedException();
         }
 
         public SqlOperation GetRetriveStatement(BaseEntity entity)
@@ -59,7 +48,7 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetRetriveAllStatement()
         {
-            var sqlOperation = new SqlOperation ();
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_PRODUCTS_PR" };
 
             return sqlOperation;
         }
