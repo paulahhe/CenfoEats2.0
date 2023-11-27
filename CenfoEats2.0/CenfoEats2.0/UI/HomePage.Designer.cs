@@ -557,7 +557,7 @@ namespace CenfoEats2._0.UI
             // 
             // textBoxInfoPedido
             // 
-            this.textBoxInfoPedido.Location = new System.Drawing.Point(27, 348);
+            this.textBoxInfoPedido.Location = new System.Drawing.Point(20, 348);
             this.textBoxInfoPedido.Multiline = true;
             this.textBoxInfoPedido.Name = "textBoxInfoPedido";
             this.textBoxInfoPedido.Size = new System.Drawing.Size(671, 185);
@@ -591,9 +591,9 @@ namespace CenfoEats2._0.UI
             // 
             this.btnRealizarPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRealizarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRealizarPedido.Location = new System.Drawing.Point(219, 262);
+            this.btnRealizarPedido.Location = new System.Drawing.Point(278, 289);
             this.btnRealizarPedido.Name = "btnRealizarPedido";
-            this.btnRealizarPedido.Size = new System.Drawing.Size(288, 60);
+            this.btnRealizarPedido.Size = new System.Drawing.Size(169, 33);
             this.btnRealizarPedido.TabIndex = 18;
             this.btnRealizarPedido.Text = "Realizar Pedido";
             this.btnRealizarPedido.UseVisualStyleBackColor = true;
@@ -718,7 +718,7 @@ namespace CenfoEats2._0.UI
             // 
             this.labelUbicacionPedido.AutoSize = true;
             this.labelUbicacionPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.labelUbicacionPedido.Location = new System.Drawing.Point(404, 132);
+            this.labelUbicacionPedido.Location = new System.Drawing.Point(404, 120);
             this.labelUbicacionPedido.Name = "labelUbicacionPedido";
             this.labelUbicacionPedido.Size = new System.Drawing.Size(198, 25);
             this.labelUbicacionPedido.TabIndex = 3;
@@ -728,7 +728,7 @@ namespace CenfoEats2._0.UI
             // textBoxUbicacionPedido
             // 
             this.textBoxUbicacionPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxUbicacionPedido.Location = new System.Drawing.Point(403, 160);
+            this.textBoxUbicacionPedido.Location = new System.Drawing.Point(403, 148);
             this.textBoxUbicacionPedido.Name = "textBoxUbicacionPedido";
             this.textBoxUbicacionPedido.Size = new System.Drawing.Size(288, 26);
             this.textBoxUbicacionPedido.TabIndex = 2;

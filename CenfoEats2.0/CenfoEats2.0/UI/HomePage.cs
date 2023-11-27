@@ -11,6 +11,7 @@ namespace CenfoEats2._0.UI
     public partial class HomePage : Form
     {
         List<ProductsDB> productsDBs;
+        Gestor gestor = new Gestor();
         public HomePage()
         {
             InitializeComponent();
@@ -221,11 +222,12 @@ namespace CenfoEats2._0.UI
                 }
 
                 // Lógica para seleccionar un repartidor aleatorio
-                string repartidor = SeleccionarRepartidorAleatorio();
+                int repartidor = SeleccionarRepartidorAleatorio();
+                string address = textBoxUbicacionPedido.Text;
                 // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
             }
 
-            // Resto de la lógica para procesar el pedido...
+            gestor.CrearPedido()
         }
 
         private bool ValidatePedidoFields()
@@ -247,15 +249,9 @@ namespace CenfoEats2._0.UI
             return true;
         }
 
-        private string SeleccionarRepartidorAleatorio()
+        private int SeleccionarRepartidorAleatorio()
         {
-            // Lógica para seleccionar un repartidor aleatorio
-            // Puedes obtener la lista de repartidores de la base de datos y seleccionar uno al azar
-            // Aquí hay un ejemplo simple con una lista de nombres
-            List<string> repartidores = new List<string> { "Repartidor1", "Repartidor2", "Repartidor3" };
-            Random random = new Random();
-            int index = random.Next(repartidores.Count);
-            return repartidores[index];
+           return gestor.SeleccionarIdRepartidorAleatorio();
         }
 
 

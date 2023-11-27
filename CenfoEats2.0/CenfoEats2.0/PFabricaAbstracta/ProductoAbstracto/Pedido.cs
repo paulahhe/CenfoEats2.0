@@ -17,6 +17,17 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         public DateTime date { get; set; }
 
 
+        public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date)
+        {
+            this.idOrder = idOrder;
+            this.pickUp = pickUp;
+            this.idClient = idClient;
+            this.idRestaurant = idRestaurant;
+            this.status = status;
+            this.date = date;
+        }
+
+
         public Pedido()
         {
         }
