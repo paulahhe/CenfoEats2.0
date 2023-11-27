@@ -80,12 +80,15 @@ namespace CenfoEats2._0
 
             // Configura el pedido con la información específica según el tipo
             pedido.idClient = idCliente;
+            pedido.pickUp = 1;
+            pedido.idRestaurant = 
 
             if (tipoPedido == "Domicilio")
             {
-                var pedidoDomicilio = (ADomicilio)pedido; // Asegúrate de que el pedido sea del tipo correcto
+                var pedidoDomicilio = (ADomicilio)pedido;
                 pedidoDomicilio.idDriver = idRepartidor;
                 pedidoDomicilio.address = direccionDomicilio;
+
             }
             else if (tipoPedido == "RecogerSitio")
             {

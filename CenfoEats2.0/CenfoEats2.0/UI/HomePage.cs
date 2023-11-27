@@ -212,6 +212,8 @@ namespace CenfoEats2._0.UI
             string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
             string idCliente = textBoxClientePedido.Text;
 
+            gestor.ObtenerIdRestaurante();
+
             // Validar campos específicos para entrega a domicilio
             if (radioButtonDomicilio.Checked)
             {

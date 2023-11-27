@@ -73,6 +73,7 @@
       <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="ObjetosDB\OrderDB.cs" />
     <Compile Include="ObjetosDB\ProductsDB.cs" />
     <Compile Include="PDecorador\ComponenteConcreto\ProductoConcreto.cs" />
     <Compile Include="PDecorador\Componente\Producto.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="PSingleton\DAOs\SqlOperation.cs" />
     <Compile Include="PSingleton\Mapper\IObjectMapper.cs" />
     <Compile Include="PSingleton\Mapper\ISqlStatements.cs" />
+    <Compile Include="PSingleton\Mapper\OrderMapper.cs" />
     <Compile Include="PSingleton\Mapper\ProductMapper.cs" />
     <Compile Include="PSingleton\Mapper\UserMapper.cs" />
     <Compile Include="UI\HomePage.cs">

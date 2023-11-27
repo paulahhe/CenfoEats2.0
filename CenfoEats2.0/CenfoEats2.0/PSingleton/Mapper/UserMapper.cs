@@ -74,6 +74,8 @@ namespace CenfoEats2._0.PSingleton.Mapper
             return sqlOperation;
         }
 
+
+
         public SqlOperation GetRetrieveByIdStatement(BaseEntity entity)
         {
             throw new NotImplementedException();
