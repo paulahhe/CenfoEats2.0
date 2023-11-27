@@ -15,12 +15,7 @@ namespace CenfoEats2._0.PProxy
 {
     public class ProxyRepartidor : IInfoPedido
     {
-        private String ubicacionEntrega; //Cliente
-        private String telefonoCliente; //Cliente
-        private String nombreRepartidor; //Repartidor
-        private String telefonoRepartdor; //Repartidor
 
-        private InfoPedido _InfoPedido = new InfoPedido();
         private bool _LoginExitoso = false;
 
 
@@ -37,15 +32,15 @@ namespace CenfoEats2._0.PProxy
 
             return tieneAcceso;
         }
-        public string ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor)
+        public string ValidarAccesoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
-            _LoginExitoso = validacionID(idPedido, idCliente, idRepartidor);
+            _LoginExitoso = validacionID(pedido, cliente.id, repartidor.id);
 
             if (!_LoginExitoso)
             {
                 return "No tiene acceso a la información del pedido";
             }
-            return ObtenerInfoPedido();
+            return ObtenerInfoPedido(pedido, cliente, repartidor);
         }
 
 
@@ -62,53 +57,6 @@ namespace CenfoEats2._0.PProxy
 
         }
     }
-
-
-
-
-
-
-
-
-        //public string ValidarAccesoPedido(int idPedido, int idUsuario) //Usuario y pedi   
-        //{
-        //    bool tieneAccseso = false;
-        //    setTipo("Ninguno");
-
-
-        //    // Lógica para validar el acceso basado en el tipo de usuario
-        //    if (usuario.tipo == "Repartidor")
-        //        setTipo("Repartidor");
-        //    {
-        //        tieneAccseso = true;
-
-        //    }
-        //    else if (usuario.tipo == "Cliente")
-        //    {
-        //        setTipo("Cliente");
-        //        tieneAccseso = true;
-
-
-        //    }
-
-        //    return "Acceso no autorizado";
-
-        //}
-
-        //public static String getTipo()
-        //{
-        //    return usuario.tipo;
-        //}
-
-        //private static void setTipo(string pTipo)
-        //{
-        //    usuario.tipo = pTipo;
-        //}
-
-        //public void cargarInformacionPedido()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
 
  }

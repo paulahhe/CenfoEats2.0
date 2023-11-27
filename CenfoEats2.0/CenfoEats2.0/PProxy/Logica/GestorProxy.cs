@@ -42,7 +42,7 @@ namespace CenfoEats2._0.PProxy
             return null;
         }
 
-     public void ObtenerInformacionTotal(int idPedido)
+     public string InformacionTotal(int idPedido)
         {
             pedido = ObtenerPedido(idPedido);
 
@@ -50,7 +50,7 @@ namespace CenfoEats2._0.PProxy
             cliente = ObtenerInformacionCliente(pedido.idClient);
             repartidor = ObtenerInformacionRepartidor(pedido.idDriver);
 
-            proxy.ObtenerInfoPedido(pedido, cliente, repartidor);
+          return proxy.ValidarAccesoPedido(pedido, cliente, repartidor);
         }
 
         public Usuario ObtenerInformacionCliente(int idCliente)
