@@ -10,14 +10,18 @@ namespace CenfoEats2._0.PSingleton.Mapper
     {
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var pedido = new Pedido
+            var pedido = new OrderDB()
             {
-                idOrder = (int)row["ID_PRODUCTS"],
-                PickUp = (string)row["NAME"],
-                idClient = (decimal)row["PRICE"],
-                descripcion = (string)row["DESCRIPTION"]
+                id = (int)row["ID_ORDER"],
+                pickUp = (int)row["PICK_UP"],
+                idClient = (int)row["ID_USER"],
+                idRestaurant = (int)row["ID_RESTAURANT"],
+                status = (string)row["STATUS"],
+                date = (DateTime)row["ORDER_DATE"],
+                idDriver = (int)row["ID_DRIVER"],
+                address = (string)row["ADDRESS"]
             };
-            return platillo;
+            return pedido;
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
