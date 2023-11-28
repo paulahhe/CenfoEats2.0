@@ -1,67 +1,86 @@
-﻿using System.Collections.Generic;
-using System;
-using CenfoEats2._0.PSingleton.Mapper;
-using CenfoEats2._0.PSingleton.DAOs;
-using CenfoEats2._0.PMetodoFabrica.Producto;
-using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+﻿using System;
+using System.Collections.Generic;
 using CenfoEats2._0.ObjetosDB;
+using CenfoEats2._0.PSingleton.DAOs;
+using CenfoEats2._0.PSingleton.Mapper;
 
 namespace CenfoEats2._0.PSingleton.CRUD
 {
     public class OrderCrudFactory : CrudFactory
     {
-        OrderMapper _mapper;
+        private OrderMapper _mapper;
 
         public OrderCrudFactory()
         {
             _mapper = new OrderMapper();
             dao = SqlDAO.GetInstance();
         }
+
         public override void Create(BaseEntity dto)
         {
-            throw new NotImplementedException();
+
+                var order = (OrderDB)dto;
+                var operation = _mapper.GetCreateStatement(order);
+
+                dao.ExecuteProcedure(operation);
+
+ 
         }
 
         public override void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Implementa la lógica para eliminar un pedido por ID
+                // Puedes utilizar el método GetDeleteStatement del mapper y ejecutar la operación con dao
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar el pedido: {ex.Message}");
+            }
         }
 
         public override List<T> RetrieveAll<T>()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<OrderDB> RetrieveAllOrders<T>()
-        {
-            var lstOrders = new List<OrderDB>();
-
-            //Buscamos el statement para hacer un retrieve all
-            var sqlOperation = _mapper.GetRetriveAllStatement();
-
-            //Ejecutamos el retrieve all
-            var lstResults = dao.ExecuteQueryProcedure(sqlOperation);
-
-            if (lstResults.Count > 0)
+            try
             {
-                var objsUsersOperation = _mapper.BuildObjects(lstResults);
-
-                foreach (var op in objsUsersOperation)
-                {
-                    lstUsers.Add((ProductsDB)Convert.ChangeType(op, typeof(ProductsDB)));
-                }
+                // Implementa la lógica para recuperar todos los pedidos
+                // Puedes utilizar el método GetRetriveAllStatement del mapper y ejecutar la operación con dao
+                return null; // Cambia esto según la implementación real
             }
-            return lstUsers;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al recuperar todos los pedidos: {ex.Message}");
+                return null;
+            }
         }
 
         public override T RetrieveById<T>(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Implementa la lógica para recuperar un pedido por ID
+                // Puedes utilizar el método GetRetrieveByIdStatement del mapper y ejecutar la operación con dao
+                return default; // Cambia esto según la implementación real
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al recuperar el pedido por ID: {ex.Message}");
+                return default;
+            }
         }
 
         public override void Update(BaseEntity dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Implementa la lógica para actualizar un pedido
+                // Puedes utilizar el método GetUpdateStatement del mapper y ejecutar la operación con dao
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el pedido: {ex.Message}");
+            }
         }
     }
 }

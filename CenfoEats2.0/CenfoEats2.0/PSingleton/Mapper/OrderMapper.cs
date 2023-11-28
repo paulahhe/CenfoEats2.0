@@ -47,6 +47,7 @@ namespace CenfoEats2._0.PSingleton.Mapper
             sqlOperation.AddVarcharParam("STATUS", pedido.status);
             sqlOperation.AddDateParam("ORDER_DATE", pedido.date);
             sqlOperation.AddIntParam("PICK_UP", pedido.pickUp);
+            sqlOperation.AddIntParam("ID_RESTAURANT", pedido.idDriver);
             sqlOperation.AddVarcharParam("ADDRESS", pedido.address);
 
             return sqlOperation;

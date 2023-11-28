@@ -80,7 +80,7 @@ namespace CenfoEats2._0
             }
         }
 
-        public void CrearPedido(string tipoPedido, int idCliente, int idRepartidor = -1, string direccionDomicilio = null)
+        public void CrearPedido(string tipoPedido, int idCliente, string address)
         {
             // Utiliza la fábrica abstracta para obtener una fábrica concreta según el tipo especificado
             IFabTipoPedido fabricaConcreta = ObtenerFabricaConcreta(tipoPedido);
@@ -97,8 +97,8 @@ namespace CenfoEats2._0
 
             if (tipoPedido == "Domicilio")
             {
-                pedido.idDriver = idRepartidor;
-                pedido.address = direccionDomicilio;
+                pedido.idDriver = SeleccionarIdRepartidorAleatorio(); // marca error pero no es error 
+                pedido.address = address;
                 pedido.pickUp = 1;
             }
             else if (tipoPedido == "RecogerSitio")
@@ -106,30 +106,30 @@ namespace CenfoEats2._0
                 pedido.pickUp = 0;
             }
 
-            // Guarda el pedido en la base de datos u realiza otras acciones según tu lógica
             GuardarPedidoEnBD(pedido);
         }
 
         private IFabTipoPedido ObtenerFabricaConcreta(string tipoPedido)
         {
-            // Implementa la lógica para obtener la fábrica concreta según el tipo de pedido
-            // Puedes utilizar un switch, un diccionario, una lógica condicional, etc.
+            // Esto es para obtener la fábrica concreta según el tipo de pedido
             switch (tipoPedido)
             {
                 case "Domicilio":
                     return new FDomicilio();
                 case "RecogerSitio":
                     return new FRecogerSitio();
-                // Agrega más casos según tus necesidades
+
                 default:
                     throw new ArgumentException("Tipo de pedido no válido", nameof(tipoPedido));
             }
         }
 
-        private void GuardarPedidoEnBD(IPedido pedido)
+        private void GuardarPedidoEnBD(Pedido pedido)
         {
-            // Implementa la lógica para guardar el pedido en la base de datos
-            // Puedes utilizar operaciones CRUD, DAO, etc.
+            var orderCrudFactory = new OrderCrudFactory();
+
+ 
+            orderCrudFactory.Create(pedido);
         }
 
 
