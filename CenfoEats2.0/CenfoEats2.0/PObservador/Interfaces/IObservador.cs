@@ -8,6 +8,6 @@ namespace CenfoEats2._0.PObservador.Interfaces
 {
     public interface IObservador
     {
-        void Update(object value, string status);
+        void Update(string status);
     }
 }

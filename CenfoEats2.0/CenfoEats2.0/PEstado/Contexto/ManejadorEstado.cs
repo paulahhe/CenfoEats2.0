@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PEstado.Contexto
 {
-    public abstract class ManejadorEstado
+    public class ManejadorEstado
     {
         protected IEstadoPedido estadoPedido;
         public ManejadorEstado(IEstadoPedido estadoInicial)
@@ -20,7 +20,6 @@ namespace CenfoEats2._0.PEstado.Contexto
         { 
             this.estadoPedido = estadoPedido;
         }
-
         public String getInfo()
         {
             return this.estadoPedido.obtenerEstado();

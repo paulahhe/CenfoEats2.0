@@ -91,7 +91,6 @@
     <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
     <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
-    <Compile Include="PObservador\Concreto\Observador.cs" />
     <Compile Include="PObservador\Interfaces\IObservador.cs" />
     <Compile Include="PObservador\Interfaces\ISujeto.cs" />
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
