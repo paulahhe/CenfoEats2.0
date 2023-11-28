@@ -51,7 +51,7 @@ namespace CenfoEats2._0
 
         public string ObtenerInfoProxy(int idPedido)
         {
-            return gestorProxy.ObtenerInfoPedido(idPedido);
+            return gestorProxy.InformacionTotal(idPedido);
         }
 
 
