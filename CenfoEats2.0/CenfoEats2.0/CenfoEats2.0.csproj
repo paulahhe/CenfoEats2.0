@@ -144,6 +144,9 @@
     <None Include="CenfoEats2DBDataSet.xsc">
       <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
     </None>
+    <None Include="CenfoEats2DBDataSet.xsc">
+      <DependentUpon>CenfoEats2DBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="CenfoEats2DBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CenfoEats2DBDataSet.Designer.cs</LastGenOutput>

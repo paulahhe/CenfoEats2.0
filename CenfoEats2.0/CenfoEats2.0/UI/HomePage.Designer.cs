@@ -139,10 +139,10 @@ namespace CenfoEats2._0.UI
             this.RegisterUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterUser.Controls.Add(this.btnRegister);
             this.RegisterUser.Controls.Add(this.gBoxRegister);
-            this.RegisterUser.Location = new System.Drawing.Point(4, 22);
+            this.RegisterUser.Location = new System.Drawing.Point(4, 25);
             this.RegisterUser.Name = "RegisterUser";
             this.RegisterUser.Padding = new System.Windows.Forms.Padding(3);
-            this.RegisterUser.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterUser.Size = new System.Drawing.Size(1051, 642);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
             this.RegisterUser.Click += new System.EventHandler(this.RegisterUser_Click);
@@ -280,10 +280,10 @@ namespace CenfoEats2._0.UI
             // 
             this.ListUsers.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ListUsers.Controls.Add(this.dataGridView1);
-            this.ListUsers.Location = new System.Drawing.Point(4, 22);
+            this.ListUsers.Location = new System.Drawing.Point(4, 25);
             this.ListUsers.Name = "ListUsers";
             this.ListUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListUsers.Size = new System.Drawing.Size(1051, 645);
+            this.ListUsers.Size = new System.Drawing.Size(1051, 642);
             this.ListUsers.TabIndex = 1;
             this.ListUsers.Text = "Mostrar Usuarios";
             // 
@@ -355,9 +355,9 @@ namespace CenfoEats2._0.UI
             this.RegisterRestaurant.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterRestaurant.Controls.Add(this.btnRegisterRestaurant);
             this.RegisterRestaurant.Controls.Add(this.groupBox1);
-            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 22);
+            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 25);
             this.RegisterRestaurant.Name = "RegisterRestaurant";
-            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 642);
             this.RegisterRestaurant.TabIndex = 4;
             this.RegisterRestaurant.Text = "Registrar Restaurante";
             // 
@@ -524,9 +524,9 @@ namespace CenfoEats2._0.UI
             // 
             this.RegisterOrder.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterOrder.Controls.Add(this.groupBox2);
-            this.RegisterOrder.Location = new System.Drawing.Point(4, 22);
+            this.RegisterOrder.Location = new System.Drawing.Point(4, 25);
             this.RegisterOrder.Name = "RegisterOrder";
-            this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterOrder.Size = new System.Drawing.Size(1051, 642);
             this.RegisterOrder.TabIndex = 3;
             this.RegisterOrder.Text = "Registrar Pedidos";
             // 
@@ -607,6 +607,7 @@ namespace CenfoEats2._0.UI
             this.textBoxClientePedido.Name = "textBoxClientePedido";
             this.textBoxClientePedido.Size = new System.Drawing.Size(288, 26);
             this.textBoxClientePedido.TabIndex = 17;
+            this.textBoxClientePedido.TextChanged += new System.EventHandler(this.textBoxClientePedido_TextChanged);
             // 
             // label11
             // 
@@ -750,9 +751,9 @@ namespace CenfoEats2._0.UI
             this.OrderInfo.Controls.Add(this.labelRepartidorID);
             this.OrderInfo.Controls.Add(this.labelClientID);
             this.OrderInfo.Controls.Add(this.titleInfo);
-            this.OrderInfo.Location = new System.Drawing.Point(4, 22);
+            this.OrderInfo.Location = new System.Drawing.Point(4, 25);
             this.OrderInfo.Name = "OrderInfo";
-            this.OrderInfo.Size = new System.Drawing.Size(1051, 645);
+            this.OrderInfo.Size = new System.Drawing.Size(1051, 642);
             this.OrderInfo.TabIndex = 5;
             this.OrderInfo.Text = "Informacion pedido";
             // 
@@ -771,21 +772,21 @@ namespace CenfoEats2._0.UI
             // 
             this.inputRepartidorID.Location = new System.Drawing.Point(22, 320);
             this.inputRepartidorID.Name = "inputRepartidorID";
-            this.inputRepartidorID.Size = new System.Drawing.Size(194, 20);
+            this.inputRepartidorID.Size = new System.Drawing.Size(194, 22);
             this.inputRepartidorID.TabIndex = 14;
             // 
             // inputClientID
             // 
             this.inputClientID.Location = new System.Drawing.Point(26, 215);
             this.inputClientID.Name = "inputClientID";
-            this.inputClientID.Size = new System.Drawing.Size(191, 20);
+            this.inputClientID.Size = new System.Drawing.Size(191, 22);
             this.inputClientID.TabIndex = 13;
             // 
             // inputOrderID
             // 
             this.inputOrderID.Location = new System.Drawing.Point(26, 117);
             this.inputOrderID.Name = "inputOrderID";
-            this.inputOrderID.Size = new System.Drawing.Size(192, 20);
+            this.inputOrderID.Size = new System.Drawing.Size(192, 22);
             this.inputOrderID.TabIndex = 12;
             // 
             // labelOrderId

@@ -121,7 +121,7 @@ namespace CenfoEats2._0
             }
         }
 
-        public void CrearPedido(string tipoPedido, int idCliente, string address)
+        public string CrearPedido(string tipoPedido, int idCliente, string address)
         {
             // Utiliza la fábrica abstracta para obtener una fábrica concreta según el tipo especificado
             IFabTipoPedido fabricaConcreta = ObtenerFabricaConcreta(tipoPedido);
@@ -138,32 +138,17 @@ namespace CenfoEats2._0
 
             if (tipoPedido == "Domicilio")
             {
-                pedido.idDriver = SeleccionarIdRepartidorAleatorio(); // marca error pero no es error 
-                pedido.address = address;
+                //pedido.iddriver = seleccionaridrepartidoraleatorio(); // marca error pero no es error 
+                //pedido.address = address;
                 pedido.pickUp = 1;
             }
             else if (tipoPedido == "RecogerSitio")
             {
                 pedido.pickUp = 0;
             }
+            return pedido.ToString();
+            //GuardarPedidoEnBD(pedido);
 
-            GuardarPedidoEnBD(pedido);
-
-
-            //string infoPedido = $"Pedido creado:\n" +
-            //                    $"Restaurante: {restaurante}\n" +
-            //                    $"Platillo: {platillo}\n" +
-            //                    $"Cliente ID: {idCliente}\n";
-
-            //if (tipoPedido == "Domicilio")
-            //{
-            //    // Agregar el nombre del repartidor y la dirección solo si el pedido es a domicilio
-            //    infoPedido += $"Nombre Repartidor: {nombreRepartidor}\n" +
-            //                  $"Dirección de entrega: {direccionDomicilio}\n";
-            //}
-
-            //// Retornar el string con la información del pedido
-            //return infoPedido;
         }
 
         private IFabTipoPedido ObtenerFabricaConcreta(string tipoPedido)

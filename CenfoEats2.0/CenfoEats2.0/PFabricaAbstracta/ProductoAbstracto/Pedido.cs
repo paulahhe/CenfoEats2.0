@@ -27,7 +27,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
             this.status = status;
             this.date = date;
         }
-
+        
 
         public Pedido()
         {
@@ -67,8 +67,12 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return $"ID: {idOrder}, PickUp: {(pickUp == 1 ? "Pickup" : "Recoger")}, ID Cliente: {idClient}, " +
+                   $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}";
+        }
     }
-
-
 }
 

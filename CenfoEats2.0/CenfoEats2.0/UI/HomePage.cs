@@ -197,21 +197,9 @@ namespace CenfoEats2._0.UI
 
 
         // TabRealizarPedido
+
         private void btnRealizarPedido_Click(object sender, EventArgs e)
         {
-
-            string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
-            string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
-            string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
-            int idCliente = int.Parse(textBoxClientePedido.Text);
-            string repartidor;
-            string address = null;
-
-            string infoPedido = $"Pedido creado:\n" +
-                      $"Restaurante: {restaurante}\n" +
-                      $"Platillo: {platillo}\n" +
-                      $"Cliente ID: {idCliente}\n";
-
             // Validar campos generales
             if (!ValidatePedidoFields())
             {
@@ -220,9 +208,23 @@ namespace CenfoEats2._0.UI
             }
             else
             {
-
                 // Obtener valores seleccionados
                 // Validar campos específicos para entrega a domicilio
+                string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
+                string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
+                string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
+                string tipoPedido = ValidarMetodoEntrega();
+                int idCliente = int.Parse(textBoxClientePedido.Text);
+
+                string repartidor;
+                string address = null;
+
+                string infoPedido = $"Pedido creado:\n" +
+                          $"Restaurante: {restaurante}\n" +
+                          $"Platillo: {platillo}\n" +
+                          $"Cliente ID: {idCliente}\n";
+
+
                 if (radioButtonDomicilio.Checked)
                 {
                     if (!ValidateEntregaDomicilio())
@@ -243,13 +245,11 @@ namespace CenfoEats2._0.UI
                               $"Dirección de entrega: {address}\n";
                     // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
                 }
-
-                gestor.CrearPedido(restaurante, idCliente, address);
-
+                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address); 
+                
 
 
                 // Muestra la información del pedido en el textBoxInfoPedido
-                textBoxInfoPedido.Text = infoPedido;
             }
         }
 
@@ -286,6 +286,22 @@ namespace CenfoEats2._0.UI
             labelUbicacionPedido.Visible = true;
             textBoxUbicacionPedido.Visible = true;
         }
+        private string ValidarMetodoEntrega()
+        {
+            if (radioButtonDomicilio.Checked)
+            {
+                return "Domicilio";
+            }
+            else if (radioButtonRecoger.Checked)
+            {
+                return "RecogerSitio";
+            }
+            else
+            {
+                // Puedes manejar el caso en el que ninguno de los RadioButtons está seleccionado
+                return "No seleccionado";
+            }
+        }
 
 
         private void mostrarInfoPedidoProxy(object idcliente, object idrepartidor, object idpedido)
@@ -318,7 +334,19 @@ namespace CenfoEats2._0.UI
 
         private void infoButton_Click(object sender, EventArgs e)
         {
-            mostrarInfoPedidoProxy(inputClientID.Text, inputRepartidorID.Text, inputOrderID.Text);
+            ShowRichTextBoxForm("X", "D");
+            //mostrarInfoPedidoProxy(inputClientID.Text, inputRepartidorID.Text, inputOrderID.Text);
+        }
+
+        private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(textBoxClientePedido.Text, out _))
+            {
+                // Si no es un número, elimina el último carácter ingresado
+                textBoxClientePedido.Text = textBoxClientePedido.Text.Length > 0
+                    ? textBoxClientePedido.Text.Substring(0, textBoxClientePedido.Text.Length - 1)
+                    : string.Empty;
+            }
         }
     }
 }
