@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
+using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
+using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PPrototipo.Prototipo;
 using CenfoEats2._0.PSingleton.CRUD;
 
@@ -194,10 +196,7 @@ namespace CenfoEats2._0.UI
             }
         }
 
-
-
         // TabRealizarPedido
-
         private void btnRealizarPedido_Click(object sender, EventArgs e)
         {
             // Validar campos generales
@@ -229,12 +228,8 @@ namespace CenfoEats2._0.UI
                 {
                     if (!ValidateEntregaDomicilio())
                     {
-
-
                         MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
-
-
                     }
 
                     // Lógica para seleccionar un repartidor aleatorio
@@ -245,11 +240,8 @@ namespace CenfoEats2._0.UI
                               $"Dirección de entrega: {address}\n";
                     // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
                 }
-                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address); 
-                
-
-
                 // Muestra la información del pedido en el textBoxInfoPedido
+                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address);
             }
         }
 
@@ -271,7 +263,6 @@ namespace CenfoEats2._0.UI
             }
             return true;
         }
-
 
         private void radioButtonRecoger_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -303,24 +294,16 @@ namespace CenfoEats2._0.UI
             }
         }
 
-
-        private void mostrarInfoPedidoProxy(object idcliente, object idrepartidor, object idpedido)
+        private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
         {
-            idcliente = int.Parse(inputClientID.Text);
-            idrepartidor = int.Parse(inputRepartidorID.Text);
-            idpedido = int.Parse(inputOrderID.Text);
-
-            if (gestor.validacionIdRequeridos(idcliente, idrepartidor, idpedido))
+            if (!int.TryParse(textBoxClientePedido.Text, out _))
             {
-                int pedidoId = Convert.ToInt32(idpedido);
-                int repartidorId = Convert.ToInt32(idrepartidor);
-                int clienteId = Convert.ToInt32(idpedido);
-
-                gestor.ObtenerInfoProxy(pedidoId, repartidorId, clienteId);
+                // Si no es un número, elimina el último carácter ingresado
+                textBoxClientePedido.Text = textBoxClientePedido.Text.Length > 0
+                    ? textBoxClientePedido.Text.Substring(0, textBoxClientePedido.Text.Length - 1)
+                    : string.Empty;
             }
         }
-
-
 
         private void RegisterUser_Click(object sender, EventArgs e)
         {
@@ -332,19 +315,57 @@ namespace CenfoEats2._0.UI
 
         }
 
+        //Tab OrderInfo
         private void infoButton_Click(object sender, EventArgs e)
         {
-            ShowRichTextBoxForm("X", "D");
-            //mostrarInfoPedidoProxy(inputClientID.Text, inputRepartidorID.Text, inputOrderID.Text);
+            if (string.IsNullOrEmpty(inputClientID.Text) || string.IsNullOrEmpty(inputRepartidorID.Text) || string.IsNullOrEmpty(inputOrderID.Text))
+            {
+                MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                mostrarInfoPedidoProxy();
+            }
+        }
+        private void mostrarInfoPedidoProxy()
+        {
+            int idcliente = int.Parse(inputClientID.Text);
+            int idrepartidor = int.Parse(inputRepartidorID.Text);
+            int idpedido = int.Parse(inputOrderID.Text);
+
+            string txt = gestor.ObtenerInfoProxy(idpedido, idrepartidor, idcliente);
+            MessageBox.Show(txt);
         }
 
-        private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
+        private void inputOrderID_TextChanged(object sender, EventArgs e)
         {
-            if (!int.TryParse(textBoxClientePedido.Text, out _))
+            if (!int.TryParse(inputOrderID.Text, out _))
             {
                 // Si no es un número, elimina el último carácter ingresado
-                textBoxClientePedido.Text = textBoxClientePedido.Text.Length > 0
-                    ? textBoxClientePedido.Text.Substring(0, textBoxClientePedido.Text.Length - 1)
+                inputOrderID.Text = inputOrderID.Text.Length > 0
+                    ? inputOrderID.Text.Substring(0, inputOrderID.Text.Length - 1)
+                    : string.Empty;
+            }
+        }
+
+        private void inputClientID_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(inputClientID.Text, out _))
+            {
+                // Si no es un número, elimina el último carácter ingresado
+                inputClientID.Text = inputClientID.Text.Length > 0
+                    ? inputClientID.Text.Substring(0, inputClientID.Text.Length - 1)
+                    : string.Empty;
+            }
+        }
+
+        private void inputRepartidorID_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(inputRepartidorID.Text, out _))
+            {
+                // Si no es un número, elimina el último carácter ingresado
+                inputRepartidorID.Text = inputRepartidorID.Text.Length > 0
+                    ? inputRepartidorID.Text.Substring(0, inputRepartidorID.Text.Length - 1)
                     : string.Empty;
             }
         }

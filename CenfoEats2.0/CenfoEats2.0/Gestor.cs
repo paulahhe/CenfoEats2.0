@@ -55,15 +55,6 @@ namespace CenfoEats2._0
             return gestorProxy.InformacionTotal(idPedido, idCliente, idRepartidor);
         }
 
-        public bool validacionIdRequeridos(object idClient, object idRepartidor, object idOrder)
-        {
-            if (idOrder != null && (idClient != null || idClient != null))
-            {
-                return true;
-            }
-            return false;
-        }
-
         //REALIZAR PEDIDO
 
 

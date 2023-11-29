@@ -57,6 +57,4 @@ namespace CenfoEats2._0.PProxy
 
         }
     }
-
-
 }

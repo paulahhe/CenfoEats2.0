@@ -1,15 +1,10 @@
-﻿using CenfoEats2._0.PDecorador;
-using CenfoEats2._0.PDecorador.Componente;
-using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Producto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PSingleton.CRUD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PProxy
 {
@@ -20,13 +15,8 @@ namespace CenfoEats2._0.PProxy
         private Usuario cliente;
         private ProxyRepartidor proxy;
 
-
-
         private List<ADomicilio> listaPedidos = new List<ADomicilio>();
         ADomicilioDao domicilioDao = new ADomicilioDao();
-
-
-
 
         public ADomicilio ObtenerPedido(int id)
         { //PROBABLEMENTE VA EN GESTOR
@@ -45,7 +35,6 @@ namespace CenfoEats2._0.PProxy
         public string InformacionTotal(int idPedido, int idCliente, int idRepartidor)
         {
             pedido = ObtenerPedido(idPedido);
-
 
             cliente = ObtenerInformacionCliente(idCliente);
             repartidor = ObtenerInformacionRepartidor(idRepartidor);
@@ -87,7 +76,6 @@ namespace CenfoEats2._0.PProxy
 
         }
 
-
         public Usuario ObtenerInformacionRepartidor(int idRepartidor)
         {
             // Crear instancia del CRUD para usuarios
@@ -120,11 +108,5 @@ namespace CenfoEats2._0.PProxy
                 throw new Exception("Repartidor no encontrado");
             }
         }
-
-
-
-
-
-
     }
 }

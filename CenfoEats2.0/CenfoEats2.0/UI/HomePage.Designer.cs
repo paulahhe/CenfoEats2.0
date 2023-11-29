@@ -774,6 +774,7 @@ namespace CenfoEats2._0.UI
             this.inputRepartidorID.Name = "inputRepartidorID";
             this.inputRepartidorID.Size = new System.Drawing.Size(194, 22);
             this.inputRepartidorID.TabIndex = 14;
+            this.inputRepartidorID.TextChanged += new System.EventHandler(this.inputRepartidorID_TextChanged);
             // 
             // inputClientID
             // 
@@ -781,6 +782,7 @@ namespace CenfoEats2._0.UI
             this.inputClientID.Name = "inputClientID";
             this.inputClientID.Size = new System.Drawing.Size(191, 22);
             this.inputClientID.TabIndex = 13;
+            this.inputClientID.TextChanged += new System.EventHandler(this.inputClientID_TextChanged);
             // 
             // inputOrderID
             // 
@@ -788,6 +790,7 @@ namespace CenfoEats2._0.UI
             this.inputOrderID.Name = "inputOrderID";
             this.inputOrderID.Size = new System.Drawing.Size(192, 22);
             this.inputOrderID.TabIndex = 12;
+            this.inputOrderID.TextChanged += new System.EventHandler(this.inputOrderID_TextChanged);
             // 
             // labelOrderId
             // 
