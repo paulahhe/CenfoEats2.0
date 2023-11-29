@@ -42,16 +42,16 @@ namespace CenfoEats2._0.PProxy
             return null;
         }
 
-     public string InformacionTotal(int idPedido)
-        {
+     public string InformacionTotal(int idPedido, int idCliente, int idRepartidor)
+     {
             pedido = ObtenerPedido(idPedido);
 
 
-            cliente = ObtenerInformacionCliente(pedido.idClient);
-            repartidor = ObtenerInformacionRepartidor(pedido.idDriver);
+            cliente = ObtenerInformacionCliente(idCliente);
+            repartidor = ObtenerInformacionRepartidor(idRepartidor);
 
           return proxy.ValidarAccesoPedido(pedido, cliente, repartidor);
-        }
+     }
 
         public Usuario ObtenerInformacionCliente(int idCliente)
         {

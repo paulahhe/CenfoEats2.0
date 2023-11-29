@@ -50,11 +50,19 @@ namespace CenfoEats2._0
 
         // PROXY
 
-        public string ObtenerInfoProxy(int idPedido)
+        public string ObtenerInfoProxy(int idPedido, int idCliente, int idRepartidor)
         {
-            return gestorProxy.InformacionTotal(idPedido);
+            return gestorProxy.InformacionTotal(idPedido, idCliente, idRepartidor);
         }
 
+        public bool validacionIdRequeridos(object idClient, object idRepartidor, object idOrder)
+        {
+            if (idOrder != null && (idClient != null || idClient != null))
+            {
+                return true;
+            }
+            return false;
+        }
 
         //REALIZAR PEDIDO
 
@@ -167,7 +175,6 @@ namespace CenfoEats2._0
                     return new FDomicilio();
                 case "RecogerSitio":
                     return new FRecogerSitio();
-
                 default:
                     throw new ArgumentException("Tipo de pedido no válido", nameof(tipoPedido));
             }
@@ -181,6 +188,7 @@ namespace CenfoEats2._0
             orderCrudFactory.Create(pedido);
         }
 
+      
 
     }   
 }

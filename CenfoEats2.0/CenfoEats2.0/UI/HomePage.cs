@@ -224,9 +224,6 @@ namespace CenfoEats2._0.UI
             {
 
                 // Obtener valores seleccionados
-
-
-
                 // Validar campos específicos para entrega a domicilio
                 if (radioButtonDomicilio.Checked)
                 {
@@ -298,7 +295,21 @@ namespace CenfoEats2._0.UI
         }
 
 
+        private void mostrarInfoPedidoProxy(object idcliente, object idrepartidor, object idpedido)
+        {
+            idcliente = int.Parse(inputClientID.Text);
+            idrepartidor = int.Parse(inputRepartidorID.Text);
+            idpedido = int.Parse(inputOrderID.Text);
 
+            if (gestor.validacionIdRequeridos(idcliente, idrepartidor, idpedido))
+            {
+                int pedidoId = Convert.ToInt32(idpedido);
+                int repartidorId = Convert.ToInt32(idrepartidor);
+                int clienteId = Convert.ToInt32(idpedido);
+
+                gestor.ObtenerInfoProxy(pedidoId, repartidorId, clienteId);
+            }
+        }
 
 
 
@@ -338,6 +349,16 @@ namespace CenfoEats2._0.UI
         private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void inputClientID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+            mostrarInfoPedidoProxy(inputClientID.Text, inputRepartidorID.Text, inputOrderID.Text);
         }
     }
 }
