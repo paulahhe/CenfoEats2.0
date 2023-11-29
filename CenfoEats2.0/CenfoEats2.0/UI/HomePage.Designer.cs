@@ -145,7 +145,6 @@ namespace CenfoEats2._0.UI
             this.RegisterUser.Size = new System.Drawing.Size(1051, 642);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
-            this.RegisterUser.Click += new System.EventHandler(this.RegisterUser_Click);
             // 
             // btnRegister
             // 
@@ -576,7 +575,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxIngredientePedido.Name = "comboBoxIngredientePedido";
             this.comboBoxIngredientePedido.Size = new System.Drawing.Size(311, 21);
             this.comboBoxIngredientePedido.TabIndex = 20;
-            this.comboBoxIngredientePedido.SelectedIndexChanged += new System.EventHandler(this.comboBoxIngredientePedido_SelectedIndexChanged);
+            
             // 
             // label12
             // 

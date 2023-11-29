@@ -303,16 +303,6 @@ namespace CenfoEats2._0.UI
             }
         }
 
-        private void RegisterUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxIngredientePedido_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         //Tab OrderInfo
         private void infoButton_Click(object sender, EventArgs e)
         {
