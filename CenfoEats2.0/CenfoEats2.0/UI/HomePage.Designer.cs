@@ -72,11 +72,37 @@ namespace CenfoEats2._0.UI
             this.txtLocationRestaurant = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNameRestaurant = new System.Windows.Forms.TextBox();
-            this.RegisterPlates = new System.Windows.Forms.TabPage();
             this.RegisterOrder = new System.Windows.Forms.TabPage();
             this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
             this.cenfoEats2DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tBL_PRODUCTSTableAdapter = new CenfoEats2._0.CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter();
+            this.OrderInfo = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxInfoPedido = new System.Windows.Forms.TextBox();
+            this.comboBoxIngredientePedido = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnRealizarPedido = new System.Windows.Forms.Button();
+            this.textBoxClientePedido = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.radioButtonDomicilio = new System.Windows.Forms.RadioButton();
+            this.radioButtonRecoger = new System.Windows.Forms.RadioButton();
+            this.comboBoxRestaurantePedido = new System.Windows.Forms.ComboBox();
+            this.buttonIngredientePedido = new System.Windows.Forms.Button();
+            this.comboBoxPlatilloPedido = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelUbicacionPedido = new System.Windows.Forms.Label();
+            this.textBoxUbicacionPedido = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.infoButton = new System.Windows.Forms.Button();
+            this.inputRepartidorID = new System.Windows.Forms.TextBox();
+            this.inputClientID = new System.Windows.Forms.TextBox();
+            this.inputOrderID = new System.Windows.Forms.TextBox();
+            this.labelOrderId = new System.Windows.Forms.Label();
+            this.labelRepartidorID = new System.Windows.Forms.Label();
+            this.labelClientID = new System.Windows.Forms.Label();
+            this.titleInfo = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.RegisterUser.SuspendLayout();
             this.gBoxRegister.SuspendLayout();
@@ -89,7 +115,10 @@ namespace CenfoEats2._0.UI
             ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).BeginInit();
+            this.RegisterOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
+            this.OrderInfo.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -97,8 +126,8 @@ namespace CenfoEats2._0.UI
             this.tabControl1.Controls.Add(this.RegisterUser);
             this.tabControl1.Controls.Add(this.ListUsers);
             this.tabControl1.Controls.Add(this.RegisterRestaurant);
-            this.tabControl1.Controls.Add(this.RegisterPlates);
             this.tabControl1.Controls.Add(this.RegisterOrder);
+            this.tabControl1.Controls.Add(this.OrderInfo);
             this.tabControl1.Location = new System.Drawing.Point(1, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -110,10 +139,10 @@ namespace CenfoEats2._0.UI
             this.RegisterUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterUser.Controls.Add(this.btnRegister);
             this.RegisterUser.Controls.Add(this.gBoxRegister);
-            this.RegisterUser.Location = new System.Drawing.Point(4, 22);
+            this.RegisterUser.Location = new System.Drawing.Point(4, 25);
             this.RegisterUser.Name = "RegisterUser";
             this.RegisterUser.Padding = new System.Windows.Forms.Padding(3);
-            this.RegisterUser.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterUser.Size = new System.Drawing.Size(1051, 642);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
             // 
@@ -250,10 +279,10 @@ namespace CenfoEats2._0.UI
             // 
             this.ListUsers.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ListUsers.Controls.Add(this.dataGridView1);
-            this.ListUsers.Location = new System.Drawing.Point(4, 22);
+            this.ListUsers.Location = new System.Drawing.Point(4, 25);
             this.ListUsers.Name = "ListUsers";
             this.ListUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListUsers.Size = new System.Drawing.Size(1051, 645);
+            this.ListUsers.Size = new System.Drawing.Size(1051, 642);
             this.ListUsers.TabIndex = 1;
             this.ListUsers.Text = "Mostrar Usuarios";
             // 
@@ -325,9 +354,9 @@ namespace CenfoEats2._0.UI
             this.RegisterRestaurant.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterRestaurant.Controls.Add(this.btnRegisterRestaurant);
             this.RegisterRestaurant.Controls.Add(this.groupBox1);
-            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 22);
+            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 25);
             this.RegisterRestaurant.Name = "RegisterRestaurant";
-            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 642);
             this.RegisterRestaurant.TabIndex = 4;
             this.RegisterRestaurant.Text = "Registrar Restaurante";
             // 
@@ -490,21 +519,13 @@ namespace CenfoEats2._0.UI
             this.txtNameRestaurant.Size = new System.Drawing.Size(288, 26);
             this.txtNameRestaurant.TabIndex = 0;
             // 
-            // RegisterPlates
-            // 
-            this.RegisterPlates.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.RegisterPlates.Location = new System.Drawing.Point(4, 22);
-            this.RegisterPlates.Name = "RegisterPlates";
-            this.RegisterPlates.Size = new System.Drawing.Size(1051, 645);
-            this.RegisterPlates.TabIndex = 2;
-            this.RegisterPlates.Text = "Registrar Platillos";
-            // 
             // RegisterOrder
             // 
             this.RegisterOrder.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.RegisterOrder.Location = new System.Drawing.Point(4, 22);
+            this.RegisterOrder.Controls.Add(this.groupBox2);
+            this.RegisterOrder.Location = new System.Drawing.Point(4, 25);
             this.RegisterOrder.Name = "RegisterOrder";
-            this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
+            this.RegisterOrder.Size = new System.Drawing.Size(1051, 642);
             this.RegisterOrder.TabIndex = 3;
             this.RegisterOrder.Text = "Registrar Pedidos";
             // 
@@ -520,6 +541,301 @@ namespace CenfoEats2._0.UI
             // tBL_PRODUCTSTableAdapter
             // 
             this.tBL_PRODUCTSTableAdapter.ClearBeforeFill = true;
+            // 
+            // OrderInfo
+            // 
+            this.OrderInfo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.OrderInfo.Controls.Add(this.infoButton);
+            this.OrderInfo.Controls.Add(this.inputRepartidorID);
+            this.OrderInfo.Controls.Add(this.inputClientID);
+            this.OrderInfo.Controls.Add(this.inputOrderID);
+            this.OrderInfo.Controls.Add(this.labelOrderId);
+            this.OrderInfo.Controls.Add(this.labelRepartidorID);
+            this.OrderInfo.Controls.Add(this.labelClientID);
+            this.OrderInfo.Controls.Add(this.titleInfo);
+            this.OrderInfo.Location = new System.Drawing.Point(4, 25);
+            this.OrderInfo.Name = "OrderInfo";
+            this.OrderInfo.Size = new System.Drawing.Size(1051, 642);
+            this.OrderInfo.TabIndex = 5;
+            this.OrderInfo.Text = "Informacion pedido";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBoxInfoPedido);
+            this.groupBox2.Controls.Add(this.comboBoxIngredientePedido);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.btnRealizarPedido);
+            this.groupBox2.Controls.Add(this.textBoxClientePedido);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.radioButtonDomicilio);
+            this.groupBox2.Controls.Add(this.radioButtonRecoger);
+            this.groupBox2.Controls.Add(this.comboBoxRestaurantePedido);
+            this.groupBox2.Controls.Add(this.buttonIngredientePedido);
+            this.groupBox2.Controls.Add(this.comboBoxPlatilloPedido);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.labelUbicacionPedido);
+            this.groupBox2.Controls.Add(this.textBoxUbicacionPedido);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Location = new System.Drawing.Point(165, 32);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(720, 579);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            // 
+            // textBoxInfoPedido
+            // 
+            this.textBoxInfoPedido.Location = new System.Drawing.Point(20, 348);
+            this.textBoxInfoPedido.Multiline = true;
+            this.textBoxInfoPedido.Name = "textBoxInfoPedido";
+            this.textBoxInfoPedido.Size = new System.Drawing.Size(671, 185);
+            this.textBoxInfoPedido.TabIndex = 21;
+            // 
+            // comboBoxIngredientePedido
+            // 
+            this.comboBoxIngredientePedido.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tBLPRODUCTSBindingSource, "NAME", true));
+            this.comboBoxIngredientePedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIngredientePedido.FormattingEnabled = true;
+            this.comboBoxIngredientePedido.Items.AddRange(new object[] {
+            "Cebolla Extra",
+            "Tomate Extra",
+            "Queso Extra"});
+            this.comboBoxIngredientePedido.Location = new System.Drawing.Point(27, 187);
+            this.comboBoxIngredientePedido.Name = "comboBoxIngredientePedido";
+            this.comboBoxIngredientePedido.Size = new System.Drawing.Size(311, 21);
+            this.comboBoxIngredientePedido.TabIndex = 20;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label12.Location = new System.Drawing.Point(22, 159);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(328, 25);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Desea agregar un ingrediente extra?";
+            // 
+            // btnRealizarPedido
+            // 
+            this.btnRealizarPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRealizarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRealizarPedido.Location = new System.Drawing.Point(278, 289);
+            this.btnRealizarPedido.Name = "btnRealizarPedido";
+            this.btnRealizarPedido.Size = new System.Drawing.Size(169, 33);
+            this.btnRealizarPedido.TabIndex = 18;
+            this.btnRealizarPedido.Text = "Realizar Pedido";
+            this.btnRealizarPedido.UseVisualStyleBackColor = true;
+            // 
+            // textBoxClientePedido
+            // 
+            this.textBoxClientePedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxClientePedido.Location = new System.Drawing.Point(403, 44);
+            this.textBoxClientePedido.Name = "textBoxClientePedido";
+            this.textBoxClientePedido.Size = new System.Drawing.Size(288, 26);
+            this.textBoxClientePedido.TabIndex = 17;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label11.Location = new System.Drawing.Point(404, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(163, 25);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Código de cliente";
+            // 
+            // radioButtonDomicilio
+            // 
+            this.radioButtonDomicilio.AutoSize = true;
+            this.radioButtonDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.radioButtonDomicilio.Location = new System.Drawing.Point(572, 74);
+            this.radioButtonDomicilio.Name = "radioButtonDomicilio";
+            this.radioButtonDomicilio.Size = new System.Drawing.Size(127, 29);
+            this.radioButtonDomicilio.TabIndex = 15;
+            this.radioButtonDomicilio.TabStop = true;
+            this.radioButtonDomicilio.Text = "A Domicilio";
+            this.radioButtonDomicilio.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRecoger
+            // 
+            this.radioButtonRecoger.AutoSize = true;
+            this.radioButtonRecoger.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.radioButtonRecoger.Location = new System.Drawing.Point(396, 73);
+            this.radioButtonRecoger.Name = "radioButtonRecoger";
+            this.radioButtonRecoger.Size = new System.Drawing.Size(173, 29);
+            this.radioButtonRecoger.TabIndex = 14;
+            this.radioButtonRecoger.TabStop = true;
+            this.radioButtonRecoger.Text = "Recoger en Sitio";
+            this.radioButtonRecoger.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxRestaurantePedido
+            // 
+            this.comboBoxRestaurantePedido.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tBLPRODUCTSBindingSource, "NAME", true));
+            this.comboBoxRestaurantePedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRestaurantePedido.FormattingEnabled = true;
+            this.comboBoxRestaurantePedido.Items.AddRange(new object[] {
+            "Macdonals",
+            "CenfoSoda",
+            "TacoBell"});
+            this.comboBoxRestaurantePedido.Location = new System.Drawing.Point(27, 43);
+            this.comboBoxRestaurantePedido.Name = "comboBoxRestaurantePedido";
+            this.comboBoxRestaurantePedido.Size = new System.Drawing.Size(311, 21);
+            this.comboBoxRestaurantePedido.TabIndex = 13;
+            // 
+            // buttonIngredientePedido
+            // 
+            this.buttonIngredientePedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonIngredientePedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIngredientePedido.Location = new System.Drawing.Point(63, 214);
+            this.buttonIngredientePedido.Name = "buttonIngredientePedido";
+            this.buttonIngredientePedido.Size = new System.Drawing.Size(229, 32);
+            this.buttonIngredientePedido.TabIndex = 11;
+            this.buttonIngredientePedido.Text = "Agregar ingrediente extra\r\n\r\n";
+            this.buttonIngredientePedido.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxPlatilloPedido
+            // 
+            this.comboBoxPlatilloPedido.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tBLPRODUCTSBindingSource, "NAME", true));
+            this.comboBoxPlatilloPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlatilloPedido.FormattingEnabled = true;
+            this.comboBoxPlatilloPedido.Items.AddRange(new object[] {
+            "BigMac",
+            "Tacos al Patrón",
+            "Ensalda de patrones"});
+            this.comboBoxPlatilloPedido.Location = new System.Drawing.Point(27, 110);
+            this.comboBoxPlatilloPedido.Name = "comboBoxPlatilloPedido";
+            this.comboBoxPlatilloPedido.Size = new System.Drawing.Size(311, 21);
+            this.comboBoxPlatilloPedido.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label6.Location = new System.Drawing.Point(22, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 25);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Platillo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label7.Location = new System.Drawing.Point(421, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 25);
+            this.label7.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label8.Location = new System.Drawing.Point(398, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 25);
+            this.label8.TabIndex = 5;
+            // 
+            // labelUbicacionPedido
+            // 
+            this.labelUbicacionPedido.AutoSize = true;
+            this.labelUbicacionPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.labelUbicacionPedido.Location = new System.Drawing.Point(404, 120);
+            this.labelUbicacionPedido.Name = "labelUbicacionPedido";
+            this.labelUbicacionPedido.Size = new System.Drawing.Size(198, 25);
+            this.labelUbicacionPedido.TabIndex = 3;
+            this.labelUbicacionPedido.Text = "Ubicación de Entrega";
+            this.labelUbicacionPedido.Visible = false;
+            // 
+            // textBoxUbicacionPedido
+            // 
+            this.textBoxUbicacionPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxUbicacionPedido.Location = new System.Drawing.Point(403, 148);
+            this.textBoxUbicacionPedido.Name = "textBoxUbicacionPedido";
+            this.textBoxUbicacionPedido.Size = new System.Drawing.Size(288, 26);
+            this.textBoxUbicacionPedido.TabIndex = 2;
+            this.textBoxUbicacionPedido.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label10.Location = new System.Drawing.Point(22, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 25);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Restaurante";
+            // 
+            // infoButton
+            // 
+            this.infoButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.infoButton.Location = new System.Drawing.Point(22, 369);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(122, 28);
+            this.infoButton.TabIndex = 15;
+            this.infoButton.Text = "Obtener información";
+            this.infoButton.UseVisualStyleBackColor = false;
+            // 
+            // inputRepartidorID
+            // 
+            this.inputRepartidorID.Location = new System.Drawing.Point(22, 320);
+            this.inputRepartidorID.Name = "inputRepartidorID";
+            this.inputRepartidorID.Size = new System.Drawing.Size(194, 22);
+            this.inputRepartidorID.TabIndex = 14;
+            // 
+            // inputClientID
+            // 
+            this.inputClientID.Location = new System.Drawing.Point(26, 215);
+            this.inputClientID.Name = "inputClientID";
+            this.inputClientID.Size = new System.Drawing.Size(191, 22);
+            this.inputClientID.TabIndex = 13;
+            // 
+            // inputOrderID
+            // 
+            this.inputOrderID.Location = new System.Drawing.Point(26, 117);
+            this.inputOrderID.Name = "inputOrderID";
+            this.inputOrderID.Size = new System.Drawing.Size(192, 22);
+            this.inputOrderID.TabIndex = 12;
+            // 
+            // labelOrderId
+            // 
+            this.labelOrderId.AutoSize = true;
+            this.labelOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOrderId.Location = new System.Drawing.Point(22, 89);
+            this.labelOrderId.Name = "labelOrderId";
+            this.labelOrderId.Size = new System.Drawing.Size(79, 20);
+            this.labelOrderId.TabIndex = 11;
+            this.labelOrderId.Text = "ID Pedido";
+            // 
+            // labelRepartidorID
+            // 
+            this.labelRepartidorID.AutoSize = true;
+            this.labelRepartidorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRepartidorID.Location = new System.Drawing.Point(22, 286);
+            this.labelRepartidorID.Name = "labelRepartidorID";
+            this.labelRepartidorID.Size = new System.Drawing.Size(105, 20);
+            this.labelRepartidorID.TabIndex = 10;
+            this.labelRepartidorID.Text = "ID Repartidor";
+            // 
+            // labelClientID
+            // 
+            this.labelClientID.AutoSize = true;
+            this.labelClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientID.Location = new System.Drawing.Point(22, 188);
+            this.labelClientID.Name = "labelClientID";
+            this.labelClientID.Size = new System.Drawing.Size(79, 20);
+            this.labelClientID.TabIndex = 9;
+            this.labelClientID.Text = "ID Cliente";
+            // 
+            // titleInfo
+            // 
+            this.titleInfo.AutoSize = true;
+            this.titleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleInfo.Location = new System.Drawing.Point(20, 33);
+            this.titleInfo.Name = "titleInfo";
+            this.titleInfo.Size = new System.Drawing.Size(309, 31);
+            this.titleInfo.TabIndex = 8;
+            this.titleInfo.Text = "Información del pedido";
             // 
             // HomePage
             // 
@@ -544,7 +860,12 @@ namespace CenfoEats2._0.UI
             ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).EndInit();
+            this.RegisterOrder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
+            this.OrderInfo.ResumeLayout(false);
+            this.OrderInfo.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -575,7 +896,6 @@ namespace CenfoEats2._0.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pHONENUMBERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCCOUNTTYPEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage RegisterPlates;
         private System.Windows.Forms.TabPage RegisterRestaurant;
         private System.Windows.Forms.TabPage RegisterOrder;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -597,5 +917,32 @@ namespace CenfoEats2._0.UI
         private CenfoEats2DBProductNameId cenfoEats2DBProductNameId;
         private System.Windows.Forms.BindingSource tBLPRODUCTSBindingSource;
         private CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter tBL_PRODUCTSTableAdapter;
+        private System.Windows.Forms.TabPage OrderInfo;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBoxInfoPedido;
+        private System.Windows.Forms.ComboBox comboBoxIngredientePedido;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnRealizarPedido;
+        private System.Windows.Forms.TextBox textBoxClientePedido;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton radioButtonDomicilio;
+        private System.Windows.Forms.RadioButton radioButtonRecoger;
+        private System.Windows.Forms.ComboBox comboBoxRestaurantePedido;
+        private System.Windows.Forms.Button buttonIngredientePedido;
+        private System.Windows.Forms.ComboBox comboBoxPlatilloPedido;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelUbicacionPedido;
+        private System.Windows.Forms.TextBox textBoxUbicacionPedido;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button infoButton;
+        private System.Windows.Forms.TextBox inputRepartidorID;
+        private System.Windows.Forms.TextBox inputClientID;
+        private System.Windows.Forms.TextBox inputOrderID;
+        private System.Windows.Forms.Label labelOrderId;
+        private System.Windows.Forms.Label labelRepartidorID;
+        private System.Windows.Forms.Label labelClientID;
+        public System.Windows.Forms.Label titleInfo;
     }
 }
