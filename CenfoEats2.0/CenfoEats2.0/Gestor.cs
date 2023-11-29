@@ -5,6 +5,7 @@ using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Creador;
 using CenfoEats2._0.PMetodoFabrica.CreadorConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PPrototipo.Menu;
 using CenfoEats2._0.PProxy;
 using CenfoEats2._0.PSingleton.CRUD;
 using CenfoEats2._0.PSingleton.DAOs;
@@ -57,6 +58,7 @@ namespace CenfoEats2._0
 
         //REALIZAR PEDIDO
 
+
         public int SeleccionarIdRepartidorAleatorio()
         {
             var userMapper = new UserMapper();  // Instancia del mapper
@@ -77,6 +79,37 @@ namespace CenfoEats2._0
             {
                 // Manejar la situación en la que no hay repartidores disponibles
                 return -1;
+            }
+        }
+
+        public string ObtenerNombreRepartidorAleatorio()
+        {
+            var userMapper = new UserMapper(); 
+            var dao = SqlDAO.GetInstance();
+
+            int repartidorId = SeleccionarIdRepartidorAleatorio();
+
+            if (repartidorId != -1)
+            {
+                var sqlOperation = userMapper.GetRetrieveByIdStatement(new UsuarioDB { id = repartidorId });
+
+                var repartidor = dao.ExecuteQueryProcedure(sqlOperation)
+                    .FirstOrDefault(); 
+
+                if (repartidor != null)
+                {
+                    return repartidor["NAME"].ToString();
+                }
+                else
+                {
+              
+                    return "Nombre no disponible";
+                }
+            }
+            else
+            {
+
+                return "Sin repartidor disponible";
             }
         }
 
@@ -107,6 +140,22 @@ namespace CenfoEats2._0
             }
 
             GuardarPedidoEnBD(pedido);
+
+
+            //string infoPedido = $"Pedido creado:\n" +
+            //                    $"Restaurante: {restaurante}\n" +
+            //                    $"Platillo: {platillo}\n" +
+            //                    $"Cliente ID: {idCliente}\n";
+
+            //if (tipoPedido == "Domicilio")
+            //{
+            //    // Agregar el nombre del repartidor y la dirección solo si el pedido es a domicilio
+            //    infoPedido += $"Nombre Repartidor: {nombreRepartidor}\n" +
+            //                  $"Dirección de entrega: {direccionDomicilio}\n";
+            //}
+
+            //// Retornar el string con la información del pedido
+            //return infoPedido;
         }
 
         private IFabTipoPedido ObtenerFabricaConcreta(string tipoPedido)
@@ -128,10 +177,10 @@ namespace CenfoEats2._0
         {
             var orderCrudFactory = new OrderCrudFactory();
 
- 
+
             orderCrudFactory.Create(pedido);
         }
 
 
-    }
+    }   
 }

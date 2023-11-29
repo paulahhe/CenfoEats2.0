@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
+using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PPrototipo.Prototipo;
 using CenfoEats2._0.PSingleton.CRUD;
 
@@ -200,38 +201,61 @@ namespace CenfoEats2._0.UI
         // TabRealizarPedido
         private void btnRealizarPedido_Click_1(object sender, EventArgs e)
         {
+
+            string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
+            string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
+            string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
+            int idCliente = int.Parse(textBoxClientePedido.Text);
+            string repartidor;
+            string address = null;
+
+            string infoPedido = $"Pedido creado:\n" +
+                      $"Restaurante: {restaurante}\n" +
+                      $"Platillo: {platillo}\n" +
+                      $"Cliente ID: {idCliente}\n";
+
             // Validar campos generales
             if (!ValidatePedidoFields())
             {
                 MessageBox.Show("Por favor, completa todos los campos antes de realizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Obtener valores seleccionados
-            string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
-            string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
-            string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
-            int idCliente = int.Parse(textBoxClientePedido.Text);
-
-
-
-
-            // Validar campos específicos para entrega a domicilio
-            if (radioButtonDomicilio.Checked)
+            else
             {
-                if (!ValidateEntregaDomicilio())
+
+                // Obtener valores seleccionados
+
+
+
+                // Validar campos específicos para entrega a domicilio
+                if (radioButtonDomicilio.Checked)
                 {
-                    MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (!ValidateEntregaDomicilio())
+                    {
+
+
+                        MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+
+
+                    }
+
+                    // Lógica para seleccionar un repartidor aleatorio
+                    repartidor = gestor.ObtenerNombreRepartidorAleatorio();
+                    address = textBoxUbicacionPedido.Text;
+
+                    infoPedido += $"Nombre Repartidor: {repartidor}\n" +
+                              $"Dirección de entrega: {address}\n";
+                    // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
                 }
 
-                // Lógica para seleccionar un repartidor aleatorio
-                int repartidor = SeleccionarRepartidorAleatorio();
-                string address = textBoxUbicacionPedido.Text;
-                // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
-            }
+                gestor.CrearPedido(restaurante, idCliente, address);
 
-            gestor.CrearPedido(restaurante, idCliente, address);
+
+
+                // Muestra la información del pedido en el textBoxInfoPedido
+                textBoxInfoPedido.Text = infoPedido;
+            }
         }
 
         private bool ValidatePedidoFields()
