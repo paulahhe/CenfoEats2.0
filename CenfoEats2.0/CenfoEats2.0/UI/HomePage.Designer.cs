@@ -96,14 +96,14 @@ namespace CenfoEats2._0.UI
             this.txtName = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.titleInfo = new System.Windows.Forms.Label();
-            this.labelClientID = new System.Windows.Forms.Label();
-            this.labelRepartidorID = new System.Windows.Forms.Label();
-            this.labelOrderId = new System.Windows.Forms.Label();
-            this.inputOrderID = new System.Windows.Forms.TextBox();
-            this.inputClientID = new System.Windows.Forms.TextBox();
-            this.inputRepartidorID = new System.Windows.Forms.TextBox();
             this.infoButton = new System.Windows.Forms.Button();
+            this.inputRepartidorID = new System.Windows.Forms.TextBox();
+            this.inputClientID = new System.Windows.Forms.TextBox();
+            this.inputOrderID = new System.Windows.Forms.TextBox();
+            this.labelOrderId = new System.Windows.Forms.Label();
+            this.labelRepartidorID = new System.Windows.Forms.Label();
+            this.labelClientID = new System.Windows.Forms.Label();
+            this.titleInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tBLUSERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBLPRODUCTSBindingSource)).BeginInit();
@@ -788,35 +788,38 @@ namespace CenfoEats2._0.UI
             this.tabPage1.TabIndex = 5;
             this.tabPage1.Text = "tabPage1";
             // 
-            // titleInfo
+            // infoButton
             // 
-            this.titleInfo.AutoSize = true;
-            this.titleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleInfo.Location = new System.Drawing.Point(31, 30);
-            this.titleInfo.Name = "titleInfo";
-            this.titleInfo.Size = new System.Drawing.Size(309, 31);
-            this.titleInfo.TabIndex = 0;
-            this.titleInfo.Text = "Información del pedido";
+            this.infoButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.infoButton.Location = new System.Drawing.Point(33, 366);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(122, 28);
+            this.infoButton.TabIndex = 7;
+            this.infoButton.Text = "Obtener información";
+            this.infoButton.UseVisualStyleBackColor = false;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
-            // labelClientID
+            // inputRepartidorID
             // 
-            this.labelClientID.AutoSize = true;
-            this.labelClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClientID.Location = new System.Drawing.Point(33, 185);
-            this.labelClientID.Name = "labelClientID";
-            this.labelClientID.Size = new System.Drawing.Size(79, 20);
-            this.labelClientID.TabIndex = 1;
-            this.labelClientID.Text = "ID Cliente";
+            this.inputRepartidorID.Location = new System.Drawing.Point(33, 317);
+            this.inputRepartidorID.Name = "inputRepartidorID";
+            this.inputRepartidorID.Size = new System.Drawing.Size(194, 20);
+            this.inputRepartidorID.TabIndex = 6;
             // 
-            // labelRepartidorID
+            // inputClientID
             // 
-            this.labelRepartidorID.AutoSize = true;
-            this.labelRepartidorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRepartidorID.Location = new System.Drawing.Point(33, 283);
-            this.labelRepartidorID.Name = "labelRepartidorID";
-            this.labelRepartidorID.Size = new System.Drawing.Size(105, 20);
-            this.labelRepartidorID.TabIndex = 2;
-            this.labelRepartidorID.Text = "ID Repartidor";
+            this.inputClientID.Location = new System.Drawing.Point(37, 212);
+            this.inputClientID.Name = "inputClientID";
+            this.inputClientID.Size = new System.Drawing.Size(191, 20);
+            this.inputClientID.TabIndex = 5;
+            this.inputClientID.TextChanged += new System.EventHandler(this.inputClientID_TextChanged);
+            // 
+            // inputOrderID
+            // 
+            this.inputOrderID.Location = new System.Drawing.Point(37, 114);
+            this.inputOrderID.Name = "inputOrderID";
+            this.inputOrderID.Size = new System.Drawing.Size(192, 20);
+            this.inputOrderID.TabIndex = 4;
             // 
             // labelOrderId
             // 
@@ -828,38 +831,35 @@ namespace CenfoEats2._0.UI
             this.labelOrderId.TabIndex = 3;
             this.labelOrderId.Text = "ID Pedido";
             // 
-            // inputOrderID
+            // labelRepartidorID
             // 
-            this.inputOrderID.Location = new System.Drawing.Point(37, 114);
-            this.inputOrderID.Name = "inputOrderID";
-            this.inputOrderID.Size = new System.Drawing.Size(192, 20);
-            this.inputOrderID.TabIndex = 4;
+            this.labelRepartidorID.AutoSize = true;
+            this.labelRepartidorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRepartidorID.Location = new System.Drawing.Point(33, 283);
+            this.labelRepartidorID.Name = "labelRepartidorID";
+            this.labelRepartidorID.Size = new System.Drawing.Size(105, 20);
+            this.labelRepartidorID.TabIndex = 2;
+            this.labelRepartidorID.Text = "ID Repartidor";
             // 
-            // inputClientID
+            // labelClientID
             // 
-            this.inputClientID.Location = new System.Drawing.Point(37, 212);
-            this.inputClientID.Name = "inputClientID";
-            this.inputClientID.Size = new System.Drawing.Size(191, 20);
-            this.inputClientID.TabIndex = 5;
-            this.inputClientID.TextChanged += new System.EventHandler(this.inputClientID_TextChanged);
+            this.labelClientID.AutoSize = true;
+            this.labelClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientID.Location = new System.Drawing.Point(33, 185);
+            this.labelClientID.Name = "labelClientID";
+            this.labelClientID.Size = new System.Drawing.Size(79, 20);
+            this.labelClientID.TabIndex = 1;
+            this.labelClientID.Text = "ID Cliente";
             // 
-            // inputRepartidorID
+            // titleInfo
             // 
-            this.inputRepartidorID.Location = new System.Drawing.Point(33, 317);
-            this.inputRepartidorID.Name = "inputRepartidorID";
-            this.inputRepartidorID.Size = new System.Drawing.Size(194, 20);
-            this.inputRepartidorID.TabIndex = 6;
-            // 
-            // infoButton
-            // 
-            this.infoButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.infoButton.Location = new System.Drawing.Point(33, 366);
-            this.infoButton.Name = "infoButton";
-            this.infoButton.Size = new System.Drawing.Size(122, 28);
-            this.infoButton.TabIndex = 7;
-            this.infoButton.Text = "Obtener información";
-            this.infoButton.UseVisualStyleBackColor = false;
-            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            this.titleInfo.AutoSize = true;
+            this.titleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleInfo.Location = new System.Drawing.Point(31, 30);
+            this.titleInfo.Name = "titleInfo";
+            this.titleInfo.Size = new System.Drawing.Size(309, 31);
+            this.titleInfo.TabIndex = 0;
+            this.titleInfo.Text = "Información del pedido";
             // 
             // HomePage
             // 
