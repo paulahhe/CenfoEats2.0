@@ -61,9 +61,9 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
         {
             throw new NotImplementedException();
         }
-        public void SetStatus(string newStatus)
+        public void SetStatus(string nuevoEstado)
         {
-                status = newStatus;
+                status = nuevoEstado;
                 notifyObservers();
         }
         public void CambiarEstado(IEstadoPedido nuevoEstado)
