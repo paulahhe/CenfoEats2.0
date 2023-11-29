@@ -46,18 +46,13 @@ namespace CenfoEats2._0
             }
         }
 
-
-
         // PROXY
-
         public string ObtenerInfoProxy(int idPedido, int idCliente, int idRepartidor)
         {
             return gestorProxy.InformacionTotal(idPedido, idCliente, idRepartidor);
         }
 
         //REALIZAR PEDIDO
-
-
         public int SeleccionarIdRepartidorAleatorio()
         {
             var userMapper = new UserMapper();  // Instancia del mapper
@@ -163,8 +158,5 @@ namespace CenfoEats2._0
 
             orderCrudFactory.Create(pedido);
         }
-
-
-
     }
 }

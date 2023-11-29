@@ -42,17 +42,32 @@ namespace CenfoEats2._0.PSingleton.CRUD
 
         public override List<T> RetrieveAll<T>()
         {
-            try
+            var listOrders = new List<T>();
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_ORDERS_PR" };
+
+            var listResults = dao.ExecuteQueryProcedure(sqlOperation);
+
+            if (listResults.Count > 0)
             {
-                // Implementa la lógica para recuperar todos los pedidos
-                // Puedes utilizar el método GetRetriveAllStatement del mapper y ejecutar la operación con dao
-                return null; // Cambia esto según la implementación real
+                foreach (var row in listResults)
+                {
+                    var pedido = new OrderDB()
+                    {
+                        id = (int)row[""],
+                        pickUp = (int)row[""], //1 -> Pickup 0-> Recoger
+                        idClient = (int)row[""],
+                        idRestaurant = (int)row[""],
+                        status = (string)row[""],
+                        date = (DateTime)row[""],
+                        idDriver = (int)row[""],
+                        address = (string)row[""],
+
+                    };
+                    listOrders.Add((T)Convert.ChangeType(pedido, typeof(T)));
+
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al recuperar todos los pedidos: {ex.Message}");
-                return null;
-            }
+            return listOrders;
         }
 
         public override T RetrieveById<T>(int id)

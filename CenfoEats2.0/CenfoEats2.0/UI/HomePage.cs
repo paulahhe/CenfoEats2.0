@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
-using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
-using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PPrototipo.Prototipo;
 using CenfoEats2._0.PSingleton.CRUD;
 
