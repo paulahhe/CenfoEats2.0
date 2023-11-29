@@ -68,6 +68,14 @@ namespace CenfoEats2._0.PSingleton.Mapper
             return sqlOperation;
         }
 
+        public SqlOperation GetRandomRepartidorStatement()
+        {
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_RANDOM_REPARTIDOR_USER_PR" };
+            return sqlOperation;
+        }
+
+
+
         public SqlOperation GetRetrieveByIdStatement(BaseEntity entity)
         {
             throw new NotImplementedException();

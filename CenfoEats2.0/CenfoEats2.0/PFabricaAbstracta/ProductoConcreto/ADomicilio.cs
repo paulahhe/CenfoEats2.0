@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CenfoEats2._0.PObservador;
@@ -11,14 +12,13 @@ using CenfoEats2._0.PEstado.Contexto;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class ADomicilio : IPedido, ISujeto
+    public class ADomicilio : Pedido, ISujeto
     {
-        public int idOrder { get; set; }
-        public int idClient { get; set; }
         public int idDriver { get; set; }
-        public int idRestaurant { get; set; }
-        public string status { get; set; }
-        public DateTime date { get; set; }
+
+        public string address { get; set; }
+
+
 
         private readonly List<IObservador> _observadores = new List<IObservador>();
 
@@ -31,41 +31,35 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 
         public ADomicilio()
         {
-
+            idDriver = -1;
+            address = null;
         }
 
-        public int GetIdOrder()
+        public ADomicilio(int pId, string pAddress)
         {
-            return idOrder;
-        }
-
-        public int GetIdClient()
-        {
-            return idClient;
+            idDriver = pId;
+            address = pAddress;
         }
 
         public int GetIdDriver()
         {
             return idDriver;
         }
-        public int GetIdRestaurant()
+
+        public string GetAddress()
         {
-            return idRestaurant;
-        }
-        public string GetStatus()
-        {
-            return status;
+            return address;
         }
 
-        public DateTime GetDate()
+        public int GetPickUp()
         {
-            return date;
+            return 1;
         }
 
         public void SetStatus(string newStatus)
         {
-                status = newStatus;
-                notifyObservers();
+            status = newStatus;
+            notifyObservers();
         }
         public void CambiarEstado(IEstadoPedido nuevoEstado)
         {

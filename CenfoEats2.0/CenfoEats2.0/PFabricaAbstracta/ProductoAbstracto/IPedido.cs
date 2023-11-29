@@ -12,7 +12,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 
         int GetIdOrder();
         int GetIdClient();
-        int GetIdDriver();
         int GetIdRestaurant();
         string GetStatus();
         DateTime GetDate();

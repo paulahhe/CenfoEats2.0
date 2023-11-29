@@ -11,9 +11,9 @@ namespace CenfoEats2._0.PFabricaAbstracta.FabricaConcreta
 {
     public class FDomicilio : IFabTipoPedido
     {
-        public IPedido crearPedido()
+        public Pedido crearPedido()
         {
-            IPedido miPedido = new ADomicilio();
+            Pedido miPedido = new ADomicilio();
             return miPedido;
         }
     }

@@ -11,6 +11,7 @@ namespace CenfoEats2._0.UI
     public partial class HomePage : Form
     {
         List<ProductsDB> productsDBs;
+        Gestor gestor = new Gestor();
         public HomePage()
         {
             InitializeComponent();
@@ -191,6 +192,133 @@ namespace CenfoEats2._0.UI
                     listBoxRestaurantProducts.Items.RemoveAt(index);
                 }
             }
+        }
+
+
+
+        // TabRealizarPedido
+        private void btnRealizarPedido_Click(object sender, EventArgs e)
+        {
+
+            string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
+            string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
+            string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
+            int idCliente = int.Parse(textBoxClientePedido.Text);
+            string repartidor;
+            string address = null;
+
+            string infoPedido = $"Pedido creado:\n" +
+                      $"Restaurante: {restaurante}\n" +
+                      $"Platillo: {platillo}\n" +
+                      $"Cliente ID: {idCliente}\n";
+
+            // Validar campos generales
+            if (!ValidatePedidoFields())
+            {
+                MessageBox.Show("Por favor, completa todos los campos antes de realizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+
+                // Obtener valores seleccionados
+                // Validar campos específicos para entrega a domicilio
+                if (radioButtonDomicilio.Checked)
+                {
+                    if (!ValidateEntregaDomicilio())
+                    {
+
+
+                        MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+
+
+                    }
+
+                    // Lógica para seleccionar un repartidor aleatorio
+                    repartidor = gestor.ObtenerNombreRepartidorAleatorio();
+                    address = textBoxUbicacionPedido.Text;
+
+                    infoPedido += $"Nombre Repartidor: {repartidor}\n" +
+                              $"Dirección de entrega: {address}\n";
+                    // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
+                }
+
+                gestor.CrearPedido(restaurante, idCliente, address);
+
+
+
+                // Muestra la información del pedido en el textBoxInfoPedido
+                textBoxInfoPedido.Text = infoPedido;
+            }
+        }
+
+        private bool ValidatePedidoFields()
+        {
+            // Validar campos generales
+            return comboBoxRestaurantePedido.SelectedItem != null &&
+                   comboBoxPlatilloPedido.SelectedItem != null &&
+                   textBoxClientePedido.Text.Trim() != "" &&
+                   (radioButtonRecoger.Checked || radioButtonDomicilio.Checked);
+        }
+
+        private bool ValidateEntregaDomicilio()
+        {
+            // Validar campos específicos para entrega a domicilio
+            if (string.IsNullOrWhiteSpace(textBoxUbicacionPedido.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        private void radioButtonRecoger_CheckedChanged_1(object sender, EventArgs e)
+        {
+            // Ocultar los controles de entrega a domicilio
+            labelUbicacionPedido.Visible = false;
+            textBoxUbicacionPedido.Visible = false;
+        }
+
+        private void radioButtonDomicilio_CheckedChanged_1(object sender, EventArgs e)
+        {
+            // Mostrar los controles de entrega a domicilio
+            labelUbicacionPedido.Visible = true;
+            textBoxUbicacionPedido.Visible = true;
+        }
+
+
+        private void mostrarInfoPedidoProxy(object idcliente, object idrepartidor, object idpedido)
+        {
+            idcliente = int.Parse(inputClientID.Text);
+            idrepartidor = int.Parse(inputRepartidorID.Text);
+            idpedido = int.Parse(inputOrderID.Text);
+
+            if (gestor.validacionIdRequeridos(idcliente, idrepartidor, idpedido))
+            {
+                int pedidoId = Convert.ToInt32(idpedido);
+                int repartidorId = Convert.ToInt32(idrepartidor);
+                int clienteId = Convert.ToInt32(idpedido);
+
+                gestor.ObtenerInfoProxy(pedidoId, repartidorId, clienteId);
+            }
+        }
+
+
+
+        private void RegisterUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxIngredientePedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+            mostrarInfoPedidoProxy(inputClientID.Text, inputRepartidorID.Text, inputOrderID.Text);
         }
     }
 }

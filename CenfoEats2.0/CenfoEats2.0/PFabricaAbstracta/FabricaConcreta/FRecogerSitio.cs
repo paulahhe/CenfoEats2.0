@@ -11,9 +11,9 @@ namespace CenfoEats2._0.PFabricaAbstracta.FabricaConcreta
 {
     public class FRecogerSitio : IFabTipoPedido
     {
-        public IPedido crearPedido()
+        public Pedido crearPedido()
         {
-            IPedido miPedido = new RecogerSitio();
+            Pedido miPedido = new RecogerSitio();
 
             return miPedido;
         }

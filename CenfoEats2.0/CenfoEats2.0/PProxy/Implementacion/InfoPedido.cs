@@ -1,5 +1,6 @@
 ﻿using CenfoEats2._0.PDecorador;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
+using CenfoEats2._0.PMetodoFabrica.Producto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,16 @@ namespace CenfoEats2._0.PProxy.Implementacion
     public class InfoPedido : IInfoPedido
     {
 
-        string IInfoPedido.ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor)
+        string IInfoPedido.ValidarAccesoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
             return "X";
         }
 
-        string IInfoPedido.ObtenerInfoPedido(int idPedido, int idUsuario, int idRepartidor)
+        string IInfoPedido.ObtenerInfoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
             return "Información pedido: ";
         }
 
 
     }
+}

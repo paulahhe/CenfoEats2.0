@@ -73,6 +73,12 @@
       <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="ObjetosDB\OrderDB.cs" />
+    <Compile Include="PDecorador\ComponenteConcreto\ProductoConcreto.cs" />
+    <Compile Include="PDecorador\Componente\Producto.cs" />
+    <Compile Include="PDecorador\DecoradorConcreto\IngredienteExtra.cs" />
+    <Compile Include="PDecorador\Decorador\IngredienteExtraDecorador.cs" />
+    <Compile Include="PDecorador\GestorDecorador.cs" />
     <Compile Include="PEstado\Abstracto\IEstadoPedido.cs" />
     <Compile Include="PEstado\Concreto\EstadoEnCamino.cs" />
     <Compile Include="PEstado\Concreto\EstadoEntregado.cs" />
@@ -84,6 +90,7 @@
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FDomicilio.cs" />
     <Compile Include="PFabricaAbstracta\FabricaConcreta\FRecogerSitio.cs" />
     <Compile Include="PFabricaAbstracta\ProductoAbstracto\IPedido.cs" />
+    <Compile Include="PFabricaAbstracta\ProductoAbstracto\Pedido.cs" />
     <Compile Include="PFabricaAbstracta\ProductoConcreto\ADomicilio.cs" />
     <Compile Include="PFabricaAbstracta\ProductoConcreto\RecogerSitio.cs" />
     <Compile Include="PMetodoFabrica\CreadorConcreto\Creador_Usuarios.cs" />
@@ -93,8 +100,9 @@
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
     <Compile Include="PObservador\Interfaces\IObservador.cs" />
     <Compile Include="PObservador\Interfaces\ISujeto.cs" />
+    <Compile Include="PPrototipo\iPrototipo\iPlatillo.cs" />
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
-    <Compile Include="PPrototipo\Menu\Platillo.cs" />
+    <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
     <Compile Include="PProxy\ADomicilioDao.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
@@ -102,12 +110,14 @@
     <Compile Include="PProxy\Interface\IInfoPedido.cs" />
     <Compile Include="PProxy\Logica\GestorProxy.cs" />
     <Compile Include="PSingleton\CRUD\CrudFactory.cs" />
+    <Compile Include="PSingleton\CRUD\OrderCrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\ProductCrudFactory.cs" />
     <Compile Include="PSingleton\CRUD\UserCrudFactory.cs" />
     <Compile Include="PSingleton\DAOs\SqlDAO.cs" />
     <Compile Include="PSingleton\DAOs\SqlOperation.cs" />
     <Compile Include="PSingleton\Mapper\IObjectMapper.cs" />
     <Compile Include="PSingleton\Mapper\ISqlStatements.cs" />
+    <Compile Include="PSingleton\Mapper\OrderMapper.cs" />
     <Compile Include="PSingleton\Mapper\ProductMapper.cs" />
     <Compile Include="PSingleton\Mapper\UserMapper.cs" />
     <Compile Include="UI\HomePage.cs">

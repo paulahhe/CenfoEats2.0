@@ -10,9 +10,23 @@ namespace CenfoEats2._0.PMetodoFabrica.ProductoConcreto
 {
     class Cliente : Usuario, IObservador
     {
+
+        public Cliente()
+        {
+        }
+
         public Cliente(string nombre, string correo_electronico, string telefono, string contrasenna) : base(nombre, correo_electronico, telefono, contrasenna)
         {
-            tipo = "Cliente";
+        }
+
+        public Cliente(string nombre, string correo_electronico, string telefono, string tipo, string contrasenna)
+        {
+            this.nombre = nombre;
+            this.correo_electronico = correo_electronico;
+            this.telefono = telefono;
+            this.tipo = "Cliente";
+            this.contrasenna = contrasenna;
+
         }
 
         public void Update(string status)

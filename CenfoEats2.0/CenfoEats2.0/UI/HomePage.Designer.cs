@@ -73,10 +73,6 @@ namespace CenfoEats2._0.UI
             this.label4 = new System.Windows.Forms.Label();
             this.txtNameRestaurant = new System.Windows.Forms.TextBox();
             this.RegisterOrder = new System.Windows.Forms.TabPage();
-            this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
-            this.cenfoEats2DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tBL_PRODUCTSTableAdapter = new CenfoEats2._0.CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter();
-            this.OrderInfo = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxInfoPedido = new System.Windows.Forms.TextBox();
             this.comboBoxIngredientePedido = new System.Windows.Forms.ComboBox();
@@ -95,6 +91,7 @@ namespace CenfoEats2._0.UI
             this.labelUbicacionPedido = new System.Windows.Forms.Label();
             this.textBoxUbicacionPedido = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.OrderInfo = new System.Windows.Forms.TabPage();
             this.infoButton = new System.Windows.Forms.Button();
             this.inputRepartidorID = new System.Windows.Forms.TextBox();
             this.inputClientID = new System.Windows.Forms.TextBox();
@@ -103,6 +100,9 @@ namespace CenfoEats2._0.UI
             this.labelRepartidorID = new System.Windows.Forms.Label();
             this.labelClientID = new System.Windows.Forms.Label();
             this.titleInfo = new System.Windows.Forms.Label();
+            this.tBL_USERTableAdapter = new CenfoEats2._0.CenfoEats2DBDataSetTableAdapters.TBL_USERTableAdapter();
+            this.cenfoEats2DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tBL_PRODUCTSTableAdapter = new CenfoEats2._0.CenfoEats2DBProductNameIdTableAdapters.TBL_PRODUCTSTableAdapter();
             this.tabControl1.SuspendLayout();
             this.RegisterUser.SuspendLayout();
             this.gBoxRegister.SuspendLayout();
@@ -116,9 +116,9 @@ namespace CenfoEats2._0.UI
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).BeginInit();
             this.RegisterOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
-            this.OrderInfo.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.OrderInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -139,12 +139,13 @@ namespace CenfoEats2._0.UI
             this.RegisterUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterUser.Controls.Add(this.btnRegister);
             this.RegisterUser.Controls.Add(this.gBoxRegister);
-            this.RegisterUser.Location = new System.Drawing.Point(4, 25);
+            this.RegisterUser.Location = new System.Drawing.Point(4, 22);
             this.RegisterUser.Name = "RegisterUser";
             this.RegisterUser.Padding = new System.Windows.Forms.Padding(3);
-            this.RegisterUser.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterUser.Size = new System.Drawing.Size(1051, 645);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
+            this.RegisterUser.Click += new System.EventHandler(this.RegisterUser_Click);
             // 
             // btnRegister
             // 
@@ -279,10 +280,10 @@ namespace CenfoEats2._0.UI
             // 
             this.ListUsers.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ListUsers.Controls.Add(this.dataGridView1);
-            this.ListUsers.Location = new System.Drawing.Point(4, 25);
+            this.ListUsers.Location = new System.Drawing.Point(4, 22);
             this.ListUsers.Name = "ListUsers";
             this.ListUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListUsers.Size = new System.Drawing.Size(1051, 642);
+            this.ListUsers.Size = new System.Drawing.Size(1051, 645);
             this.ListUsers.TabIndex = 1;
             this.ListUsers.Text = "Mostrar Usuarios";
             // 
@@ -354,9 +355,9 @@ namespace CenfoEats2._0.UI
             this.RegisterRestaurant.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterRestaurant.Controls.Add(this.btnRegisterRestaurant);
             this.RegisterRestaurant.Controls.Add(this.groupBox1);
-            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 25);
+            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 22);
             this.RegisterRestaurant.Name = "RegisterRestaurant";
-            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 645);
             this.RegisterRestaurant.TabIndex = 4;
             this.RegisterRestaurant.Text = "Registrar Restaurante";
             // 
@@ -523,41 +524,11 @@ namespace CenfoEats2._0.UI
             // 
             this.RegisterOrder.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterOrder.Controls.Add(this.groupBox2);
-            this.RegisterOrder.Location = new System.Drawing.Point(4, 25);
+            this.RegisterOrder.Location = new System.Drawing.Point(4, 22);
             this.RegisterOrder.Name = "RegisterOrder";
-            this.RegisterOrder.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
             this.RegisterOrder.TabIndex = 3;
             this.RegisterOrder.Text = "Registrar Pedidos";
-            // 
-            // tBL_USERTableAdapter
-            // 
-            this.tBL_USERTableAdapter.ClearBeforeFill = true;
-            // 
-            // cenfoEats2DBDataSetBindingSource
-            // 
-            this.cenfoEats2DBDataSetBindingSource.DataSource = this.cenfoEats2DBDataSet;
-            this.cenfoEats2DBDataSetBindingSource.Position = 0;
-            // 
-            // tBL_PRODUCTSTableAdapter
-            // 
-            this.tBL_PRODUCTSTableAdapter.ClearBeforeFill = true;
-            // 
-            // OrderInfo
-            // 
-            this.OrderInfo.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.OrderInfo.Controls.Add(this.infoButton);
-            this.OrderInfo.Controls.Add(this.inputRepartidorID);
-            this.OrderInfo.Controls.Add(this.inputClientID);
-            this.OrderInfo.Controls.Add(this.inputOrderID);
-            this.OrderInfo.Controls.Add(this.labelOrderId);
-            this.OrderInfo.Controls.Add(this.labelRepartidorID);
-            this.OrderInfo.Controls.Add(this.labelClientID);
-            this.OrderInfo.Controls.Add(this.titleInfo);
-            this.OrderInfo.Location = new System.Drawing.Point(4, 25);
-            this.OrderInfo.Name = "OrderInfo";
-            this.OrderInfo.Size = new System.Drawing.Size(1051, 642);
-            this.OrderInfo.TabIndex = 5;
-            this.OrderInfo.Text = "Informacion pedido";
             // 
             // groupBox2
             // 
@@ -605,6 +576,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxIngredientePedido.Name = "comboBoxIngredientePedido";
             this.comboBoxIngredientePedido.Size = new System.Drawing.Size(311, 21);
             this.comboBoxIngredientePedido.TabIndex = 20;
+            this.comboBoxIngredientePedido.SelectedIndexChanged += new System.EventHandler(this.comboBoxIngredientePedido_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -626,6 +598,7 @@ namespace CenfoEats2._0.UI
             this.btnRealizarPedido.TabIndex = 18;
             this.btnRealizarPedido.Text = "Realizar Pedido";
             this.btnRealizarPedido.UseVisualStyleBackColor = true;
+            this.btnRealizarPedido.Click += new System.EventHandler(this.btnRealizarPedido_Click);
             // 
             // textBoxClientePedido
             // 
@@ -766,6 +739,23 @@ namespace CenfoEats2._0.UI
             this.label10.TabIndex = 1;
             this.label10.Text = "Restaurante";
             // 
+            // OrderInfo
+            // 
+            this.OrderInfo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.OrderInfo.Controls.Add(this.infoButton);
+            this.OrderInfo.Controls.Add(this.inputRepartidorID);
+            this.OrderInfo.Controls.Add(this.inputClientID);
+            this.OrderInfo.Controls.Add(this.inputOrderID);
+            this.OrderInfo.Controls.Add(this.labelOrderId);
+            this.OrderInfo.Controls.Add(this.labelRepartidorID);
+            this.OrderInfo.Controls.Add(this.labelClientID);
+            this.OrderInfo.Controls.Add(this.titleInfo);
+            this.OrderInfo.Location = new System.Drawing.Point(4, 22);
+            this.OrderInfo.Name = "OrderInfo";
+            this.OrderInfo.Size = new System.Drawing.Size(1051, 645);
+            this.OrderInfo.TabIndex = 5;
+            this.OrderInfo.Text = "Informacion pedido";
+            // 
             // infoButton
             // 
             this.infoButton.BackColor = System.Drawing.Color.SteelBlue;
@@ -775,26 +765,27 @@ namespace CenfoEats2._0.UI
             this.infoButton.TabIndex = 15;
             this.infoButton.Text = "Obtener información";
             this.infoButton.UseVisualStyleBackColor = false;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
             // inputRepartidorID
             // 
             this.inputRepartidorID.Location = new System.Drawing.Point(22, 320);
             this.inputRepartidorID.Name = "inputRepartidorID";
-            this.inputRepartidorID.Size = new System.Drawing.Size(194, 22);
+            this.inputRepartidorID.Size = new System.Drawing.Size(194, 20);
             this.inputRepartidorID.TabIndex = 14;
             // 
             // inputClientID
             // 
             this.inputClientID.Location = new System.Drawing.Point(26, 215);
             this.inputClientID.Name = "inputClientID";
-            this.inputClientID.Size = new System.Drawing.Size(191, 22);
+            this.inputClientID.Size = new System.Drawing.Size(191, 20);
             this.inputClientID.TabIndex = 13;
             // 
             // inputOrderID
             // 
             this.inputOrderID.Location = new System.Drawing.Point(26, 117);
             this.inputOrderID.Name = "inputOrderID";
-            this.inputOrderID.Size = new System.Drawing.Size(192, 22);
+            this.inputOrderID.Size = new System.Drawing.Size(192, 20);
             this.inputOrderID.TabIndex = 12;
             // 
             // labelOrderId
@@ -837,6 +828,19 @@ namespace CenfoEats2._0.UI
             this.titleInfo.TabIndex = 8;
             this.titleInfo.Text = "Información del pedido";
             // 
+            // tBL_USERTableAdapter
+            // 
+            this.tBL_USERTableAdapter.ClearBeforeFill = true;
+            // 
+            // cenfoEats2DBDataSetBindingSource
+            // 
+            this.cenfoEats2DBDataSetBindingSource.DataSource = this.cenfoEats2DBDataSet;
+            this.cenfoEats2DBDataSetBindingSource.Position = 0;
+            // 
+            // tBL_PRODUCTSTableAdapter
+            // 
+            this.tBL_PRODUCTSTableAdapter.ClearBeforeFill = true;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,11 +865,11 @@ namespace CenfoEats2._0.UI
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBProductNameId)).EndInit();
             this.RegisterOrder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
-            this.OrderInfo.ResumeLayout(false);
-            this.OrderInfo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.OrderInfo.ResumeLayout(false);
+            this.OrderInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cenfoEats2DBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

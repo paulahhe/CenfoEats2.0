@@ -11,13 +11,8 @@ using CenfoEats2._0.PEstado.Abstracto;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class RecogerSitio : IPedido, ISujeto
+    public class RecogerSitio : Pedido, ISujeto
     {
-        public int idOrder { get; set; }
-        public int idClient { get; set; }
-        public int idRestaurant { get; set; }
-        public string status { get; set; }
-        public DateTime date { get; set; }
 
         private readonly List<IObservador> _observadores = new List<IObservador>();
 
@@ -32,39 +27,15 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
         {
 
         }
-        public int GetIdOrder()
-        {
-            return idOrder;
-        }
 
-        public int GetIdClient()
+        public int GetPickUp()
         {
-            return idClient;
-        }
-
-        public int GetIdRestaurant()
-        {
-            return idRestaurant;
-        }
-
-        public string GetStatus()
-        {
-            return manejadorEstado.getInfo();
-        }
-
-        public DateTime GetDate()
-        {
-            return date;
-        }
-
-        public int GetIdDriver()
-        {
-            throw new NotImplementedException();
+            return 0;
         }
         public void SetStatus(string nuevoEstado)
         {
-                status = nuevoEstado;
-                notifyObservers();
+            status = nuevoEstado;
+            notifyObservers();
         }
         public void CambiarEstado(IEstadoPedido nuevoEstado)
         {

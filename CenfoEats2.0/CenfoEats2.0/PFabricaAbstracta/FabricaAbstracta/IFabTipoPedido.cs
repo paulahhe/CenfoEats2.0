@@ -10,7 +10,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta
 
     public interface IFabTipoPedido
     {
-        IPedido crearPedido();
+        Pedido crearPedido();
     }
 
 }
