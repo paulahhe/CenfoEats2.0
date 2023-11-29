@@ -5,10 +5,14 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using CenfoEats2._0.PObservador;
+using CenfoEats2._0.PObservador.Interfaces;
+using CenfoEats2._0.PEstado.Abstracto;
+using CenfoEats2._0.PEstado.Contexto;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class ADomicilio : Pedido
+    public class ADomicilio : IPedido, ISujeto
     {
         public int idDriver { get; set; }
 
@@ -16,6 +20,14 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 
    
 
+        private readonly List<IObservador> _observadores = new List<IObservador>();
+
+        private ManejadorEstado manejadorEstado;
+
+        public ADomicilio(IEstadoPedido estadoInicial)
+        {
+            this.manejadorEstado = new ManejadorEstado(estadoInicial);
+        }
 
         public ADomicilio()
         {
@@ -42,6 +54,32 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
         public int GetPickUp()
         {
             return 1;
+        }
+
+        public void SetStatus(string newStatus)
+        {
+                status = newStatus;
+                notifyObservers();
+        }
+        public void CambiarEstado(IEstadoPedido nuevoEstado)
+        {
+            manejadorEstado.setEstadoPedido(nuevoEstado);
+            notifyObservers();
+        }
+
+        public void addObserver(IObservador observador)
+        {
+            _observadores.Add(observador);
+        }
+
+        public void removeObserver(IObservador observador)
+        {
+            _observadores.Remove(observador);
+        }
+
+        public void notifyObservers()
+        {
+            _observadores.ForEach(observador => observador.Update(status));
         }
 
     }

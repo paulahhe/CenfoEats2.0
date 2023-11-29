@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CenfoEats2._0.PObservador;
+using CenfoEats2._0.PObservador.Interfaces;
 
 namespace CenfoEats2._0.PMetodoFabrica.ProductoConcreto
 {
-    class Repartidor : Usuario
+    class Repartidor : Usuario, IObservador
     {
 
         public Repartidor()
@@ -27,5 +29,11 @@ namespace CenfoEats2._0.PMetodoFabrica.ProductoConcreto
             this.contrasenna = contrasenna;
 
         }
+
+        public void Update(string status)
+        {
+            Console.WriteLine($"Repartidor {nombre} ha sido notificado: Estado del pedido - {status}");
+        }
     }
+    
 }

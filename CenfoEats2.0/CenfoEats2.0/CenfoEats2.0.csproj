@@ -73,6 +73,12 @@
       <DependentUpon>CenfoEats2DBProductNameId.xsd</DependentUpon>
     </Compile>
     <Compile Include="Gestor.cs" />
+    <Compile Include="PEstado\Abstracto\IEstadoPedido.cs" />
+    <Compile Include="PEstado\Concreto\EstadoEnCamino.cs" />
+    <Compile Include="PEstado\Concreto\EstadoEntregado.cs" />
+    <Compile Include="PEstado\Concreto\EstadoListo.cs" />
+    <Compile Include="PEstado\Concreto\EstadoPendiente.cs" />
+    <Compile Include="PEstado\Contexto\ManejadorEstado.cs" />
     <Compile Include="ObjetosDB\RestaurantDB.cs" />
     <Compile Include="ObjetosDB\OrderDB.cs" />
     <Compile Include="ObjetosDB\ProductsDB.cs" />
@@ -93,6 +99,8 @@
     <Compile Include="PMetodoFabrica\ProductoConcreto\Cliente.cs" />
     <Compile Include="PMetodoFabrica\ProductoConcreto\Repartidor.cs" />
     <Compile Include="PMetodoFabrica\Producto\Usuario.cs" />
+    <Compile Include="PObservador\Interfaces\IObservador.cs" />
+    <Compile Include="PObservador\Interfaces\ISujeto.cs" />
     <Compile Include="PPrototipo\iPrototipo\iPlatillo.cs" />
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
