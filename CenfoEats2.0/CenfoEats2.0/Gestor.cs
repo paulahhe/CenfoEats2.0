@@ -5,6 +5,7 @@ using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Creador;
 using CenfoEats2._0.PMetodoFabrica.CreadorConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PProxy;
 using CenfoEats2._0.PSingleton.CRUD;
 using CenfoEats2._0.PSingleton.DAOs;
 using CenfoEats2._0.PSingleton.Mapper;
@@ -17,7 +18,9 @@ namespace CenfoEats2._0
     public class Gestor
     {
         private static I_Creador_Usuarios Ufabrica;
-        private IFabTipoPedido fabricaTipoPedido; 
+        private IFabTipoPedido fabricaTipoPedido;
+        private GestorProxy gestorProxy;
+
 
         public Gestor()
         {
@@ -44,8 +47,15 @@ namespace CenfoEats2._0
 
 
 
-        //REALIZAR PEDIDO
+        // PROXY
 
+        public string ObtenerInfoProxy(int idPedido)
+        {
+            return gestorProxy.InformacionTotal(idPedido);
+        }
+
+
+        //REALIZAR PEDIDO
 
         public int SeleccionarIdRepartidorAleatorio()
         {
@@ -70,7 +80,7 @@ namespace CenfoEats2._0
             }
         }
 
-        public void CrearPedido(string tipoPedido, int idCliente, int idRepartidor = -1, string direccionDomicilio = null)
+        public void CrearPedido(string tipoPedido, int idCliente, string address)
         {
             // Utiliza la fábrica abstracta para obtener una fábrica concreta según el tipo especificado
             IFabTipoPedido fabricaConcreta = ObtenerFabricaConcreta(tipoPedido);
@@ -80,45 +90,46 @@ namespace CenfoEats2._0
 
             // Configura el pedido con la información específica según el tipo
             pedido.idClient = idCliente;
-            pedido.pickUp = 1;
-            pedido.idRestaurant = 
+            pedido.idRestaurant = 1;
+            pedido.date = DateTime.Now;
+            pedido.status = "Pendiente";
+
 
             if (tipoPedido == "Domicilio")
             {
-                var pedidoDomicilio = (ADomicilio)pedido;
-                pedidoDomicilio.idDriver = idRepartidor;
-                pedidoDomicilio.address = direccionDomicilio;
-
+                pedido.idDriver = SeleccionarIdRepartidorAleatorio(); // marca error pero no es error 
+                pedido.address = address;
+                pedido.pickUp = 1;
             }
             else if (tipoPedido == "RecogerSitio")
             {
-                // Aquí puedes realizar acciones específicas para pedidos para recoger en sitio
+                pedido.pickUp = 0;
             }
 
-            // Guarda el pedido en la base de datos u realiza otras acciones según tu lógica
             GuardarPedidoEnBD(pedido);
         }
 
         private IFabTipoPedido ObtenerFabricaConcreta(string tipoPedido)
         {
-            // Implementa la lógica para obtener la fábrica concreta según el tipo de pedido
-            // Puedes utilizar un switch, un diccionario, una lógica condicional, etc.
+            // Esto es para obtener la fábrica concreta según el tipo de pedido
             switch (tipoPedido)
             {
                 case "Domicilio":
                     return new FDomicilio();
                 case "RecogerSitio":
                     return new FRecogerSitio();
-                // Agrega más casos según tus necesidades
+
                 default:
                     throw new ArgumentException("Tipo de pedido no válido", nameof(tipoPedido));
             }
         }
 
-        private void GuardarPedidoEnBD(IPedido pedido)
+        private void GuardarPedidoEnBD(Pedido pedido)
         {
-            // Implementa la lógica para guardar el pedido en la base de datos
-            // Puedes utilizar operaciones CRUD, DAO, etc.
+            var orderCrudFactory = new OrderCrudFactory();
+
+ 
+            orderCrudFactory.Create(pedido);
         }
 
 

@@ -9,125 +9,54 @@ using System.Threading.Tasks;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
+using CenfoEats2._0.PMetodoFabrica.Producto;
 
 namespace CenfoEats2._0.PProxy
 {
     public class ProxyRepartidor : IInfoPedido
     {
-        private String ubicacionEntrega; //Cliente
-        private String telefonoCliente; //Cliente
-        private String nombreRepartidor; //Repartidor
-        private String telefonoRepartdor; //Repartidor
 
-        private InfoPedido _InfoPedido = new InfoPedido();
         private bool _LoginExitoso = false;
-        private int _InfoPrivada = 5;
 
-        private List<ADomicilio> listaPedidos = new List<ADomicilio>();
-        ADomicilioDao domicilioDao = new ADomicilioDao();
 
-        ADomicilio obtenerPedido(int id) { //PROBABLEMENTE VA EN GESTOR
-            listaPedidos = domicilioDao.listarPedidosDomicilio();
-
-            foreach (ADomicilio objPedido in listaPedidos)
-            {
-                if (objPedido.GetIdOrder() == id)
-                {
-                    return objPedido;
-                }
-            }
-            return null;
-          }
-
-        bool validacionID(int idPedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
+        bool validacionID(ADomicilio pedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
         {
             bool tieneAcceso = false;
 
-            ADomicilio pedido = obtenerPedido(idPedido);
 
-            if (pedido.GetPickUp() == 1)
+            if (pedido.GetIdClient() == idCliente && pedido.GetIdDriver() == idRepartidor)
             {
-                if (pedido.GetIdClient() == idCliente && pedido.GetIdDriver() == idRepartidor)
-                {
-                    tieneAcceso = true;
-                }
+                tieneAcceso = true;
             }
+
 
             return tieneAcceso;
         }
-        public string ValidarAccesoPedido(int idPedido, int idCliente, int idRepartidor)
+        public string ValidarAccesoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
-            _LoginExitoso = validacionID( idPedido,  idCliente,  idRepartidor);
+            _LoginExitoso = validacionID(pedido, cliente.id, repartidor.id);
 
-            if(!_LoginExitoso)
+            if (!_LoginExitoso)
             {
                 return "No tiene acceso a la información del pedido";
             }
-            return "Credenciales aceptadas para la información del pedido";
+            return ObtenerInfoPedido(pedido, cliente, repartidor);
         }
-        public string ObtenerInfoPedido(int idPedido, int idUsuario, int idRepartidor)
+
+
+        public string ObtenerInfoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
         {
-            if (_LoginExitoso)
-            {
-                string mensajeAceptado = "Ingreso aceptado";
-            } else
-            {
-                return "Credenciales no aceptadas";
-            }
-            return null;
-            //AQUI SE TIENE QUE PONER LA INFO DEL PEDIDO
+            string mensaje = "Información del pedido: <br>" +
+            "Restaurante: " + pedido.idRestaurant + " colones. <br>" +
+            "Dirección de Entrega: " + pedido.address + ".<br>" +
+            "Número de telefono del cliente: " + cliente.telefono + ". <br>" +
+            "Nombre del repartidor: " + repartidor.nombre + ". <br>" +
+            "Número de telefono del repartidor: " + repartidor.telefono + ".";
+
+            return mensaje;
+
         }
-
-       
-
-
-
-
-
-
-
-
-
-        //public string ValidarAccesoPedido(int idPedido, int idUsuario) //Usuario y pedi   
-        //{
-        //    bool tieneAccseso = false;
-        //    setTipo("Ninguno");
-
-
-        //    // Lógica para validar el acceso basado en el tipo de usuario
-        //    if (usuario.tipo == "Repartidor")
-        //        setTipo("Repartidor");
-        //    {
-        //        tieneAccseso = true;
-
-        //    }
-        //    else if (usuario.tipo == "Cliente")
-        //    {
-        //        setTipo("Cliente");
-        //        tieneAccseso = true;
-
-
-        //    }
-
-        //    return "Acceso no autorizado";
-
-        //}
-
-        //public static String getTipo()
-        //{
-        //    return usuario.tipo;
-        //}
-
-        //private static void setTipo(string pTipo)
-        //{
-        //    usuario.tipo = pTipo;
-        //}
-
-        //public void cargarInformacionPedido()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
     }
-}
+
+
+ }

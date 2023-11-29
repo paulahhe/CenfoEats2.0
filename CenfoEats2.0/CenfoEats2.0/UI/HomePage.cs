@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
 using CenfoEats2._0.PPrototipo.Prototipo;
@@ -210,9 +211,10 @@ namespace CenfoEats2._0.UI
             string restaurante = comboBoxRestaurantePedido.SelectedItem?.ToString();
             string platillo = comboBoxPlatilloPedido.SelectedItem?.ToString();
             string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
-            string idCliente = textBoxClientePedido.Text;
+            int idCliente = int.Parse(textBoxClientePedido.Text);
 
-            gestor.ObtenerIdRestaurante();
+
+
 
             // Validar campos específicos para entrega a domicilio
             if (radioButtonDomicilio.Checked)
@@ -229,7 +231,7 @@ namespace CenfoEats2._0.UI
                 // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
             }
 
-            gestor.CrearPedido()
+            gestor.CrearPedido(restaurante, idCliente, address);
         }
 
         private bool ValidatePedidoFields()
@@ -309,33 +311,7 @@ namespace CenfoEats2._0.UI
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void obtenerInfo_Click(object sender, EventArgs e)
-        {
-            if (validateInfoPedidos())
-            {
-
-            }
-        }
-
-        private bool validateInfoPedidos()
-        {
-            // Verificar que los TextBox no estén vacíos
-            return infoPedidoOrderId != null &&
-                    infoPedidoClientId != null &&
-                    infoPedidoDeliveryGuyId != null;
-        }
-
-        private void infoPedidoOrderId_TextChanged(object sender, EventArgs e)
+        private void textBoxClientePedido_TextChanged(object sender, EventArgs e)
         {
 
         }

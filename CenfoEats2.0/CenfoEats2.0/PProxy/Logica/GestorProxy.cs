@@ -1,5 +1,6 @@
 ﻿using CenfoEats2._0.PDecorador;
 using CenfoEats2._0.PDecorador.Componente;
+using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Producto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
@@ -14,14 +15,43 @@ namespace CenfoEats2._0.PProxy
 {
     public class GestorProxy
     {
-        private Usuario usuario;
-        private Repartidor repartidor;
+        private Usuario repartidor;
         private ADomicilio pedido;
-        private Cliente cliente;
-        private int idCliente;
-        private int idRepartidor;
-        private String infoCliente;
+        private Usuario cliente;
+        private ProxyRepartidor proxy;
 
+
+
+        private List<ADomicilio> listaPedidos = new List<ADomicilio>();
+        ADomicilioDao domicilioDao = new ADomicilioDao();
+
+
+
+
+        public ADomicilio ObtenerPedido(int id)
+        { //PROBABLEMENTE VA EN GESTOR
+            listaPedidos = domicilioDao.listarPedidosDomicilio();
+
+            foreach (ADomicilio objPedido in listaPedidos)
+            {
+                if (objPedido.GetIdOrder() == id)
+                {
+                    return objPedido;
+                }
+            }
+            return null;
+        }
+
+     public string InformacionTotal(int idPedido)
+        {
+            pedido = ObtenerPedido(idPedido);
+
+
+            cliente = ObtenerInformacionCliente(pedido.idClient);
+            repartidor = ObtenerInformacionRepartidor(pedido.idDriver);
+
+          return proxy.ValidarAccesoPedido(pedido, cliente, repartidor);
+        }
 
         public Usuario ObtenerInformacionCliente(int idCliente)
         {
@@ -54,6 +84,7 @@ namespace CenfoEats2._0.PProxy
                 // Manejar el caso en el que no se encuentre el cliente
                 throw new Exception("Cliente no encontrado");
             }
+
         }
 
 
@@ -90,14 +121,11 @@ namespace CenfoEats2._0.PProxy
             }
         }
 
-       
 
 
 
+
+
+    }
 }
 
-
-
-
-
-}

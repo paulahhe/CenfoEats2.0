@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
-    public abstract class Pedido : IPedido
+    public abstract class Pedido : BaseEntity, IPedido
     {
 
         public int idOrder { get; set; }
@@ -15,6 +15,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         public int idRestaurant { get; set; }
         public string status { get; set; }
         public DateTime date { get; set; }
+
 
 
         public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date)
