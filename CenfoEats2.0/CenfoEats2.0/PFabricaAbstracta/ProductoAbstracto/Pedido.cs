@@ -63,7 +63,10 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
             return pickUp;
         }
 
-
+        public void SetStatus(string nuevoEstado)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

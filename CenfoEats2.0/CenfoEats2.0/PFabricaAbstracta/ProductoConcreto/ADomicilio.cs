@@ -12,7 +12,7 @@ using CenfoEats2._0.PEstado.Contexto;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class ADomicilio : IPedido, ISujeto
+    public class ADomicilio : Pedido, ISujeto
     {
         public int idDriver { get; set; }
 

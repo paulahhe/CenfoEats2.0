@@ -11,7 +11,7 @@ using CenfoEats2._0.PEstado.Abstracto;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
-    public class RecogerSitio : IPedido, ISujeto
+    public class RecogerSitio : Pedido, ISujeto
     {
 
         private readonly List<IObservador> _observadores = new List<IObservador>();
@@ -25,30 +25,12 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 
         public RecogerSitio()
         {
-            public int GetPickUp()
-            {
-                return 0;
-            }
+           
         }
 
-        public int GetIdRestaurant()
+        public int GetPickUp()
         {
-            return idRestaurant;
-        }
-
-        public string GetStatus()
-        {
-            return manejadorEstado.getInfo();
-        }
-
-        public DateTime GetDate()
-        {
-            return date;
-        }
-
-        public int GetIdDriver()
-        {
-            throw new NotImplementedException();
+            return 0;
         }
         public void SetStatus(string nuevoEstado)
         {
