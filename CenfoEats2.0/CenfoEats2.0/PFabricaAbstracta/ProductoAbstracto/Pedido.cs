@@ -1,4 +1,5 @@
-﻿using CenfoEats2._0.PPrototipo.Menu;
+﻿using CenfoEats2._0.PEstado.Abstracto;
+using CenfoEats2._0.PPrototipo.Prototipo;
 using System;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
@@ -87,6 +88,11 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
                 return $"ID: {idOrder}, PickUp: Recoger, ID Cliente: {idClient}, " +
                        $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}, Platillo: { platillo}";
             }
+        }
+
+        public void CambiarEstado(IEstadoPedido nuevoEstado)
+        {
+            throw new NotImplementedException();
         }
     }
 }

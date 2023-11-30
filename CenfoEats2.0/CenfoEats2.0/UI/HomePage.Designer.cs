@@ -527,7 +527,6 @@ namespace CenfoEats2._0.UI
             this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
             this.RegisterOrder.TabIndex = 3;
             this.RegisterOrder.Text = "Registrar Pedidos";
-            this.RegisterOrder.Click += new System.EventHandler(this.RegisterOrder_Click);
             // 
             // groupBox2
             // 
@@ -574,6 +573,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxIngredientePedido.Name = "comboBoxIngredientePedido";
             this.comboBoxIngredientePedido.Size = new System.Drawing.Size(311, 21);
             this.comboBoxIngredientePedido.TabIndex = 20;
+            this.comboBoxIngredientePedido.SelectedIndexChanged += new System.EventHandler(this.comboBoxIngredientePedido_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -648,7 +648,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxRestaurantePedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRestaurantePedido.FormattingEnabled = true;
             this.comboBoxRestaurantePedido.Items.AddRange(new object[] {
-            "Macdonals",
+            "BurgerKing",
             "CenfoSoda",
             "TacoBell"});
             this.comboBoxRestaurantePedido.Location = new System.Drawing.Point(27, 43);
@@ -664,7 +664,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxPlatilloPedido.Items.AddRange(new object[] {
             "BigWopper",
             "Tacos al Patrón",
-            "Ensalda de patrones"});
+            "Ensalada de patrones"});
             this.comboBoxPlatilloPedido.Location = new System.Drawing.Point(27, 110);
             this.comboBoxPlatilloPedido.Name = "comboBoxPlatilloPedido";
             this.comboBoxPlatilloPedido.Size = new System.Drawing.Size(311, 21);

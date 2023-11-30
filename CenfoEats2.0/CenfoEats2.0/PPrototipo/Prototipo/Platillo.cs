@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CenfoEats2._0.PPrototipo.iPrototipo;
 
 
-namespace CenfoEats2._0.PPrototipo.Menu
+namespace CenfoEats2._0.PPrototipo.Prototipo
 {
     public class Platillo : iPlatillo
     {
@@ -14,13 +14,24 @@ namespace CenfoEats2._0.PPrototipo.Menu
         public Platillo(string nombre, double precio, string descripcion)
         {
             this.nombre = nombre;
-            this.precio = (decimal)precio;
+            this.precio = precio;
             this.descripcion = descripcion;
         }
 
         public string getNombre()
         {
             return nombre;
+        }
+
+        public string getDescripcion()
+        {
+            return descripcion;
+        }
+
+
+        public double getPrecio()
+        {
+            return precio;
         }
 
         override

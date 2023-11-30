@@ -15,10 +15,7 @@ namespace CenfoEats2._0.PDecorador.Decorador
         private double precio;
 
 
-        public IngredienteExtra(Producto pProducto)
-        {
-            this.producto = pProducto;
-        }
+
 
         public IngredienteExtra(string nombre, double precio)
         {
@@ -33,23 +30,31 @@ namespace CenfoEats2._0.PDecorador.Decorador
             this.precio = precio;      
         }
 
+        public IngredienteExtra(Platillo pProducto, string nombre, double precio)
+        {
+            this.producto.platillo = pProducto;
+            this.nombre = nombre;
+            this.precio = precio;
+        }
+
+
 
         override
          public string getNombre()
         {
-            return this.producto.getNombre() + "con" + nombre;
+            return this.producto.platillo.getNombre() + "con" + nombre;
         }
 
         override
          public string getDescripcion()
         {
-            return this.producto.getDescripcion() + "con" + nombre;
+            return this.producto.platillo.getDescripcion() + "con" + nombre;
         }
 
         override
          public double getPrecio()
         {
-            return this.producto.getPrecio() + precio;
+            return this.producto.platillo.getPrecio() + precio;
         }
 
         public override string getNombreRestaurante()

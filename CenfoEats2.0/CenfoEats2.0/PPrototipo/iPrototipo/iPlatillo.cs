@@ -9,7 +9,7 @@ namespace CenfoEats2._0.PPrototipo.iPrototipo
     public abstract class iPlatillo
     {
         public string nombre { get; set; }
-        public decimal precio { get; set; }
+        public double precio { get; set; }
         public string descripcion { get; set; }
 
         public abstract iPlatillo cloneP();

@@ -1,4 +1,5 @@
-﻿using CenfoEats2._0.PDecorador.Decorador;
+﻿using CenfoEats2._0.PDecorador.Componente;
+using CenfoEats2._0.PDecorador.Decorador;
 using CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta;
 using CenfoEats2._0.PFabricaAbstracta.FabricaConcreta;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
@@ -6,7 +7,7 @@ using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Creador;
 using CenfoEats2._0.PMetodoFabrica.CreadorConcreto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
-using CenfoEats2._0.PPrototipo.Menu;
+using CenfoEats2._0.PPrototipo.Prototipo;
 using CenfoEats2._0.PProxy;
 using CenfoEats2._0.PSingleton.CRUD;
 using CenfoEats2._0.PSingleton.DAOs;
@@ -25,6 +26,7 @@ namespace CenfoEats2._0
         private List<Pedido> listPedidos;
         private List<Platillo> listPlatillos;
         private List<IngredienteExtra> listIngredientesExtras;
+        private List<Producto> productosDecorados;
 
         private Platillo bigWopper;
         private Platillo tacosPatron;
@@ -50,6 +52,7 @@ namespace CenfoEats2._0
 
             listPlatillos = new List<Platillo>();
             listIngredientesExtras = new List<IngredienteExtra>();
+            productosDecorados = new List<Producto>();
 
             listPlatillos.Add(bigWopper);
             listPlatillos.Add(tacosPatron);
@@ -156,16 +159,15 @@ namespace CenfoEats2._0
 
             Platillo objPlatillo = ObtenerPlatilloPorNombre(platillo);
 
+            IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
+
 
             if (ingredienteExtra != null)
             {
 
-                IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
-
-
-                IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
+                IngredienteExtraDecorador decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
                 productosDecorados.Add(decorador);
-                objPlatillo = decorador; // Actualizar la referencia al platillo decorado
+                objPlatillo = decorador.platillo; // Actualizar la referencia al platillo decorado
             }
 
             // Configura el pedido con la información específica según el tipo
