@@ -148,7 +148,7 @@ namespace CenfoEats2._0
             return listIngredientesExtras.FirstOrDefault(ingredienteExtra => ingredienteExtra.getNombre().Equals(nombreIngredienteExtra, StringComparison.OrdinalIgnoreCase));
         }
 
-        public string CrearPedido(string tipoPedido, int idCliente, string address, string platillo, string ingredienteExtra)
+        public string CrearPedido(string tipoPedido, int idCliente, string address, string platillo /*, string ingredienteExtra*/)
         {
             IFabTipoPedido fabricaConcreta = ObtenerFabricaConcreta(tipoPedido);
 
@@ -157,16 +157,16 @@ namespace CenfoEats2._0
             Platillo objPlatillo = ObtenerPlatilloPorNombre(platillo);
 
 
-            if (ingredienteExtra != null)
-            {
+            //if (ingredienteExtra != null)
+            //{
 
-                //IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
+            //    //IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
 
 
-                //IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
-                //productosDecorados.Add(decorador);
-                //objPlatillo = decorador; // Actualizar la referencia al platillo decorado
-            }
+            //    //IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
+            //    //productosDecorados.Add(decorador);
+            //    //objPlatillo = decorador; // Actualizar la referencia al platillo decorado
+            //}
 
             // Configura el pedido con la información específica según el tipo
             pedido.idClient = idCliente;

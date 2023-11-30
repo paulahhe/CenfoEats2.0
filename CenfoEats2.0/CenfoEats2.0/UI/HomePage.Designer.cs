@@ -664,7 +664,7 @@ namespace CenfoEats2._0.UI
             this.comboBoxPlatilloPedido.Items.AddRange(new object[] {
             "BigWopper",
             "Tacos al Patrón",
-            "Ensalda de patrones"});
+            "Ensalada de patrones"});
             this.comboBoxPlatilloPedido.Location = new System.Drawing.Point(27, 110);
             this.comboBoxPlatilloPedido.Name = "comboBoxPlatilloPedido";
             this.comboBoxPlatilloPedido.Size = new System.Drawing.Size(311, 21);

@@ -227,7 +227,7 @@ namespace CenfoEats2._0.UI
 
                 }
                 // Muestra la información del pedido en el textBoxInfoPedido
-                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address, platillo, ingredienteExtra);
+                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address, platillo/*, ingredienteExtra*/);
             }
         }
 
