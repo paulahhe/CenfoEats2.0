@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CenfoEats2._0.PPrototipo.Menu;
+using System;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
     public abstract class Pedido : BaseEntity, IPedido
     {
-
         public int idOrder { get; set; }
-        public int pickUp { get; set; } //1 -> Pickup 0-> Recoger
+        public int pickUp { get; set; } // 1 -> Pickup 0 -> Recoger
         public int idClient { get; set; }
         public int idRestaurant { get; set; }
         public string status { get; set; }
         public DateTime date { get; set; }
+        public int idDriver { get; set; }
+        public string address { get; set; }
+        public Platillo platillo { get; set; }
 
-
-
-        public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date)
+        public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date, Platillo platillo)
         {
             this.idOrder = idOrder;
             this.pickUp = pickUp;
@@ -26,8 +23,16 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
             this.idRestaurant = idRestaurant;
             this.status = status;
             this.date = date;
+            this.platillo = platillo;
         }
-        
+
+        // Constructor ADOMICILIOoooooooo
+        public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date, int idDriver, string address, Platillo platillo)
+            : this(idOrder, pickUp, idClient, idRestaurant, status, date, platillo)
+        {
+            this.idDriver = idDriver;
+            this.address = address;
+        }
 
         public Pedido()
         {
@@ -43,7 +48,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
             return idClient;
         }
 
-
         public int GetIdRestaurant()
         {
             return idRestaurant;
@@ -58,6 +62,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         {
             return date;
         }
+
         public int GetPickUp()
         {
             return pickUp;
@@ -65,14 +70,23 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 
         public void SetStatus(string nuevoEstado)
         {
-            throw new NotImplementedException();
+            // Implementa la lógica para establecer el nuevo estado
+            status = nuevoEstado;
         }
 
         public override string ToString()
         {
-            return $"ID: {idOrder}, PickUp: {(pickUp == 1 ? "Pickup" : "Recoger")}, ID Cliente: {idClient}, " +
-                   $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}";
+            if (pickUp == 1)
+            {
+                return $"ID: {idOrder}, PickUp: Pickup, ID Cliente: {idClient}, " +
+                       $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}, " +
+                       $"ID Repartidor: {idDriver}, Dirección: {address}, Platillo:  {platillo}";
+            }
+            else
+            {
+                return $"ID: {idOrder}, PickUp: Recoger, ID Cliente: {idClient}, " +
+                       $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}, Platillo: { platillo}";
+            }
         }
     }
 }
-

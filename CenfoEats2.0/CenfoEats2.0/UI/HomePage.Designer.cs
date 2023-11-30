@@ -83,7 +83,6 @@ namespace CenfoEats2._0.UI
             this.radioButtonDomicilio = new System.Windows.Forms.RadioButton();
             this.radioButtonRecoger = new System.Windows.Forms.RadioButton();
             this.comboBoxRestaurantePedido = new System.Windows.Forms.ComboBox();
-            this.buttonIngredientePedido = new System.Windows.Forms.Button();
             this.comboBoxPlatilloPedido = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -139,10 +138,10 @@ namespace CenfoEats2._0.UI
             this.RegisterUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterUser.Controls.Add(this.btnRegister);
             this.RegisterUser.Controls.Add(this.gBoxRegister);
-            this.RegisterUser.Location = new System.Drawing.Point(4, 25);
+            this.RegisterUser.Location = new System.Drawing.Point(4, 22);
             this.RegisterUser.Name = "RegisterUser";
             this.RegisterUser.Padding = new System.Windows.Forms.Padding(3);
-            this.RegisterUser.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterUser.Size = new System.Drawing.Size(1051, 645);
             this.RegisterUser.TabIndex = 0;
             this.RegisterUser.Text = "Registro Usuarios";
             // 
@@ -279,10 +278,10 @@ namespace CenfoEats2._0.UI
             // 
             this.ListUsers.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ListUsers.Controls.Add(this.dataGridView1);
-            this.ListUsers.Location = new System.Drawing.Point(4, 25);
+            this.ListUsers.Location = new System.Drawing.Point(4, 22);
             this.ListUsers.Name = "ListUsers";
             this.ListUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.ListUsers.Size = new System.Drawing.Size(1051, 642);
+            this.ListUsers.Size = new System.Drawing.Size(1051, 645);
             this.ListUsers.TabIndex = 1;
             this.ListUsers.Text = "Mostrar Usuarios";
             // 
@@ -354,9 +353,9 @@ namespace CenfoEats2._0.UI
             this.RegisterRestaurant.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterRestaurant.Controls.Add(this.btnRegisterRestaurant);
             this.RegisterRestaurant.Controls.Add(this.groupBox1);
-            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 25);
+            this.RegisterRestaurant.Location = new System.Drawing.Point(4, 22);
             this.RegisterRestaurant.Name = "RegisterRestaurant";
-            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterRestaurant.Size = new System.Drawing.Size(1051, 645);
             this.RegisterRestaurant.TabIndex = 4;
             this.RegisterRestaurant.Text = "Registrar Restaurante";
             // 
@@ -523,11 +522,12 @@ namespace CenfoEats2._0.UI
             // 
             this.RegisterOrder.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RegisterOrder.Controls.Add(this.groupBox2);
-            this.RegisterOrder.Location = new System.Drawing.Point(4, 25);
+            this.RegisterOrder.Location = new System.Drawing.Point(4, 22);
             this.RegisterOrder.Name = "RegisterOrder";
-            this.RegisterOrder.Size = new System.Drawing.Size(1051, 642);
+            this.RegisterOrder.Size = new System.Drawing.Size(1051, 645);
             this.RegisterOrder.TabIndex = 3;
             this.RegisterOrder.Text = "Registrar Pedidos";
+            this.RegisterOrder.Click += new System.EventHandler(this.RegisterOrder_Click);
             // 
             // groupBox2
             // 
@@ -540,7 +540,6 @@ namespace CenfoEats2._0.UI
             this.groupBox2.Controls.Add(this.radioButtonDomicilio);
             this.groupBox2.Controls.Add(this.radioButtonRecoger);
             this.groupBox2.Controls.Add(this.comboBoxRestaurantePedido);
-            this.groupBox2.Controls.Add(this.buttonIngredientePedido);
             this.groupBox2.Controls.Add(this.comboBoxPlatilloPedido);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
@@ -575,7 +574,6 @@ namespace CenfoEats2._0.UI
             this.comboBoxIngredientePedido.Name = "comboBoxIngredientePedido";
             this.comboBoxIngredientePedido.Size = new System.Drawing.Size(311, 21);
             this.comboBoxIngredientePedido.TabIndex = 20;
-            
             // 
             // label12
             // 
@@ -629,6 +627,7 @@ namespace CenfoEats2._0.UI
             this.radioButtonDomicilio.TabStop = true;
             this.radioButtonDomicilio.Text = "A Domicilio";
             this.radioButtonDomicilio.UseVisualStyleBackColor = true;
+            this.radioButtonDomicilio.CheckedChanged += new System.EventHandler(this.radioButtonDomicilio_CheckedChanged);
             // 
             // radioButtonRecoger
             // 
@@ -641,6 +640,7 @@ namespace CenfoEats2._0.UI
             this.radioButtonRecoger.TabStop = true;
             this.radioButtonRecoger.Text = "Recoger en Sitio";
             this.radioButtonRecoger.UseVisualStyleBackColor = true;
+            this.radioButtonRecoger.CheckedChanged += new System.EventHandler(this.radioButtonRecoger_CheckedChanged);
             // 
             // comboBoxRestaurantePedido
             // 
@@ -656,24 +656,13 @@ namespace CenfoEats2._0.UI
             this.comboBoxRestaurantePedido.Size = new System.Drawing.Size(311, 21);
             this.comboBoxRestaurantePedido.TabIndex = 13;
             // 
-            // buttonIngredientePedido
-            // 
-            this.buttonIngredientePedido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonIngredientePedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIngredientePedido.Location = new System.Drawing.Point(63, 214);
-            this.buttonIngredientePedido.Name = "buttonIngredientePedido";
-            this.buttonIngredientePedido.Size = new System.Drawing.Size(229, 32);
-            this.buttonIngredientePedido.TabIndex = 11;
-            this.buttonIngredientePedido.Text = "Agregar ingrediente extra\r\n\r\n";
-            this.buttonIngredientePedido.UseVisualStyleBackColor = true;
-            // 
             // comboBoxPlatilloPedido
             // 
             this.comboBoxPlatilloPedido.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tBLPRODUCTSBindingSource, "NAME", true));
             this.comboBoxPlatilloPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPlatilloPedido.FormattingEnabled = true;
             this.comboBoxPlatilloPedido.Items.AddRange(new object[] {
-            "BigMac",
+            "BigWopper",
             "Tacos al Patrón",
             "Ensalda de patrones"});
             this.comboBoxPlatilloPedido.Location = new System.Drawing.Point(27, 110);
@@ -728,6 +717,7 @@ namespace CenfoEats2._0.UI
             this.textBoxUbicacionPedido.Size = new System.Drawing.Size(288, 26);
             this.textBoxUbicacionPedido.TabIndex = 2;
             this.textBoxUbicacionPedido.Visible = false;
+            this.textBoxUbicacionPedido.TextChanged += new System.EventHandler(this.textBoxUbicacionPedido_TextChanged);
             // 
             // label10
             // 
@@ -750,9 +740,9 @@ namespace CenfoEats2._0.UI
             this.OrderInfo.Controls.Add(this.labelRepartidorID);
             this.OrderInfo.Controls.Add(this.labelClientID);
             this.OrderInfo.Controls.Add(this.titleInfo);
-            this.OrderInfo.Location = new System.Drawing.Point(4, 25);
+            this.OrderInfo.Location = new System.Drawing.Point(4, 22);
             this.OrderInfo.Name = "OrderInfo";
-            this.OrderInfo.Size = new System.Drawing.Size(1051, 642);
+            this.OrderInfo.Size = new System.Drawing.Size(1051, 645);
             this.OrderInfo.TabIndex = 5;
             this.OrderInfo.Text = "Informacion pedido";
             // 
@@ -771,7 +761,7 @@ namespace CenfoEats2._0.UI
             // 
             this.inputRepartidorID.Location = new System.Drawing.Point(22, 320);
             this.inputRepartidorID.Name = "inputRepartidorID";
-            this.inputRepartidorID.Size = new System.Drawing.Size(194, 22);
+            this.inputRepartidorID.Size = new System.Drawing.Size(194, 20);
             this.inputRepartidorID.TabIndex = 14;
             this.inputRepartidorID.TextChanged += new System.EventHandler(this.inputRepartidorID_TextChanged);
             // 
@@ -779,7 +769,7 @@ namespace CenfoEats2._0.UI
             // 
             this.inputClientID.Location = new System.Drawing.Point(26, 215);
             this.inputClientID.Name = "inputClientID";
-            this.inputClientID.Size = new System.Drawing.Size(191, 22);
+            this.inputClientID.Size = new System.Drawing.Size(191, 20);
             this.inputClientID.TabIndex = 13;
             this.inputClientID.TextChanged += new System.EventHandler(this.inputClientID_TextChanged);
             // 
@@ -787,7 +777,7 @@ namespace CenfoEats2._0.UI
             // 
             this.inputOrderID.Location = new System.Drawing.Point(26, 117);
             this.inputOrderID.Name = "inputOrderID";
-            this.inputOrderID.Size = new System.Drawing.Size(192, 22);
+            this.inputOrderID.Size = new System.Drawing.Size(192, 20);
             this.inputOrderID.TabIndex = 12;
             this.inputOrderID.TextChanged += new System.EventHandler(this.inputOrderID_TextChanged);
             // 
@@ -935,7 +925,6 @@ namespace CenfoEats2._0.UI
         private System.Windows.Forms.RadioButton radioButtonDomicilio;
         private System.Windows.Forms.RadioButton radioButtonRecoger;
         private System.Windows.Forms.ComboBox comboBoxRestaurantePedido;
-        private System.Windows.Forms.Button buttonIngredientePedido;
         private System.Windows.Forms.ComboBox comboBoxPlatilloPedido;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

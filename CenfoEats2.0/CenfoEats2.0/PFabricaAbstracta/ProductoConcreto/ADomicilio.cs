@@ -14,11 +14,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
 {
     public class ADomicilio : Pedido, ISujeto
     {
-        public int idDriver { get; set; }
-
-        public string address { get; set; }
-
-
 
         private readonly List<IObservador> _observadores = new List<IObservador>();
 

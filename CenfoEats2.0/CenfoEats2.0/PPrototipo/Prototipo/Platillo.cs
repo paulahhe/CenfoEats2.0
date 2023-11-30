@@ -18,10 +18,17 @@ namespace CenfoEats2._0.PPrototipo.Menu
             this.descripcion = descripcion;
         }
 
+        public string getNombre()
+        {
+            return nombre;
+        }
+
         override
         public iPlatillo cloneP()
         {
             return new Platillo(nombre, (double)precio, descripcion);
         }
+
+
     }
 }

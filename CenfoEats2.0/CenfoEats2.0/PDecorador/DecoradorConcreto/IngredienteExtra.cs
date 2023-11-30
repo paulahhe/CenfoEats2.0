@@ -20,6 +20,19 @@ namespace CenfoEats2._0.PDecorador.Decorador
             this.producto = pProducto;
         }
 
+        public IngredienteExtra(string nombre, double precio)
+        {
+            this.nombre = nombre;
+            this.precio = precio;
+        }
+
+        public IngredienteExtra(Producto pProducto, string nombre, double precio)
+        {
+            this.producto = pProducto;
+            this.nombre = nombre;
+            this.precio = precio;      
+        }
+
 
         override
          public string getNombre()

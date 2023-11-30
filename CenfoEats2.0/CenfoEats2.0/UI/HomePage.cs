@@ -212,14 +212,7 @@ namespace CenfoEats2._0.UI
                 string ingredienteExtra = comboBoxIngredientePedido.SelectedItem?.ToString();
                 string tipoPedido = ValidarMetodoEntrega();
                 int idCliente = int.Parse(textBoxClientePedido.Text);
-
-                string repartidor;
                 string address = null;
-
-                string infoPedido = $"Pedido creado:\n" +
-                          $"Restaurante: {restaurante}\n" +
-                          $"Platillo: {platillo}\n" +
-                          $"Cliente ID: {idCliente}\n";
 
 
                 if (radioButtonDomicilio.Checked)
@@ -230,16 +223,11 @@ namespace CenfoEats2._0.UI
                         return;
                     }
 
-                    // Lógica para seleccionar un repartidor aleatorio
-                    repartidor = gestor.ObtenerNombreRepartidorAleatorio();
                     address = textBoxUbicacionPedido.Text;
 
-                    infoPedido += $"Nombre Repartidor: {repartidor}\n" +
-                              $"Dirección de entrega: {address}\n";
-                    // Puedes utilizar el valor de 'repartidor' según tu lógica de negocio
                 }
                 // Muestra la información del pedido en el textBoxInfoPedido
-                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address);
+                textBoxInfoPedido.Text = gestor.CrearPedido(tipoPedido, idCliente, address, platillo);
             }
         }
 
@@ -262,14 +250,14 @@ namespace CenfoEats2._0.UI
             return true;
         }
 
-        private void radioButtonRecoger_CheckedChanged_1(object sender, EventArgs e)
+        private void radioButtonRecoger_CheckedChanged(object sender, EventArgs e)
         {
             // Ocultar los controles de entrega a domicilio
             labelUbicacionPedido.Visible = false;
             textBoxUbicacionPedido.Visible = false;
         }
 
-        private void radioButtonDomicilio_CheckedChanged_1(object sender, EventArgs e)
+        private void radioButtonDomicilio_CheckedChanged(object sender, EventArgs e)
         {
             // Mostrar los controles de entrega a domicilio
             labelUbicacionPedido.Visible = true;
@@ -357,5 +345,16 @@ namespace CenfoEats2._0.UI
                     : string.Empty;
             }
         }
+
+        private void RegisterOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxUbicacionPedido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

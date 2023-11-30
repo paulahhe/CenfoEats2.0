@@ -1,4 +1,5 @@
-﻿using CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta;
+﻿using CenfoEats2._0.PDecorador.Decorador;
+using CenfoEats2._0.PFabricaAbstracta.FabricaAbstracta;
 using CenfoEats2._0.PFabricaAbstracta.FabricaConcreta;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
@@ -21,12 +22,42 @@ namespace CenfoEats2._0
         private static I_Creador_Usuarios Ufabrica;
         private IFabTipoPedido fabricaTipoPedido;
         private GestorProxy gestorProxy;
+        private List<Pedido> listPedidos;
+        private List<Platillo> listPlatillos;
+        private List<IngredienteExtra> listIngredientesExtras;
 
+        private Platillo bigWopper;
+        private Platillo tacosPatron;
+        private Platillo ensaladaPatrones;
+
+        private IngredienteExtra cebollaExtra;
+        private IngredienteExtra tomateExtra;
+        private IngredienteExtra quesoExtra;
 
         public Gestor()
         {
             Ufabrica = new Creador_Usuarios();
 
+   
+            bigWopper = new Platillo("BigWopper", 4500, "Hamburguesa gigante con carne y queso");
+            tacosPatron = new Platillo("Tacos al Patrón", 5000, "Tacos auténticos con carne y salsa especial");
+            ensaladaPatrones = new Platillo("Ensalada de patrones", 3000, "Ensalada fresca con ingredientes exclusivos");
+
+
+            cebollaExtra = new IngredienteExtra("Cebolla Extra", 500);
+            tomateExtra = new IngredienteExtra("Tomate Extra", 700);
+            quesoExtra = new IngredienteExtra("Queso Extra", 800);
+
+            listPlatillos = new List<Platillo>();
+            listIngredientesExtras = new List<IngredienteExtra>();
+
+            listPlatillos.Add(bigWopper);
+            listPlatillos.Add(tacosPatron);
+            listPlatillos.Add(ensaladaPatrones);
+
+            listIngredientesExtras.Add(cebollaExtra);
+            listIngredientesExtras.Add(tomateExtra);
+            listIngredientesExtras.Add(quesoExtra);
         }
 
         public void nuevoUsuario(string nombre, string correo_electronico, string telefono, string tipo, string contrasenna)
@@ -107,32 +138,74 @@ namespace CenfoEats2._0
             }
         }
 
-        public string CrearPedido(string tipoPedido, int idCliente, string address)
+        public Platillo ObtenerPlatilloPorNombre(string nombrePlatillo)
         {
-            // Utiliza la fábrica abstracta para obtener una fábrica concreta según el tipo especificado
+            return listPlatillos.FirstOrDefault(platillo => platillo.getNombre().Equals(nombrePlatillo, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IngredienteExtra ObtenerIngredienteExtraPorNombre(string nombreIngredienteExtra)
+        {
+            return listIngredientesExtras.FirstOrDefault(ingredienteExtra => ingredienteExtra.getNombre().Equals(nombreIngredienteExtra, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public string CrearPedido(string tipoPedido, int idCliente, string address, string platillo, string ingredienteExtra)
+        {
             IFabTipoPedido fabricaConcreta = ObtenerFabricaConcreta(tipoPedido);
 
-            // Utiliza la fábrica concreta para crear un pedido según el tipo especificado
             Pedido pedido = fabricaConcreta.crearPedido();
+
+            Platillo objPlatillo = ObtenerPlatilloPorNombre(platillo);
+
+
+            if (ingredienteExtra != null)
+            {
+
+                IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
+
+
+                IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
+                productosDecorados.Add(decorador);
+                objPlatillo = decorador; // Actualizar la referencia al platillo decorado
+            }
 
             // Configura el pedido con la información específica según el tipo
             pedido.idClient = idCliente;
             pedido.idRestaurant = 1;
             pedido.date = DateTime.Now;
             pedido.status = "Pendiente";
+            pedido.platillo = objPlatillo;
+
+
+            var infoPedido = "Información del Pedido: \r\n" +
+                "Restaurante: " + pedido.idRestaurant + ".\r\n" +
+                "Cliente: " + pedido.idClient + ".\r\n" +
+                "Fecha: " + pedido.date.ToString("yyyy-MM-dd HH:mm:ss") + ".\r\n" +
+                "Estado: " + pedido.status + ".\r\n" +
+                "Platillo: " + pedido.platillo.nombre + ".\r\n" +
+                "Descripción del platillo: " + pedido.platillo.descripcion + ".\r\n" +
+                "Precio: " + pedido.platillo.precio + " colones.\r\n";
 
 
             if (tipoPedido == "Domicilio")
             {
-                //pedido.iddriver = seleccionaridrepartidoraleatorio(); // marca error pero no es error 
-                //pedido.address = address;
+                
+                pedido.idDriver = SeleccionarIdRepartidorAleatorio(); // marca error pero no es error 
+                pedido.address = address;
                 pedido.pickUp = 1;
+                //nombreRepartidor = ObtenerNombreRepartidorAleatorio();
+
+                infoPedido += "Repartidor: " + pedido.idDriver + ".\r\n" +
+                  "Dirección de Entrega: " + pedido.address + ".\r\n";
             }
             else if (tipoPedido == "RecogerSitio")
             {
+                pedido.idDriver = 0; 
+                pedido.address = null;
                 pedido.pickUp = 0;
             }
-            return pedido.ToString();
+
+
+            return infoPedido;
             //GuardarPedidoEnBD(pedido);
 
         }
