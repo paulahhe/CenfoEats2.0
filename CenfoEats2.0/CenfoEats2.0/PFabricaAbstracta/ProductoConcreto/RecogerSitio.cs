@@ -32,11 +32,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoConcreto
         {
             return 0;
         }
-        public void SetStatus(string nuevoEstado)
-        {
-            status = nuevoEstado;
-            notifyObservers();
-        }
+
         public void CambiarEstado(IEstadoPedido nuevoEstado)
         {
             manejadorEstado.setEstadoPedido(nuevoEstado);
