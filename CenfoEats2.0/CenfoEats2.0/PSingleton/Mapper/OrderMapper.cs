@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Net;
+using System.Windows.Forms;
 using CenfoEats2._0.ObjetosDB;
 using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PSingleton.DAOs;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CenfoEats2._0.PSingleton.Mapper
 {
@@ -60,14 +64,29 @@ namespace CenfoEats2._0.PSingleton.Mapper
 
         public SqlOperation GetRetriveAllStatement()
         {
-            var sqlOperation = new SqlOperation();
-
-            return sqlOperation;
+            return new SqlOperation { ProcedureName = "RET_ALL_ORDERS_PR" };
+                        //id = (int)row["ID_ORDER"],
+                        //pickUp = (int)row["PICK_UP"], //1 -> Pickup 0-> Recoger
+                        //idClient = (int)row["ID_USER"],
+                        //idRestaurant = (int)row["ID_RESTAURANT"],
+                        //status = (string)row["STATUS"],
+                        //date = (DateTime)row["ORDER_DATE"],
+                        //idDriver = (int)row["ID_DRIVER"],
+                        //address = (string)row["ADDRESS"],
         }
-
-        public SqlOperation GetRetrieveByIdStatement(BaseEntity entity)
+        public SqlOperation GetRetrieveAllPickUpOrders()
+        {
+            return new SqlOperation { ProcedureName = "RET_ALL_PICKUP_ORDERS_PR" };
+        }
+        public SqlOperation GetRetrieveByIdStatement(int id)
         {
             throw new NotImplementedException();
+        }
+        public SqlOperation GetRetrieveByIdADomicilioByID(int id)
+        {
+            var sqlOperation = new SqlOperation { ProcedureName = "RET_ADOMICILIO_BY_ID" };
+            sqlOperation.AddIntParam("P_ID", id);
+            return sqlOperation;
         }
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CenfoEats2._0.ObjetosDB;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Producto;
 using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
@@ -15,22 +16,34 @@ namespace CenfoEats2._0.PProxy
         private Usuario cliente;
         private ProxyRepartidor proxy;
 
-        private List<ADomicilio> listaPedidos = new List<ADomicilio>();
-        ADomicilioDao domicilioDao = new ADomicilioDao();
-
         public ADomicilio ObtenerPedido(int id)
-        { //PROBABLEMENTE VA EN GESTOR
-            listaPedidos = domicilioDao.listarPedidosDomicilio();
+        {
+            // Crear instancia del CRUD para pedido
+            var orderCrud = new OrderCrudFactory();
 
-            foreach (ADomicilio objPedido in listaPedidos)
+            var orderDB = orderCrud.RetrieveByIdADomicilio<OrderDB>(id);
+
+            // Verificar si se encontró el pedido
+            if (orderDB != null)
             {
-                if (objPedido.GetIdOrder() == id)
+                // Crear una instancia de ADomicilio y copiar las propiedades desde OrderDB
+                var adomicilio = new ADomicilio
                 {
-                    return objPedido;
-                }
+                    pickUp = orderDB.pickUp,
+                    idClient = orderDB.idClient,
+                    idRestaurant = orderDB.idRestaurant,
+                    status = orderDB.status,
+                    date = orderDB.date,
+                    idDriver = orderDB.idDriver,
+                    address = orderDB.address
+                };
+
+                return adomicilio;
             }
+
             return null;
         }
+
 
         public string InformacionTotal(int idPedido, int idCliente, int idRepartidor)
         {

@@ -42,32 +42,35 @@ namespace CenfoEats2._0.PSingleton.CRUD
 
         public override List<T> RetrieveAll<T>()
         {
-            var listOrders = new List<T>();
-            var sqlOperation = new SqlOperation { ProcedureName = "RET_ALL_ORDERS_PR" };
+            var messagesList = new List<T>();
+            var sqlOperation = _mapper.GetRetriveAllStatement();
+            var resultsList = dao.ExecuteQueryProcedure(sqlOperation);
 
-            var listResults = dao.ExecuteQueryProcedure(sqlOperation);
-
-            if (listResults.Count > 0)
+            if (resultsList.Count > 0)
             {
-                foreach (var row in listResults)
+                var objects = _mapper.BuildObjects(resultsList);
+                foreach (var obj in objects)
                 {
-                    var pedido = new OrderDB()
-                    {
-                        id = (int)row[""],
-                        pickUp = (int)row[""], //1 -> Pickup 0-> Recoger
-                        idClient = (int)row[""],
-                        idRestaurant = (int)row[""],
-                        status = (string)row[""],
-                        date = (DateTime)row[""],
-                        idDriver = (int)row[""],
-                        address = (string)row[""],
-
-                    };
-                    listOrders.Add((T)Convert.ChangeType(pedido, typeof(T)));
-
+                    messagesList.Add((T)Convert.ChangeType(obj, typeof(T)));
                 }
             }
-            return listOrders;
+            return messagesList;
+        }
+
+        public List<T> RetrieveAllPickUpOrders<T>()
+        {
+            var mLists = new List<T>();
+            var sqlOp = _mapper.GetRetrieveAllPickUpOrders();
+            var listResults = dao.ExecuteQueryProcedure(sqlOp);
+            if (listResults.Count > 0)
+            {
+                var objects = _mapper.BuildObjects(listResults);
+                foreach (var obj in objects)
+                {
+                    mLists.Add((T)Convert.ChangeType(obj, typeof(T)));
+                }
+            }
+            return mLists;
         }
 
         public override T RetrieveById<T>(int id)
@@ -83,6 +86,18 @@ namespace CenfoEats2._0.PSingleton.CRUD
                 Console.WriteLine($"Error al recuperar el pedido por ID: {ex.Message}");
                 return default;
             }
+        }
+        public T RetrieveByIdADomicilio<T>(int id)
+        {
+            var sqlOperation = _mapper.GetRetrieveByIdADomicilioByID(id);
+            var result = dao.ExecuteQueryProcedure(sqlOperation);
+
+            if (result.Count > 0)
+            {
+                var obj = _mapper.BuildObject(result[0]);
+                return (T)Convert.ChangeType(obj, typeof(T));
+            }
+            return default(T);
         }
 
         public override void Update(BaseEntity dto)

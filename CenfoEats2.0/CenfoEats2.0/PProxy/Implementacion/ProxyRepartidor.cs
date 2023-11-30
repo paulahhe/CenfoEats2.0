@@ -1,23 +1,13 @@
 ﻿using System;
 using CenfoEats2._0.PDecorador;
-using CenfoEats2._0.PProxy.Implementacion;
-using CenfoEats2._0.PProxy;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto;
 using CenfoEats2._0.PFabricaAbstracta.ProductoConcreto;
-using CenfoEats2._0.PMetodoFabrica.ProductoConcreto;
 using CenfoEats2._0.PMetodoFabrica.Producto;
 
 namespace CenfoEats2._0.PProxy
 {
     public class ProxyRepartidor : IInfoPedido
     {
-
         private bool _LoginExitoso = false;
-
 
         bool validacionID(ADomicilio pedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
         {
@@ -28,8 +18,6 @@ namespace CenfoEats2._0.PProxy
             {
                 tieneAcceso = true;
             }
-
-
             return tieneAcceso;
         }
         public string ValidarAccesoPedido(ADomicilio pedido, Usuario cliente, Usuario repartidor)
