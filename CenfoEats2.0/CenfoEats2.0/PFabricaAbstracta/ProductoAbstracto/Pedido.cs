@@ -1,5 +1,9 @@
-﻿using CenfoEats2._0.PPrototipo.Menu;
+﻿using CenfoEats2._0.PEstado.Abstracto;
+using CenfoEats2._0.PEstado.Contexto;
+using CenfoEats2._0.PPrototipo.Menu;
+using CenfoEats2._0.PObservador.Interfaces;
 using System;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
 {
@@ -14,7 +18,7 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         public int idDriver { get; set; }
         public string address { get; set; }
         public Platillo platillo { get; set; }
-
+        private ManejadorEstado manejadorEstado;
         public Pedido(int idOrder, int pickUp, int idClient, int idRestaurant, string status, DateTime date, Platillo platillo)
         {
             this.idOrder = idOrder;
@@ -85,8 +89,13 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
             else
             {
                 return $"ID: {idOrder}, PickUp: Recoger, ID Cliente: {idClient}, " +
-                       $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}, Platillo: { platillo}";
+                       $"ID Restaurante: {idRestaurant}, Estado: {status}, Fecha: {date.ToString("yyyy-MM-dd HH:mm:ss")}, Platillo: {platillo}";
             }
+        }
+
+        public void CambiarEstado(string nuevoEstado)
+        {
+            status = nuevoEstado;
         }
     }
 }

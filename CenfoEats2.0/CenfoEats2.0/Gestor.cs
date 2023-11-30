@@ -160,12 +160,12 @@ namespace CenfoEats2._0
             if (ingredienteExtra != null)
             {
 
-                IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
+                //IngredienteExtra objIngredienteExtra = ObtenerIngredienteExtraPorNombre(ingredienteExtra);
 
 
-                IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
-                productosDecorados.Add(decorador);
-                objPlatillo = decorador; // Actualizar la referencia al platillo decorado
+                //IngredienteExtra decorador = new IngredienteExtra(objPlatillo, objIngredienteExtra.getNombre(), objIngredienteExtra.getPrecio());
+                //productosDecorados.Add(decorador);
+                //objPlatillo = decorador; // Actualizar la referencia al platillo decorado
             }
 
             // Configura el pedido con la información específica según el tipo

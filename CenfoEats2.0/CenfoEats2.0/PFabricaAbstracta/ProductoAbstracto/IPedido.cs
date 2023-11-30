@@ -15,6 +15,6 @@ namespace CenfoEats2._0.PFabricaAbstracta.ProductoAbstracto
         int GetIdRestaurant();
         string GetStatus();
         DateTime GetDate();
-        void CambiarEstado(IEstadoPedido nuevoEstado);
+        void CambiarEstado(string nuevoEstado);
     }
 }
