@@ -104,7 +104,6 @@
     <Compile Include="PPrototipo\iPrototipo\iRestaurant.cs" />
     <Compile Include="PPrototipo\Prototipo\Platillo.cs" />
     <Compile Include="PPrototipo\Prototipo\Restaurant.cs" />
-    <Compile Include="PProxy\ADomicilioDao.cs" />
     <Compile Include="PProxy\Implementacion\InfoPedido.cs" />
     <Compile Include="PProxy\Implementacion\ProxyRepartidor.cs" />
     <Compile Include="PProxy\Interface\IInfoPedido.cs" />

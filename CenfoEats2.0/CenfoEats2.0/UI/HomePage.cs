@@ -306,14 +306,22 @@ namespace CenfoEats2._0.UI
         //Tab OrderInfo
         private void infoButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(inputClientID.Text) || string.IsNullOrEmpty(inputRepartidorID.Text) || string.IsNullOrEmpty(inputOrderID.Text))
+            try
             {
-                MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (string.IsNullOrEmpty(inputClientID.Text) || string.IsNullOrEmpty(inputRepartidorID.Text) || string.IsNullOrEmpty(inputOrderID.Text))
+                {
+                    MessageBox.Show("Por favor, completa la información de entrega a domicilio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    mostrarInfoPedidoProxy();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                mostrarInfoPedidoProxy();
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
         }
         private void mostrarInfoPedidoProxy()
         {

@@ -9,7 +9,7 @@ namespace CenfoEats2._0.PProxy
     {
         private bool _LoginExitoso = false;
 
-        bool validacionID(ADomicilio pedido, int idCliente, int idRepartidor) //PROBABLEMENTE VA EN GESTOR
+        bool validacionID(ADomicilio pedido, int idCliente, int idRepartidor) 
         {
             bool tieneAcceso = false;
 
